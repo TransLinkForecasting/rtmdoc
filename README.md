@@ -2,13 +2,18 @@
 
 This is a sphinx-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting.
 
-Please visit the documentation on [github.io](https://translinkforecasting.github.io/rtmdoc) or [readthedoc](https://rtmdoc.readthedocs.io)
+Please visit the documentation on [github.io](https://translinkforecasting.github.io/rtmdoc) or [readthedoc](https://rtm.readthedocs.io)
 
 ## Getting Started
 
 As **rtmdoc** collaborators, you are invited to contribute to the documentation for RTM. This documentation is compiled using [sphinx](https://www.sphinx-doc.org/en/master/usage/quickstart.html) and it is available on [Pypi](https://pypi.org/project/Sphinx/) for python 3.5 or higher.
 
 Follow the steps below create or update sphinx-generated html:
+
+### Install prerequisites
+
+`pip install sphinx`
+`pip install sphinx-rtd-theme`
 
 ### Get rtmdoc
 * clone git repository: `git clone https://github.com/TransLinkForecasting/rtmdoc.git`
