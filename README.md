@@ -12,8 +12,11 @@ Follow the steps below create or update sphinx-generated html:
 
 ### Install prerequisites
 
-`pip install sphinx`
-`pip install sphinx-rtd-theme`
+* download and install [git](https://git-scm.com/downloads)
+* download and install [anaconda](https://www.anaconda.com/distribution/)
+* set up environment with prerequisites:
+   * `conda env create -f doc\environment.yml`
+   * `conda activate rtm_docs`
 
 ### Get rtmdoc
 * clone git repository: `git clone https://github.com/TransLinkForecasting/rtmdoc.git`
