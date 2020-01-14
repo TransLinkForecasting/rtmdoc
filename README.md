@@ -1,6 +1,9 @@
 # RTM Documentation for Users and Developers
 
-This is a mkdocs-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting.
+[![Build Status](https://travis-ci.com/TransLinkForecasting/rtmdoc.svg?branch=master)](https://travis-ci.com/TransLinkForecasting/rtmdoc)
+[![RTD Build Status](https://readthedocs.org/projects/rtm/badge/?version=latest&style=flat)](https://readthedocs.org/projects/rtm)
+
+This is a mkdocs-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting. This repository has been set up with travis ci and readthedoc for automated deployment.
 
 Please visit the documentation on [github.io](https://translinkforecasting.github.io/rtmdoc) or [readthedoc](https://rtm.readthedocs.io).
 
@@ -13,7 +16,7 @@ Follow the steps below create or update mkdocs-generated html:
 ### Install prerequisites
 
 * download and install [git](https://git-scm.com/downloads)
-* download and install [anaconda](https://www.anaconda.com/distribution/)
+* download and install [python anaconda](https://www.anaconda.com/distribution/)
 * set up environment with prerequisites:
    * `conda create -n rtm_docs python=3.6 pip`
    * `conda activate rtm_docs`
@@ -22,6 +25,9 @@ Follow the steps below create or update mkdocs-generated html:
 ### Clone rtmdoc and develop
 
 * clone git repository: `git clone https://github.com/TransLinkForecasting/rtmdoc.git`
-* build locally: `mkdocs build`
+* test build locally: `mkdocs build`
 * test development : `mkdocs serve`
-* push to production via github-pages: `mkdocs gh-deploy`
+* commit and push your temp branch and create a pull request:
+   * `git checkout -b master_pr_num`
+   * `git commit`
+   * `git push origin master_pr_num`
