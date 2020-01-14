@@ -1,27 +1,37 @@
-div.col-md-9 h1:first-of-type {
-    text-align: center;
-    font-size: 60px;
-    font-weight: 300;
+/* sidebar section header */
+span.caption-text {
+    color: #009ac8 !important;
+    font-weight: bold;
 }
 
-div.col-md-9>p:first-of-type {
-    text-align: center;
+div.versions{
+    rst-versions: '3.3.0';
 }
 
-div.col-md-9 p.admonition-title:first-of-type {
-    text-align: left;
-}
-
-div.col-md-9 h1:first-of-type .headerlink {
+/* remove duplicated page headings */
+/* https://github.com/mkdocs/mkdocs/issues/318 */
+li.toctree-l3:first-child {
     display: none;
 }
 
-code.no-highlight {
-    color: black;
+.wy-side-nav-search {
+   /*background color of the top search bar*/
+    background-color: #1266a4;
 }
 
-/* Definition List styles */
+.wy-nav-top {
+   /*color of nav at top when the window is narrow*/
+    background: #1266a4;
+}
 
-dd {
-    padding-left: 20px;
+.section h1 {
+   /*header 1 text color */
+    color: #1266a4;
+    font-weight: bold;
+}
+
+h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend {
+   /*font formats*/
+    font-family: "Proxima Nova","Helvetica","Arial",sans-serif;
+    color: #009ac8 
 }
