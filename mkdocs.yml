@@ -1,0 +1,56 @@
+# MKDOCS CONFIGURATION FOR RTM_DOCS
+
+# Project information
+site_name: "RTM"
+site_url: "https://translinkforecasting.github.io/rtmdoc"
+site_description: "RTM documentation for users and developers."
+site_author: "TransLink Forecasting"
+
+# Repository
+#repo_name: "TransLinkForecasting/rtmdoc"
+repo_url: "https://github.com/TransLinkForecasting/rtmdoc"
+edit_uri: ""
+
+# Copyright
+copyright: "Copyright &copy; 2020 TransLink Forecasting"
+
+# Theme
+theme:
+    name: readthedocs
+    version: '0.1'
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+
+# Page tree
+nav:
+        - User Guide:
+                  - workflow.md
+                  - data_outputs.md
+                  - data_analysis.md
+                  - data_generate.md
+        - About:
+                  - about/release-notes.md
+                  - about/contributing.md
+                  - about/license.md
+
+# Customization
+extra_css:
+        - css/extra.css
+
+# Extensions
+markdown_extensions:
+        - toc:
+                  permalink: True
+        - admonition
+        - def_list
+
+# Plugins
+plugins:
+        - search
+
+# Google Analytics
+google_analytics:
+        - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+        - "auto"

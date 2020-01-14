@@ -1,0 +1,37 @@
+/* sidebar section header */
+span.caption-text {
+    color: #009ac8 !important;
+    font-weight: bold;
+}
+
+div.versions{
+    rst-versions: '3.3.0';
+}
+
+/* remove duplicated page headings */
+/* https://github.com/mkdocs/mkdocs/issues/318 */
+li.toctree-l3:first-child {
+    display: none;
+}
+
+.wy-side-nav-search {
+   /*background color of the top search bar*/
+    background-color: #1266a4;
+}
+
+.wy-nav-top {
+   /*color of nav at top when the window is narrow*/
+    background: #1266a4;
+}
+
+.section h1 {
+   /*header 1 text color */
+    color: #1266a4;
+    font-weight: bold;
+}
+
+h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend {
+   /*font formats*/
+    font-family: "Proxima Nova","Helvetica","Arial",sans-serif;
+    color: #009ac8 
+}
