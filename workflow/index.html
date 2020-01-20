@@ -74,6 +74,8 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+        
             <li><a class="toctree-l4" href="#cloning-the-model">Cloning the model</a></li>
         
             <li><a class="toctree-l4" href="#init-an-rtm-instance">Init an RTM instance</a></li>
@@ -160,8 +162,38 @@
             <div class="section">
               
                 <h1 id="run-the-model-workflow">Run the Model Workflow<a class="headerlink" href="#run-the-model-workflow" title="Permanent link">&para;</a></h1>
+<p>In this section, we will show you the best practices when working with the RTM from setting up your environment to extracting model results.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>We encourage all users and developers to be familiar with EMME as well as the RTM development stack: python, SQL and git. But if you are new to EMME or programming, you may want to pick your learning path based on your needs.</p>
+<h3 id="for-emme-users-and-developers">For EMME users and developers<a class="headerlink" href="#for-emme-users-and-developers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>INRO EMME license and installation (EMME Desktop 4.4.2)</li>
+<li>Ability to use EMME Modeler</li>
+<li>Ability to use EMME Network Editor</li>
+<li>Ability to use EMME Worksheets / Tables</li>
+<li>Familiarity with <a href="https://www.learnpython.org/">Python</a></li>
+<li>Familiarity with <a href="https://www.w3schools.com/sql/">SQL</a></li>
+<li>Familiarity with <a href="https://git-scm.com/docs">git</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A valid <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> license is required to run the RTM. Please contact us if you need help.</p>
+</div>
 <h2 id="cloning-the-model">Cloning the model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
+<p><code>git clone https://github.com/TransLinkForecasting/rtm.git</code></p>
+<p><code>cd rtm/</code></p>
+<p><code>git fetch --all</code></p>
+<p><code>git lfs install</code></p>
+<p><code>git lfs pull</code></p>
+<p>optionally, you </p>
+<h3 id="file-folder-structure">File Folder Structure<a class="headerlink" href="#file-folder-structure" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not delete the <code>Minimal Base Databank</code>. This is an empty placeholder databank that is packaged with the RTM to enable the initialization of databank through EMME Modeler or Notebook.</p>
+</div>
 <h2 id="init-an-rtm-instance">Init an RTM instance<a class="headerlink" href="#init-an-rtm-instance" title="Permanent link">&para;</a></h2>
+<p>Go initialize it</p>
+<p><img alt="initialize" src="../img/workflow/initialize_emme_0.png" /></p>
 <h2 id="manipulate-as-needed">Manipulate as needed<a class="headerlink" href="#manipulate-as-needed" title="Permanent link">&para;</a></h2>
 <h2 id="exportcommit">Export/Commit<a class="headerlink" href="#exportcommit" title="Permanent link">&para;</a></h2>
 <h2 id="custom-settings">Custom Settings<a class="headerlink" href="#custom-settings" title="Permanent link">&para;</a></h2>
