@@ -12,5 +12,4 @@ The latest version of the model is based on: [2011 Trip Diary and Screenline Sur
 
 ## Get in touch
 
-TBC
-
+If you require access to the RTM model, either as a user or as a developer, see [about/contributing](about/contributing) for more information.
