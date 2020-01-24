@@ -44,18 +44,18 @@ In addtion to simple data extraction, new data can be generated based on RTM out
 
 
 #### Running the Modeller Tool
-
 Once you have specified  the data you wish to output in in `Sheet1`, the modeller tool `Variables of Interest Extraction` located in the Phase3Analytics Toolbox can be run to produce the outputs.
 
 ![toolboxlocation](img/data_analysis/extractiontool_01_toolbox.png)
 
+!!! note
+    This tool requires the installation of one additional python library.  Installation instructions can be found in the tool documentation at `RTM/Documentation/ToolDoc_VariablesOfInterest.pdf`.  
+
 To create the database with your specified tables and fields simply run the tool with the appropriate sheet name in the field.  If you have not changed the name from `Sheet1` there is nothing to update and you can simply run the tool.  
 
 !!! note
-    The name `Sheet1` can be changed to any Excel allowable name.  The chosen name just needs to be passed to the tool either in the modeller interface or the function call.    
+    The name `Sheet1` can be changed to any Excel allowable name.  The chosen name needs to be passed to the tool either in the modeller interface or the function call.    
 
 
 #### Viewing results
-
-
 The requested results will be output to a sqlite database named `Variables_of_Interest_Results.db`.  The output can be viewed in the same manner as the `trip_summaries.db` and `rtm.db` discussed here [data_outputs/#using-the-rtm-and-trip-summaries-databases]
