@@ -8,7 +8,7 @@
   
   <meta name="author" content="TransLink Forecasting">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Run the Model Workflow - RTM</title>
+  <title>Model Workflow - RTM</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Run the Model Workflow";
+    var mkdocs_page_name = "Model Workflow";
     var mkdocs_page_input_path = "workflow.md";
     var mkdocs_page_url = "/rtmdoc/workflow/";
   </script>
@@ -67,24 +67,28 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Run the Model Workflow</a>
+    <a class="current" href="./">Model Workflow</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#run-the-model-workflow">Run the Model Workflow</a></li>
+    <li class="toctree-l3"><a href="#model-workflow">Model Workflow</a></li>
     
         <ul>
         
             <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
         
-            <li><a class="toctree-l4" href="#cloning-the-model">Cloning the model</a></li>
+            <li><a class="toctree-l4" href="#cloning-the-model">Cloning the Model</a></li>
         
-            <li><a class="toctree-l4" href="#init-an-rtm-instance">Init an RTM instance</a></li>
+            <li><a class="toctree-l4" href="#folder-structure">Folder Structure</a></li>
         
-            <li><a class="toctree-l4" href="#manipulate-as-needed">Manipulate as needed</a></li>
+            <li><a class="toctree-l4" href="#initialize-databank">Initialize Databank</a></li>
         
-            <li><a class="toctree-l4" href="#exportcommit">Export/Commit</a></li>
+            <li><a class="toctree-l4" href="#build-scenario">Build Scenario</a></li>
         
-            <li><a class="toctree-l4" href="#custom-settings">Custom Settings</a></li>
+            <li><a class="toctree-l4" href="#export-scenario">Export Scenario</a></li>
+        
+            <li><a class="toctree-l4" href="#run-model">Run Model</a></li>
+        
+            <li><a class="toctree-l4" href="#commit-changes">Commit Changes</a></li>
         
         </ul>
     
@@ -112,11 +116,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../about/release-notes/">Release Notes</a>
+    <a class="" href="../about/contributing/">Contributing</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../about/contributing/">Contributing</a>
+    <a class="" href="../about/release-notes/">Release Notes</a>
                 </li>
                 <li class="">
                     
@@ -151,7 +155,7 @@
         
       
     
-    <li>Run the Model Workflow</li>
+    <li>Model Workflow</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -161,48 +165,426 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="run-the-model-workflow">Run the Model Workflow<a class="headerlink" href="#run-the-model-workflow" title="Permanent link">&para;</a></h1>
+                <h1 id="model-workflow">Model Workflow<a class="headerlink" href="#model-workflow" title="Permanent link">&para;</a></h1>
 <p>In this section, we will show you the best practices when working with the RTM from setting up your environment to extracting model results.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>We encourage all users and developers to be familiar with EMME as well as the RTM development stack: python, SQL and git. But if you are new to EMME or programming, you may want to pick your learning path based on your needs.</p>
-<h3 id="for-emme-users-and-developers">For EMME users and developers<a class="headerlink" href="#for-emme-users-and-developers" title="Permanent link">&para;</a></h3>
+<p>We encourage all users and developers to be familiar with <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> as well as the RTM development stack: <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a>. If you are new to EMME, we recommend you to take <a href="https://www.inrosoftware.com/en/services/training/">EMME Training Courses</a>. If you are new to programming, you should go through some online tutorials and documentations for <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a> before proceeding. </p>
 <ul>
-<li>INRO EMME license and installation (EMME Desktop 4.4.2)</li>
-<li>Ability to use EMME Modeler</li>
-<li>Ability to use EMME Network Editor</li>
-<li>Ability to use EMME Worksheets / Tables</li>
-<li>Familiarity with <a href="https://www.learnpython.org/">Python</a></li>
-<li>Familiarity with <a href="https://www.w3schools.com/sql/">SQL</a></li>
-<li>Familiarity with <a href="https://git-scm.com/docs">git</a></li>
+<li>Licensed installation of <a href="https://blog.inrosoftware.com/blog/emme-4.4-release">EMME Desktop 4.4.2</a></li>
+<li>Installation of <a href="https://git-scm.com/docs">git</a></li>
+<li>Installation of <a href="https://git-lfs.github.com/">git lfs</a></li>
+<li>Installation of <a href="https://sqlitestudio.pl/index.rvt?act=download">SQLite Studio</a></li>
+<li>Installation of <a href="https://code.visualstudio.com/download">Visual Studio Code</a> (optional)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A valid <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> license is required to run the RTM. Please contact us if you need help.</p>
+<p>A valid <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> license is required to run the RTM. See <a href="/about/contributing">Contributing</a> if you need help obtaining a license or need access to the RTM.</p>
 </div>
-<h2 id="cloning-the-model">Cloning the model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
-<p><code>git clone https://github.com/TransLinkForecasting/rtm.git</code></p>
-<p><code>cd rtm/</code></p>
-<p><code>git fetch --all</code></p>
-<p><code>git lfs install</code></p>
-<p><code>git lfs pull</code></p>
-<p>optionally, you </p>
-<h3 id="file-folder-structure">File Folder Structure<a class="headerlink" href="#file-folder-structure" title="Permanent link">&para;</a></h3>
+<h2 id="cloning-the-model">Cloning the Model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
+<p>To get the latest version of the rtm, clone it from the RTM github repository. The following bash commands will clone the repository from the master branch, and fetch the latest commit with large file storage support. Then, it will checkout the current branch into a new branch named <code>master_working_01</code>. We recommend that you rename the new branch based on the project you are working on:</p>
+<pre><code class="bash">git clone https://github.com/TransLinkForecasting/rtm.git --branch master --single-branch
+cd rtm/
+git fetch --all
+git lfs install
+git lfs pull
+git checkout -b 'master_working_01'
+</code></pre>
+
+<p>To clone a specific official release, replace <code>master</code> with a version tag such as <code>RTM3.3</code>. If this is the first time you use git, you might need to set your name and email for git commits, see <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>.</p>
+<h3 id="update-file-references">Update File References<a class="headerlink" href="#update-file-references" title="Permanent link">&para;</a></h3>
+<p>EMME toolbox stores absolute paths and they need to be updated when the model has been copied or moved to a new directory. Please also run the following after you clone the model:</p>
+<pre><code class="bash">cd 'RTM/Scripts/'
+bash 'relocate_tools.sh'
+</code></pre>
+
+<p>Alternatively, you can run the batch file <code>RTM\Scripts\relocate_tools.bat</code> on Windows.</p>
+<h2 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">&para;</a></h2>
+<p>The RTM is delivered as a collection of input files in the <code>BaseNetworks/</code> folder with a collection of python scripts in <code>Scripts/</code> folder. The EMME project file <code>RTM.emp</code> reference all required folders and is loaded with a <code>Minimal Base Databank</code> stored in <code>Template/</code> folder. Before running the model, familiarize yourself with the model folder structure. </p>
+<pre><code class="Markdown">    RTM/
+    ├── BaseNetworks/
+    │   └── Inputs/
+    |
+    ├── Documentation/
+    ├── Logbook/
+    ├── Media/
+    ├── Scripts/
+    ├── Template/
+    ├── Views/
+    ├── Worksheets/
+    |
+    └── RTM.emp
+</code></pre>
+
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not delete the <code>Minimal Base Databank</code>. This is an empty placeholder databank that is packaged with the RTM to enable the initialization of databank through EMME Modeler or Notebook.</p>
+<p>Do not delete the <code>Minimal Base Databank</code> in EMME or the <code>Template/</code> folder. This is an empty placeholder databank that is packaged with the RTM to enable the initialization of databank through EMME Modeler or EMME Notebook.</p>
 </div>
-<h2 id="init-an-rtm-instance">Init an RTM instance<a class="headerlink" href="#init-an-rtm-instance" title="Permanent link">&para;</a></h2>
-<p>Go initialize it</p>
-<p><img alt="initialize" src="../img/workflow/initialize_emme_0.png" /></p>
-<h2 id="manipulate-as-needed">Manipulate as needed<a class="headerlink" href="#manipulate-as-needed" title="Permanent link">&para;</a></h2>
-<h2 id="exportcommit">Export/Commit<a class="headerlink" href="#exportcommit" title="Permanent link">&para;</a></h2>
-<h2 id="custom-settings">Custom Settings<a class="headerlink" href="#custom-settings" title="Permanent link">&para;</a></h2>
+<p></p>
+
+<h3 id="base-networks-folder">Base Networks Folder<a class="headerlink" href="#base-networks-folder" title="Permanent link">&para;</a></h3>
+<p>The base network folder contains files required to build a databank from scratch. Each set of files in the main <code>BaseNetworks/</code> supply input data for each scenario year (for example: 2017, 2035, 2050), the set of files can be mainly classified as the following:</p>
 <ul>
-<li>Scalars</li>
-<li>Network</li>
-<li>Attribute</li>
-<li>Transit Segment</li>
+<li>Network batchin files: <code>base_network_*.txt</code>, <code>link_shape_*.txt</code>, etc</li>
+<li>Calibration factors (K-factors): <code>dist_factors_gy.csv.gz</code></li>
+<li>External demand, bike scores: <code>externals_bikescore_*.csv.gz</code></li>
+<li>Starter Skims: <code>start_skims.csv.gz</code></li>
+<li>Fare zones: <code>fare_zones_travelled.csv.gz</code></li>
+<li>Definition of ensembles: <code>taz1700_ensembles.csv</code></li>
+<li>Definition of modes: <code>modes.in</code></li>
+<li>Definition of transit vehicles: <code>tvehicles.in</code></li>
+<li>Demographics and geographics of Metro Vancouver: <code>taz1700_demographics_*.csv</code>, <code>taz1700_geographics_*.csv</code></li>
+<li>Geographic dummies: <code>taz1700_dummies.csv</code></li>
+<li>Park and ride assumptions: <code>taz1700_pnr.csv</code></li>
+<li>Time slicing: <code>time_slicing.csv</code>, <code>time_slicing_gb.csv</code></li>
+<li>Transit bias calibrations: <code>transit_adj.csv</code></li>
+<li>Truck model batch files: <code>TruckBatchFiles/*</code></li>
 </ul>
+<pre><code class="Markdown">    RTM/
+    ├── BaseNetworks/
+    │   ├── base_network_*.txt
+    │   ├── link_shape_*.txt
+    │   ├── turns_*.txt
+    │   ├── transit_lines_*.txt
+    │   ├── extra_nodes_*.txt
+    │   ├── extra_links_*.txt
+    │   ├── extra_turns_*.txt
+    │   ├── extra_transit_lines_*.txt
+    │   ├── dist_factors_gy.csv.gz
+    │   ├── externals_bikescore_*.csv.gz
+    │   ├── fare_zones_travelled.csv.gz
+    │   ├── start_skims.csv.gz
+    │   ├── taz1700_ensembles.csv
+    │   ├── modes.in
+    │   ├── tvehicles.in
+    │   |
+    │   └── Inputs/
+    │         ├── taz1700_demographics_*.csv
+    │         ├── taz1700_geographics_*.csv
+    │         ├── taz1700_dummies.csv
+    │         ├── taz1700_pnr.csv
+    │         ├── time_slicing.csv
+    │         ├── time_slicing_gb.csv
+    │         ├── transit_adj.csv
+    |         └── TruckBatchFiles/
+    │               ├── *AsiaPacificv1.txt
+    │               ├── *CrossBorderv1.txt
+    │               ├── IRBatchIn.txt
+    │               ├── PMVActivity.txt
+    |               └── RGBatchIn.txt
+    └── ...
+</code></pre>
+
+<p></p>
+
+<h3 id="scripts-folder">Scripts Folder<a class="headerlink" href="#scripts-folder" title="Permanent link">&para;</a></h3>
+<p>This folder contains python scripts used to run the model:</p>
+<ul>
+<li>Toolbox relocate tool: <code>relocate_tools.bat</code>, <code>relocate_tools.sh</code>, <code>toolbox_modify.py</code></li>
+<li>Model Scripts toolbox: <code>Phase3Scripts/</code></li>
+<li>Analytics toolbox: <code>Phase3Analytics/</code></li>
+<li>Model utility toolbox: <code>util/</code></li>
+<li>Model tools, scripts and notebooks of model initialization and model runs: <code>util/</code></li>
+</ul>
+<pre><code class="Markdown">    RTM/
+    ├── Scripts/
+    │   ├── relocate_tools.bat
+    │   ├── relocate_tools.sh
+    │   ├── toolbox_modify.py
+    │   |
+    │   ├── Phase3Scripts/
+    │   ├── Phase3Analytics/
+    │   ├── util/
+    │   └── Tools/
+    └── ...
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Scripts control the model behavior of the RTM. You are free to go through the script to familiarize with the implementation of the model. For more information regarding the modeling structure of the RTM, modeling decisions, data sources, estimation of sub models, please <a href="/about/contributing">contact us</a>.</p>
+</div>
+<p></p>
+
+<h3 id="other-folders">Other Folders<a class="headerlink" href="#other-folders" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Media</code> folder Contains shapefiles, ArcGIS maps. Output data are typically stored here.</li>
+<li><code>Documentation</code> folder contains printable user manuals. </li>
+<li><code>Logbook</code> folder contains EMME logbook information generated by EMME Modeler tools. </li>
+<li><code>Template</code> folder provides an empty databank that allow Modeler to initialize new RTM databanks. </li>
+<li><code>View</code> folder contains standard views provided in the EMME environment.</li>
+<li><code>Worksheets</code> folder contains standardized worksheets in the EMME environment.</li>
+</ul>
+<pre><code class="Markdown">    RTM/
+    ├── Media/
+    ├── Documentation/
+    ├── Logbook/
+    ├── Template/
+    ├── Views/
+    ├── Worksheets/
+    └── ...
+</code></pre>
+
+<h2 id="initialize-databank">Initialize Databank<a class="headerlink" href="#initialize-databank" title="Permanent link">&para;</a></h2>
+<p>You can initialize a single databank using the EMME Modeler or initialize multiple databanks using EMME Notebook, depending on your need.</p>
+<p>To start the EMME, open the <img alt="Icon" src="/img/RTM_emp_icon.png" /> file. This will launch EMME, open the Minimal Base Databank's Placeholder Scenario when prompted.</p>
+<h3 id="with-emme-modeler">With EMME Modeler<a class="headerlink" href="#with-emme-modeler" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>To open Modeler, click on the EMME Modeler icon <img alt="Icon" src="/img/emme_modeler_icon.png" />.</p>
+</li>
+<li>
+<p>Once the Modeler opens, find Translink RTM Phase 3 Model toolbox and open the <code>Initialize Emmebank</code> tool:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Enter a folder name and a name for the databank. Try to be descriptive. For example, if this is a databank for editing or debugging network only, name it <code>network_edit_something</code>, if this is a final copy of a new business as usual run for year 2050, name it <code>00_BAU_2050</code>. Once you enter the names, click <strong>&gt; Run</strong>. </p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_2.png" /></p>
+</blockquote>
+</li>
+</ol>
+<p>Once the run is completed, the <strong>Tool complete</strong> message will appear.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_3.png" /></p>
+</blockquote>
+<h3 id="with-emme-notebook">With EMME Notebook<a class="headerlink" href="#with-emme-notebook" title="Permanent link">&para;</a></h3>
+<p>If you are comfortable with python and Jupyter Notebook, we strongly recommend that you use EMME Notebook to initialize databanks. This improves the reproducibility of your model run. This is generally not needed for network scenario or testing, but for final copy of a run, it is highly recommend.</p>
+<ol>
+<li>
+<p>To open EMME Notebook, click on the EMME Notebook icon <img alt="Icon" src="/img/emme_notebook_icon.png" />.</p>
+</li>
+<li>
+<p>The EMME Notebook should open in your browser, if it didn't open automatically, look for <code>http://localhost:xxxx/</code> in the EMME - Notebook command prompt window. The default is usually <code>http://localhost:8888/</code>.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Once opened, you should see a list of folders in the <code>Scripts/</code> folder. Go to <code>Tools/</code> folder and make a duplicate of <code>init_many.ipynb</code>, name it to something more descriptive for your use, like <code>init_many_00_BAU_2050.ipynb</code>, then open it.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_2_1.png" /></p>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_2_2.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Modify params as needed, run the entire script to initialize the databank.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_3_1.png" /></p>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_3_2.png" /></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="build-scenario">Build Scenario<a class="headerlink" href="#build-scenario" title="Permanent link">&para;</a></h2>
+<p>There are a wide range of changes you can make to the EMME base model for your study. We won't be able to cover them all in detail here, but here are some examples of model changes:</p>
+<ul>
+<li>demographics</li>
+<li>new roads or bridges</li>
+<li>new transit lines</li>
+<li>new transit stops</li>
+<li>transit fare</li>
+<li>tolls</li>
+<li>mobility pricing</li>
+<li>park and ride pricing</li>
+<li>etc...</li>
+</ul>
+<!-- TODO: add specific best practice guide for each type of model changes -->
+
+<h3 id="network-editing">Network editing<a class="headerlink" href="#network-editing" title="Permanent link">&para;</a></h3>
+<p>The EMME Network Editor provides users the ability to create and modify nodes, links, turns, transit lines, and transit segments. We will use a BRT line example to illustrate how to add modes and vehicles for the RTM, and edit networks in EMME.</p>
+<h3 id="custom-inputs">Custom Inputs<a class="headerlink" href="#custom-inputs" title="Permanent link">&para;</a></h3>
+<p>There are a number of custom inputs that the RTM uses at model initialization and run time to modify model behavior:</p>
+<ul>
+<li>Custom files<ul>
+<li>demographic and geographic</li>
+<li>transit vehicles and modes</li>
+</ul>
+</li>
+<li>Custom data<ul>
+<li>Scalars: <code>custom_scalars.csv</code></li>
+<li>Network: <code>custom_network.txt</code></li>
+<li>Attribute: <code>custom_attributes.txt</code></li>
+<li>Transit Segment: <code>custom_tseg.txt</code></li>
+</ul>
+</li>
+</ul>
+<!-- TODO: example files for custom data? -->
+
+<!-- Question: should we package this example and share it? Download the example here -->
+
+<h3 id="example-2050-brt-line">Example: 2050 BRT Line<a class="headerlink" href="#example-2050-brt-line" title="Permanent link">&para;</a></h3>
+<p>Similar to most model application exercises, in our example, there are two main components of changes we are making to the 2050 base model: network editing and model custom inputs.</p>
+<ul>
+<li>Network editing - adding a new transit line</li>
+<li>Custom inputs<ul>
+<li>Add congestion pricing to the network with <code>custom_network.txt</code> input file</li>
+<li>Use a custom demographic file for corridor intensification</li>
+</ul>
+</li>
+</ul>
+<h4 id="step-1-create-new-scenarios">Step 1: create new scenarios<a class="headerlink" href="#step-1-create-new-scenarios" title="Permanent link">&para;</a></h4>
+<p>Duplicate the base scenario input files, and rename them with a new scenario number. For example, if you are making changes on top of scenario "5000", name it "5001", "5002".</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_1_1.png" /></p>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_1_2.png" /></p>
+</blockquote>
+<p>Once you added all the scenarios, add these new scenario numbers into the <code>InitEmmebank.py</code> script. This will allow the initialize emmebank modeler tool to load the new scenarios.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_1_3.png" /></p>
+</blockquote>
+<h4 id="step-2-add-new-modes">Step 2: add new modes<a class="headerlink" href="#step-2-add-new-modes" title="Permanent link">&para;</a></h4>
+<p>Before we create a new transit line, we need to make sure the mode and the vehicle of is available, add the new mode to <code>modes.in</code> file in the base network folder:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_1_4.png" /></p>
+</blockquote>
+<p>Then check the <code>tvehicles.in</code> file in the base network folder:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_2.png" /></p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the modes are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank.</p>
+</div>
+<p>Now, you will need to initialize a new databank with the new scenario number, mode, and vehicle. You can give it a descriptive and abbreviated name such as <code>01_Lg_BRT_CP_LU_2050</code>.</p>
+<h4 id="step-3-perform-network-editing">Step 3: perform network editing<a class="headerlink" href="#step-3-perform-network-editing" title="Permanent link">&para;</a></h4>
+<p>Open EMME network editor <img alt="Icon" src="/img/emme_networkeditor_icon.png" />, add notes, links, and transit line as needed. Make sure you save a copy of the build file before you save and exit the scenario. <strong>Build files can be created from any changes you made while in the Network Editor.</strong> The build file is a great way to save and replicate model network changes. If you have a build file, you can stage it and run the changes.
+<!-- Link to shared example build file  -->
+    * Copy your build file to <code>Network_builds/</code> folder.
+    * Open "Network History and Builds" prompt from EMME Network Editor <img alt="Icon" src="/img/emme_networkeditorbuild_icon.png" />. Click the folder icon to "Add network builds", then click "Stage".
+    * Preview the build, then run the build:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_edit_brt_3.png" /></p>
+</blockquote>
+<h4 id="step-4-set-up-custom-inputs">Step 4: set up custom inputs<a class="headerlink" href="#step-4-set-up-custom-inputs" title="Permanent link">&para;</a></h4>
+<p>For the BRT example, we will use <code>custom_network.txt</code> and a simple 8-zone shapefile to add congestion pricing attribute to the network in batch. We will also load a custom demographic file with 20% population intensification along the study corridor.</p>
+<ul>
+<li>The custom input file such as <code>custom_network.txt</code> needs to be placed in the <code>Input/</code> folder within the emme databank folder, such as the folder <code>db_01_Lg_BRT_CP_LU_2050</code> or <code>01_Lg_BRT_CP_LU_2050</code>. (Do not place the file in the BaseNetworks folder!)</li>
+<li>The custom demographic file such as <code>taz1700_demographics_2050-20.csv</code> needs to be selected as the demographic input when running the model.</li>
+</ul>
+<h2 id="export-scenario">Export Scenario<a class="headerlink" href="#export-scenario" title="Permanent link">&para;</a></h2>
+<p>While in most cases your current databank for the alternative scenario is ready to run, it is important to export your new scenario network and organize all input files into a sub folder within the <code>Scenario_Inputs</code> folder. This allows you to share your new scenario with other users without needing to copy the entire databank with results. This also allow you to quickly reinitialize the scenario to run on a newer version of the RTM.</p>
+<h3 id="export-network">Export Network<a class="headerlink" href="#export-network" title="Permanent link">&para;</a></h3>
+<p>To export your scenario's network, open EMME Modeler:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_export_brt_1.png" /></p>
+</blockquote>
+<p>Then select your new scenario to export:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/network_export_brt_2.png" /></p>
+</blockquote>
+<h3 id="organize-scenario-inputs">Organize Scenario Inputs<a class="headerlink" href="#organize-scenario-inputs" title="Permanent link">&para;</a></h3>
+<p>We highly recommend that you store every input required to rebuild your new scenario and replicate your model run within a sub folder of the <code>Scenario_Inputs</code> folder. For our example, this would be the folder structure for all the changes we have made in our BRT example:</p>
+<pre><code class="Markdown">    RTM/
+    ├── Scenario_Inputs/
+    │   └── 01_2050-20-hw8-cp_Lg_BRT-g/
+    │         ├── custom_network.txt
+    │         ├── modes.in
+    │         ├── tvehicles.in
+    │         │
+    │         ├── BaseNetworks/
+    │         │      ├── Inputs/
+    │         │      │       └── taz1700_demographics_2050-20.csv
+    │         │      ├── base_network_5001.txt
+    │         │      └── ...
+    │         ├── Scripts/Phase3Scripts/
+    │         │      ├── Tools/
+    │         │      │       │── init_many_example_lgrt.ipynb
+    │         │      │       └── run_many_example_lgrt.ipynb
+    │         │      └── Phase3Scripts/
+    │         │             └── InitEmmebank.py
+    │         └── Media/
+    │               └── RTM_8ZonePolygon.shp
+    └── ...
+</code></pre>
+
+<h2 id="run-model">Run Model<a class="headerlink" href="#run-model" title="Permanent link">&para;</a></h2>
+<p>You can run the model using a single databank using the EMME Modeler or run multiple databanks using the EMME Notebook, depending on your need. </p>
+<h3 id="emme-modeler">EMME Modeler<a class="headerlink" href="#emme-modeler" title="Permanent link">&para;</a></h3>
+<p>Once you have set up all the input files in the databank, such as customized demographics, custom input files, etc, you are ready to do a full model run using the EMME Modeler.</p>
+<ol>
+<li>
+<p>To open Modeler, click on the EMME Modeler icon <img alt="Icon" src="/img/emme_modeler_icon.png" />.</p>
+</li>
+<li>
+<p>Find Translink RTM Phase 3 Model toolbox and open the <code>Run RTM3</code> tool:</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_1_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Change the Full Model Run settings as needed. Make sure to enter the correct model horizon year, scenario, demographic and geographic inputs.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_1_2.png" /></p>
+<p><img alt="Screenshot" src="/img/workflow/run_model_1_3.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Click <code>Run</code>. Each model run can take 2 to 4 hours depending on the custom settings and scenario.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not interrupt the model run. The RTM model is not designed to be run in separate stages or run multiple times. If you stopped a model run before it is done, you should start over - reinitialize the databank and start run.</p>
+</div>
+<h3 id="emme-notebook">EMME Notebook<a class="headerlink" href="#emme-notebook" title="Permanent link">&para;</a></h3>
+<p>The EMME Notebook allows you to create <code>.ipynb</code> scripts that handles multiple model runs and runs with complex set up. It is ideal for our BRT example where we needed to perform link tagging and use custom network input file for congestion pricing.</p>
+<ol>
+<li>
+<p>To open EMME Notebook, click on the EMME Notebook icon <img alt="Icon" src="/img/emme_notebook_icon.png" />.</p>
+</li>
+<li>
+<p>The EMME Notebook should open in your browser, if it didn't open automatically, look for <code>http://localhost:xxxx/</code> in the EMME - Notebook command prompt window. The default is usually <code>http://localhost:8888/</code>.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/initialize_emme_nb_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Once opened, you should see a list of folders in the <code>Scripts/</code> folder. Go to <code>Tools/</code> folder and make a duplicate of <code>run_many.ipynb</code>, name it to something more descriptive for your use, like <code>run_many_00_BAU_2050.ipynb</code> or <code>run_many_example_lgrt.ipynb</code>, then open it.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_nb_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Modify params as needed.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_nb_2_1.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Make sure you carefully review the script associated with the model run. You may need to add new code to this section depending on the requirements of your model run.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_nb_2_2.png" /></p>
+</blockquote>
+</li>
+<li>
+<p>Run the entire script to perform the full model run with custom settings.</p>
+<blockquote>
+<p><img alt="Screenshot" src="/img/workflow/run_model_nb_3.png" /></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="commit-changes">Commit Changes<a class="headerlink" href="#commit-changes" title="Permanent link">&para;</a></h2>
+<p>If this is your first time using <a href="https://git-scm.com/docs">git</a> after an installation, see <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>.</p>
+<p>While working with the RTM on git, here are some ground rules:</p>
+<ul>
+<li>Main project branches (<em>master</em>, <em>example_brt_proj</em>) are always protected. Push a temp branch then do pull request to merge your changes</li>
+<li>Only stage and commit model inputs and settings, never databanks</li>
+<li>Any scenario-specific changes for scripts should be placed into <code>Scenario_Inputs</code> for commit</li>
+<li>Organize a <code>Scenario_Inputs</code> folder when you finish a scenario</li>
+<li>Use active verb for commit messages, like "add scenario inputs for brt examples."</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not commit the databank associated with the model run. We recommend you to place the databank folders in your version of the <code>.gitignore</code>.</p>
+<p>When staging and committing model changes, think about what other users or developers may need to run your scenario from scratch. <strong>Commit inputs and set up, not the results.</strong></p>
+</div>
+<h3 id="push-changes-to-github">Push Changes to GitHub<a class="headerlink" href="#push-changes-to-github" title="Permanent link">&para;</a></h3>
+<p>If you are a collaborator, you may push your changes to the rtm repository on GitHub. You will not be able to push directly to most of the branches already on the rtm repository as they are protected, so always push your working branch and merge to any main branch with a pull request. An admin will review your changes when you submit a pull request.</p>
+<pre><code class="bash">git push origin master_your-project
+</code></pre>
+
+<p>Learn more about <a href="https://git-scm.com/docs">git</a> and read more about <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">GitHub pull request</a>.</p>
+<!-- Links -->
               
             </div>
           </div>
