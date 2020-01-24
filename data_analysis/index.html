@@ -95,7 +95,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../data_generate/">Custom Data Generations</a>
+    <a class="" href="../data_generate/">Custom Data Generation</a>
                 </li>
     </ul>
 	    </li>
@@ -186,10 +186,14 @@
 <h4 id="running-the-modeller-tool">Running the Modeller Tool<a class="headerlink" href="#running-the-modeller-tool" title="Permanent link">&para;</a></h4>
 <p>Once you have specified  the data you wish to output in in <code>Sheet1</code>, the modeller tool <code>Variables of Interest Extraction</code> located in the Phase3Analytics Toolbox can be run to produce the outputs.</p>
 <p><img alt="toolboxlocation" src="../img/data_analysis/extractiontool_01_toolbox.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tool requires the installation of one additional python library.  Installation instructions can be found in the tool documentation at <code>RTM/Documentation/ToolDoc_VariablesOfInterest.pdf</code>.  </p>
+</div>
 <p>To create the database with your specified tables and fields simply run the tool with the appropriate sheet name in the field.  If you have not changed the name from <code>Sheet1</code> there is nothing to update and you can simply run the tool.  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The name <code>Sheet1</code> can be changed to any Excel allowable name.  The chosen name just needs to be passed to the tool either in the modeller interface or the function call.    </p>
+<p>The name <code>Sheet1</code> can be changed to any Excel allowable name.  The chosen name needs to be passed to the tool either in the modeller interface or the function call.    </p>
 </div>
 <h4 id="viewing-results">Viewing results<a class="headerlink" href="#viewing-results" title="Permanent link">&para;</a></h4>
 <p>The requested results will be output to a sqlite database named <code>Variables_of_Interest_Results.db</code>.  The output can be viewed in the same manner as the <code>trip_summaries.db</code> and <code>rtm.db</code> discussed here [data_outputs/#using-the-rtm-and-trip-summaries-databases]</p>
@@ -200,7 +204,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../data_generate/" class="btn btn-neutral float-right" title="Custom Data Generations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../data_generate/" class="btn btn-neutral float-right" title="Custom Data Generation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../data_outputs/" class="btn btn-neutral" title="Model Data Output"><span class="icon icon-circle-arrow-left"></span> Previous</a>

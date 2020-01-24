@@ -8,7 +8,7 @@
   
   <meta name="author" content="TransLink Forecasting">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Custom Data Generations - RTM</title>
+  <title>Custom Data Generation - RTM</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Custom Data Generations";
+    var mkdocs_page_name = "Custom Data Generation";
     var mkdocs_page_input_path = "data_generate.md";
     var mkdocs_page_url = "/rtmdoc/data_generate/";
   </script>
@@ -79,10 +79,10 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Custom Data Generations</a>
+    <a class="current" href="./">Custom Data Generation</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#custom-data-generations">Custom Data Generations</a></li>
+    <li class="toctree-l3"><a href="#custom-data-generation">Custom Data Generation</a></li>
     
         <ul>
         
@@ -145,7 +145,7 @@
         
       
     
-    <li>Custom Data Generations</li>
+    <li>Custom Data Generation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -155,10 +155,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="custom-data-generations">Custom Data Generations<a class="headerlink" href="#custom-data-generations" title="Permanent link">&para;</a></h1>
+                <h1 id="custom-data-generation">Custom Data Generation<a class="headerlink" href="#custom-data-generation" title="Permanent link">&para;</a></h1>
 <h2 id="python-script-vs-modeller-tool">Python script vs modeller tool<a class="headerlink" href="#python-script-vs-modeller-tool" title="Permanent link">&para;</a></h2>
-<h4 id="executing-a-python-script-from-the-emme-ipython-shell">Executing a python script from the EMME ipython shell<a class="headerlink" href="#executing-a-python-script-from-the-emme-ipython-shell" title="Permanent link">&para;</a></h4>
+<p>In general Modeller tools more polished and can provide a GUI, but take more time and effort to prepare.  They can still be called from other places and imported into other files.  We generally use these for production grade, stable solutions, that we intend to use repeatedly.  Object oriented.  It is expected that everyone here knows how to use a modeller tool</p>
+<p>Python script can be built easily and often is enough to quickly complete a task at hand.  Maybe fragile, can break with simple model changes.  These may not be maintained.  These can work will with the notebooks.   They can just work with basic functions, easy to put together a basic but reproduceable analysis.  </p>
+<h4 id="executing-a-python-script-from-the-emme-ipython-shell">Executing a python script from the EMME iPython shell<a class="headerlink" href="#executing-a-python-script-from-the-emme-ipython-shell" title="Permanent link">&para;</a></h4>
+<p>Open the ipython modeller shell in EMME desktop</p>
+<p><img alt="openshell" src="../img/data_generation/shell_00_pulldown.png" /></p>
+<p>Once in the shell, navigate to location of the subject script.  In this case the script in question is located in the <code>RTM/Scripts/Tools</code> directory</p>
+<p><img alt="navigate" src="../img/data_generation/shell_01_natviate.png" /></p>
+<p>Check the files in this directory to ensure we have the one we want, then we can use the iPython magic <code>%run &lt;filename.py&gt;</code> to execute our script</p>
+<p><img alt="lsrun" src="../img/data_generation/shell_02_ls_and_run.png" /></p>
 <h2 id="example-tool-for-pa-to-od">Example Tool for PA to OD<a class="headerlink" href="#example-tool-for-pa-to-od" title="Permanent link">&para;</a></h2>
+<p>As a general rule in trip based modeling production/attraction (PA) trips can be converted to origin/destination (OD) trips roughly by <code>0.5 * (mat + mat')</code>.  However, for a variety of reasons, most notably non-home-based (NHB) trips, not everyting is completely symetrical.  Production to attraction blending factors have been calculated from the trip diary for the RTM skims.  </p>
+<p>The example runs the <code>PA2OD.py</code> python script with the output directed to the <code>trip_summaries.db</code> database.  Once you have run the script, navigate to <code>RTM/&lt;your_db_folder&gt;</code> and open the trip_summaries.db in your sqlite viewer.  </p>
+<p><img alt="opents" src="../img/data_generation/pad2od_00_opentrip_summaries.png" /></p>
+<p>Once there, we will see a new table named <code>od_daily_&lt;your ensemble if any&gt;</code></p>
+<p><img alt="findtable" src="../img/data_generation/pad2od_01_find_table.png" /></p>
+<p>From there we can query and view the resultst</p>
+<p><img alt="querytable" src="../img/data_generation/pad2od_02_query.png" /></p>
+<h4 id="why-does-it-run">Why does it run?<a class="headerlink" href="#why-does-it-run" title="Permanent link">&para;</a></h4>
+<pre><code>if __name__ == '__main__':
+
+eb = _m.Modeller().emmebank
+# run with ensemble name and ensem_agg = True to aggregate
+# run with no ensemble name and ensem_agg = False to get TAZ level results
+# note, TAZ level results create very large file
+main(eb, ensem='gy', ensem_agg=True)
+</code></pre>
+<p>And why does this work?  See this video on <a href="https://www.youtube.com/watch?v=sugvnHA7ElY">Youtube Name and Main</a></p>
 <h2 id="using-the-notebook">Using the notebook<a class="headerlink" href="#using-the-notebook" title="Permanent link">&para;</a></h2>
               
             </div>
