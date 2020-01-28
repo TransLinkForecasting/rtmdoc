@@ -445,7 +445,7 @@ Learn more about [git] and read more about [GitHub pull request].
 [EMME]: https://www.inrosoftware.com/en/products/emme/
 [EMME Desktop 4.4.2]: https://blog.inrosoftware.com/blog/emme-4.4-release
 [EMME Training Courses]: https://www.inrosoftware.com/en/services/training/
-[Contributing]: /about/contributing
-[Contact us]: /about/contributing
+[Contributing]: ../about/contributing
+[Contact us]: ../about/contributing
 [Git Setup]: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 [GitHub pull request]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request

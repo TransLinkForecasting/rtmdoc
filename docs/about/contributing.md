@@ -23,7 +23,7 @@ If you require access to the RTM or would like to stay in touch, please join our
 <p></p>
 
 <label>Comments</label>
-<input name="entry.839337160" type="text" value="request RTM access" />
+<input name="entry.839337160" type="text" value="" />
 <p></p>
 
 <input type="submit" value="Send" />
