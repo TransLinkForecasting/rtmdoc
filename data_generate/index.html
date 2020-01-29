@@ -158,7 +158,7 @@
                 <h1 id="custom-data-generation">Custom Data Generation<a class="headerlink" href="#custom-data-generation" title="Permanent link">&para;</a></h1>
 <h2 id="python-script-vs-modeller-tool">Python script vs modeller tool<a class="headerlink" href="#python-script-vs-modeller-tool" title="Permanent link">&para;</a></h2>
 <p>In general Modeller tools more polished and can provide a GUI, but take more time and effort to prepare.  They can still be called from other places and imported into other files.  We generally use these for production grade, stable solutions, that we intend to use repeatedly.  Object oriented.  It is expected that everyone here knows how to use a modeller tool</p>
-<p>Python script can be built easily and often is enough to quickly complete a task at hand.  Maybe fragile, can break with simple model changes.  These may not be maintained.  These can work will with the notebooks.   They can just work with basic functions, easy to put together a basic but reproduceable analysis.  </p>
+<p>Python script can be built easily and often is enough to quickly complete a task at hand.  Maybe fragile, can break with simple model changes.  These may not be maintained.  These can work will with the notebooks.   They can just work with basic functions, easy to put together a basic but reproducible analysis.  </p>
 <h4 id="executing-a-python-script-from-the-emme-ipython-shell">Executing a python script from the EMME iPython shell<a class="headerlink" href="#executing-a-python-script-from-the-emme-ipython-shell" title="Permanent link">&para;</a></h4>
 <p>Open the ipython modeller shell in EMME desktop</p>
 <p><img alt="openshell" src="../img/data_generation/shell_00_pulldown.png" /></p>
@@ -167,12 +167,12 @@
 <p>Check the files in this directory to ensure we have the one we want, then we can use the iPython magic <code>%run &lt;filename.py&gt;</code> to execute our script</p>
 <p><img alt="lsrun" src="../img/data_generation/shell_02_ls_and_run.png" /></p>
 <h2 id="example-tool-for-pa-to-od">Example Tool for PA to OD<a class="headerlink" href="#example-tool-for-pa-to-od" title="Permanent link">&para;</a></h2>
-<p>As a general rule in trip based modeling production/attraction (PA) trips can be converted to origin/destination (OD) trips roughly by <code>0.5 * (mat + mat')</code>.  However, for a variety of reasons, most notably non-home-based (NHB) trips, not everyting is completely symetrical.  Production to attraction blending factors have been calculated from the trip diary for the RTM skims.  </p>
+<p>As a general rule in trip based modeling production/attraction (PA) trips can be converted to origin/destination (OD) trips roughly by <code>0.5 * (mat + mat')</code>.  However, for a variety of reasons, most notably non-home-based (NHB) trips, not everything is completely symmetrical.  Production to attraction blending factors have been calculated from the trip diary for the RTM skims.  </p>
 <p>The example runs the <code>PA2OD.py</code> python script with the output directed to the <code>trip_summaries.db</code> database.  Once you have run the script, navigate to <code>RTM/&lt;your_db_folder&gt;</code> and open the trip_summaries.db in your sqlite viewer.  </p>
 <p><img alt="opents" src="../img/data_generation/pad2od_00_opentrip_summaries.png" /></p>
 <p>Once there, we will see a new table named <code>od_daily_&lt;your ensemble if any&gt;</code></p>
 <p><img alt="findtable" src="../img/data_generation/pad2od_01_find_table.png" /></p>
-<p>From there we can query and view the resultst</p>
+<p>From there we can query and view the results</p>
 <p><img alt="querytable" src="../img/data_generation/pad2od_02_query.png" /></p>
 <h4 id="why-does-it-run">Why does it run?<a class="headerlink" href="#why-does-it-run" title="Permanent link">&para;</a></h4>
 <pre><code>if __name__ == '__main__':
