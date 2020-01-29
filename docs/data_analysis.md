@@ -3,15 +3,19 @@
 
 ## Python libraries and the EMME python
 
-In general the RTM uses the default python libraries installed with the EMME python.  In some cases this means foroging features that have been recently introduced or having code that is not compatible with python installations outside EMME.  However, it ensures that the RTM will run without further configuration providing the user has installed the correct version of EMME.  
+In general the RTM uses the default python libraries installed with the EMME python.  In some cases this means foregoing features that have been recently introduced or having code that is not compatible with python installations outside EMME.  However, it ensures that the RTM will run without further configuration providing the user has installed the correct version of EMME.  
 
 ## Python + util
 
 The RTM scripting employs a utility toolbox that creates functions for repeated operations.  It is worth familiarizing yourself with the functions here as they are often employed outside the RTM run itself to post-process data.
 
-For example, util can be used to create a pandas dataframe for full matrices and append RTM matrices to it for futher analysis or plotting in python.  
+For example, util can be used to create a pandas dataframe for full matrices and append RTM matrices to it for further analysis or plotting in python.  
+
+        import inro.modeller as _m
 
         util = _m.Modeller().tool("translink.util")
+
+        eb = _m.Modeller().emmebank
 
         df = util.get_pd_ij_df(eb) # create a longform pandas dataframe for full matrices
 
@@ -19,8 +23,13 @@ For example, util can be used to create a pandas dataframe for full matrices and
         df['amLGVDemand'] = util.get_matrix_numpy(eb, "mfLGVAM").flatten() 
         df['amHGVDemand'] = util.get_matrix_numpy(eb, "mfHGVAM").flatten()
 
-In the above example matrix names or numbers can be used to access the data.
 
+ Which yields the following results:
+
+
+![utiloutput](img/data_analysis/util_python_00_output_results.png)
+
+In the above example matrix names or numbers can be used to access the data in util.get_matrix_numpy(). 
 
 ## Data extraction using variables of interest tool
 
@@ -35,7 +44,7 @@ A simple matrix calculation can be used to extract data.  Entering the following
 
 ![Sheet1HgvLgv](img/data_analysis/extractiontool_00_lgv_hgv_example.png)
 
-In addtion to simple data extraction, new data can be generated based on RTM outputs using EMME matrix calculator expressions.  For example, we can create a matrix of the minimum time on transit between all zones considering both the bus and rail modes.  Note that we can reference EMME matrices by name or number.  
+In addition to simple data extraction, new data can be generated based on RTM outputs using EMME matrix calculator expressions.  For example, we can create a matrix of the minimum time on transit between all zones considering both the bus and rail modes.  Note that we can reference EMME matrices by name or number.  
 
 ![Sheet1MinTransit](img/data_analysis/extractiontool_00_min_transit_time.png)
 
