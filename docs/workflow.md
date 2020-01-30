@@ -6,6 +6,7 @@ In this section, we will show you the best practices when working with the RTM f
 
 ## Requirements
 
+
 We encourage all users and developers to be familiar with [EMME] as well as the RTM development stack: [python], [SQL] and [git]. If you are new to EMME, we recommend you to take [EMME Training Courses]. If you are new to programming, you should go through some online tutorials and documentations for [python], [SQL] and [git] before proceeding. 
 
 * Licensed installation of [EMME Desktop 4.4.2]
@@ -245,14 +246,95 @@ The EMME Network Editor provides users the ability to create and modify nodes, l
 
 There are a number of custom inputs that the RTM uses at model initialization and run time to modify model behavior:
 
-* Custom files
-    * demographic and geographic
-    * transit vehicles and modes
-* Custom data
-    * Scalars: `custom_scalars.csv`
-    * Network: `custom_network.txt`
-    * Attribute: `custom_attributes.txt`
-    * Transit Segment: `custom_tseg.txt`
+* At initiation
+    * Transit vehicles and modes
+* At runtime
+    * Required files with model data
+        * demographic and geographic
+    * Optional files to manipulate model data
+        * Scalars: `custom_scalars.csv`
+        * Attribute: `custom_attributes.txt`
+        * Network: `custom_network.txt`
+        * Transit Lines: `custom_tline.txt`
+        * Transit Segment: `custom_tseg.txt`
+
+
+The optional `custom_<datatype>` series files can be placed in the `RTM/<your run directory>/inputs` folder of the RTM instance.  These files are imported after the main model setup (`create scenarios` and `data import`) and can be used to change any model setting held in a scalar matrix, execute an arbitrary set of network calculations, add or change a network extra attribute, or change transit line and segment data.  Files with a `.csv` extension indicate comma delimited data while files with a `.txt` extension indicate tab delimited data.
+
+    `custom_attributes.txt` runs before the network calculations (`custom_network.txt`, `custom_tline.txt`, and `custom_tseg.txt`) allowing the network calculations to use the new or updated attribute
+
+!!! warning
+
+    Do not leave a trailing new line or carriage return at the end of the files `custom_<datatype>.txt` files.  In addition, there can be only one file of each name in the inputs folder.  
+
+#### Custom Scalars
+This file allow the user to change data held in scalar matrices in the scripting without changing the scripting.  This in turn allows the user to run multiple runs with the same scripts and different scalar matrix data.  
+
+The `custom_scalars.csv` file has headers and requires the following information in comma delimited format.
+
+| Matrix ID | Matrix Name | Matrix Description | Value |
+| --- | --- | --- | --- |
+| The EMME Matrix ID number | The EMME Matrix Name | The EMME Matrix Description | The value to change |
+
+Below is an example of changing the auto operating cost using the custom scalars file.
+
+![Screenshot](img/workflow/custom_inputs_custom_scalars.png)
+
+#### Custom Attribute
+
+This file allows the user to add or modify network extra attributes.  
+
+The `custom_attributes.txt` file should have headers and requires the following information in tab delimited format
+
+| i_node | j_node | @attribute1 | @attribute2 | @attribute...n |
+| --- | --- | --- | --- | --- |
+| the i node of the link to be updated | the j node of the link to be updated | the value for @attribute1 at link i-j | the value for @attribute2 at link i-j | the value for @attribute...n at link i-j |
+
+Note the name of the @attribute in the header column will become or match the extra attribute on the network.  
+
+Below is an example that adds two new extra attributes 
+
+#### Custom Network
+This file allows the user to execute an arbitrary set of network link calculations prior to running the model.  
+
+The `custom_network.txt` file should not have headers and requires the following information in tab delimited format
+
+| Period | Result | Expression | Selection | Aggregation |
+| --- | --- | --- | --- | --- |
+| AM, MD, PM, or ALL | Where the calculation should be stored (for instance @capacity) | The network calculation to be executed | Which link(s) to execute the calculation on (optional - can be left blank to update all links) | Results aggregation (optional and generally left blank) |
+
+Below is an example of removing one lane and reducing capacity on links 111902-111904 and 111904-111902, and setting the signal delay to 0 for all links that are not VDF 14 for all three assignment periods.  Note that there is no carriage return on the last line.  
+
+![Screenshot](img/workflow/custom_inputs_custom_network.png)
+
+#### Custom Transit Lines
+This file allows the user to execute an arbitrary set of network transit line calculations prior to running the model.  
+
+The `custom_tline.txt` file should not have headers and requires the following information in tab delimited format
+
+| Period | Result | Expression | Selection | Aggregation |
+| --- | --- | --- | --- | --- |
+| AM, MD, PM, or ALL | Where the calculation should be stored (for instance hdw) | The network calculation to be executed | Which line(s) to execute the calculation on (optional - can be left blank to update all lines) | Results aggregation (optional and generally left blank) |
+
+Below is an example of reducing the headway on all lines except those in the Fraser Valley during the AM and PM peak hours, and setting the signal delay to 0 for all links that are not VDF 14 for all three assignment periods.  Note that there is no carriage return on the last line.  
+
+![Screenshot](img/workflow/custom_inputs_custom_tline.png)
+
+
+#### Custom Transit Segments
+
+This file allows the user to execute an arbitrary set of network transit segment calculations prior to running the model.  
+
+The `custom_tseg.txt` file should not have headers and requires the following information in tab delimited format
+
+| Period | Result | Expression | Selection | Aggregation |
+| --- | --- | --- | --- | --- |
+| AM, MD, PM, or ALL | Where the calculation should be stored (for instance ttf) | The network calculation to be executed | Which line(s) to execute the calculation on (optional - can be left blank to update all lines) | Results aggregation (optional and generally left blank) |
+
+Below is an example of changing the transit time function (ttf) on links 111902-111904 and 111904-111902 to ttf2.  Note that there is no carriage return on the last line.  
+
+![Screenshot](img/workflow/custom_inputs_custom_tseg.png)
+
 
 <!-- TODO: example files for custom data? -->
 <!-- Question: should we package this example and share it? Download the example here -->
