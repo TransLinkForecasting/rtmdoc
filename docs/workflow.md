@@ -253,15 +253,12 @@ There are a number of custom inputs that the RTM uses at model initialization an
         * demographic and geographic
     * Optional files to manipulate model data
         * Scalars: `custom_scalars.csv`
-        * Attribute: `custom_attributes.txt`
         * Network: `custom_network.txt`
         * Transit Lines: `custom_tline.txt`
         * Transit Segment: `custom_tseg.txt`
 
 
-The optional `custom_<datatype>` series files can be placed in the `RTM/<your run directory>/inputs` folder of the RTM instance.  These files are imported after the main model setup (`create scenarios` and `data import`) and can be used to change any model setting held in a scalar matrix, execute an arbitrary set of network calculations, add or change a network extra attribute, or change transit line and segment data.  Files with a `.csv` extension indicate comma delimited data while files with a `.txt` extension indicate tab delimited data.
-
-    `custom_attributes.txt` runs before the network calculations (`custom_network.txt`, `custom_tline.txt`, and `custom_tseg.txt`) allowing the network calculations to use the new or updated attribute
+The optional `custom_<datatype>` series files can be placed in the `RTM/<your run directory>/inputs` folder of the RTM instance.  These files are imported after the main model setup (`create scenarios` and `data import`) and can be used to change any model setting held in a scalar matrix or execute an arbitrary set of network link, transit line, or transit segment calculations.  Files with a `.csv` extension indicate comma delimited data while files with a `.txt` extension indicate tab delimited data.
 
 !!! warning
 
@@ -279,20 +276,6 @@ The `custom_scalars.csv` file has headers and requires the following information
 Below is an example of changing the auto operating cost using the custom scalars file.
 
 ![Screenshot](img/workflow/custom_inputs_custom_scalars.png)
-
-#### Custom Attribute
-
-This file allows the user to add or modify network extra attributes.  
-
-The `custom_attributes.txt` file should have headers and requires the following information in tab delimited format
-
-| i_node | j_node | @attribute1 | @attribute2 | @attribute...n |
-| --- | --- | --- | --- | --- |
-| the i node of the link to be updated | the j node of the link to be updated | the value for @attribute1 at link i-j | the value for @attribute2 at link i-j | the value for @attribute...n at link i-j |
-
-Note the name of the @attribute in the header column will become or match the extra attribute on the network.  
-
-Below is an example that adds two new extra attributes 
 
 #### Custom Network
 This file allows the user to execute an arbitrary set of network link calculations prior to running the model.  
