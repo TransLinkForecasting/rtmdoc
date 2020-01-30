@@ -395,21 +395,128 @@ bash 'relocate_tools.sh'
 <h3 id="custom-inputs">Custom Inputs<a class="headerlink" href="#custom-inputs" title="Permanent link">&para;</a></h3>
 <p>There are a number of custom inputs that the RTM uses at model initialization and run time to modify model behavior:</p>
 <ul>
-<li>Custom files<ul>
-<li>demographic and geographic</li>
-<li>transit vehicles and modes</li>
+<li>At initiation<ul>
+<li>Transit vehicles and modes</li>
 </ul>
 </li>
-<li>Custom data<ul>
+<li>At runtime<ul>
+<li>Required files with model data<ul>
+<li>demographic and geographic</li>
+</ul>
+</li>
+<li>Optional files to manipulate model data<ul>
 <li>Scalars: <code>custom_scalars.csv</code></li>
 <li>Network: <code>custom_network.txt</code></li>
-<li>Attribute: <code>custom_attributes.txt</code></li>
+<li>Transit Lines: <code>custom_tline.txt</code></li>
 <li>Transit Segment: <code>custom_tseg.txt</code></li>
 </ul>
 </li>
 </ul>
-<!-- TODO: example files for custom data? -->
-
+</li>
+</ul>
+<p>The optional <code>custom_&lt;datatype&gt;</code> series files can be placed in the <code>RTM/&lt;your run directory&gt;/inputs</code> folder of the RTM instance.  These files are imported after the main model setup (<code>create scenarios</code> and <code>data import</code>) and can be used to change any model setting held in a scalar matrix or execute an arbitrary set of network link, transit line, or transit segment calculations.  Files with a <code>.csv</code> extension indicate comma delimited data while files with a <code>.txt</code> extension indicate tab delimited data.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not leave a trailing new line or carriage return at the end of the files <code>custom_&lt;datatype&gt;.txt</code> files.  In addition, there can be only one file of each name in the inputs folder.  </p>
+</div>
+<h4 id="custom-scalars">Custom Scalars<a class="headerlink" href="#custom-scalars" title="Permanent link">&para;</a></h4>
+<p>This file allow the user to change data held in scalar matrices in the scripting without changing the scripting.  This in turn allows the user to run multiple runs with the same scripts and different scalar matrix data.  </p>
+<p>The <code>custom_scalars.csv</code> file has headers and requires the following information in comma delimited format.</p>
+<table>
+<thead>
+<tr>
+<th>Matrix ID</th>
+<th>Matrix Name</th>
+<th>Matrix Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The EMME Matrix ID number</td>
+<td>The EMME Matrix Name</td>
+<td>The EMME Matrix Description</td>
+<td>The value to change</td>
+</tr>
+</tbody>
+</table>
+<p>Below is an example of changing the auto operating cost using the custom scalars file.</p>
+<p><img alt="Screenshot" src="../img/workflow/custom_inputs_custom_scalars.png" /></p>
+<h4 id="custom-network">Custom Network<a class="headerlink" href="#custom-network" title="Permanent link">&para;</a></h4>
+<p>This file allows the user to execute an arbitrary set of network link calculations prior to running the model.  </p>
+<p>The <code>custom_network.txt</code> file should not have headers and requires the following information in tab delimited format</p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Result</th>
+<th>Expression</th>
+<th>Selection</th>
+<th>Aggregation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AM, MD, PM, or ALL</td>
+<td>Where the calculation should be stored (for instance @capacity)</td>
+<td>The network calculation to be executed</td>
+<td>Which link(s) to execute the calculation on (optional - can be left blank to update all links)</td>
+<td>Results aggregation (optional and generally left blank)</td>
+</tr>
+</tbody>
+</table>
+<p>Below is an example of removing one lane and reducing capacity on links 111902-111904 and 111904-111902, and setting the signal delay to 0 for all links that are not VDF 14 for all three assignment periods.  Note that there is no carriage return on the last line.  </p>
+<p><img alt="Screenshot" src="../img/workflow/custom_inputs_custom_network.png" /></p>
+<h4 id="custom-transit-lines">Custom Transit Lines<a class="headerlink" href="#custom-transit-lines" title="Permanent link">&para;</a></h4>
+<p>This file allows the user to execute an arbitrary set of network transit line calculations prior to running the model.  </p>
+<p>The <code>custom_tline.txt</code> file should not have headers and requires the following information in tab delimited format</p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Result</th>
+<th>Expression</th>
+<th>Selection</th>
+<th>Aggregation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AM, MD, PM, or ALL</td>
+<td>Where the calculation should be stored (for instance hdw)</td>
+<td>The network calculation to be executed</td>
+<td>Which line(s) to execute the calculation on (optional - can be left blank to update all lines)</td>
+<td>Results aggregation (optional and generally left blank)</td>
+</tr>
+</tbody>
+</table>
+<p>Below is an example of reducing the headway on all lines except those in the Fraser Valley during the AM and PM peak hours, and setting the signal delay to 0 for all links that are not VDF 14 for all three assignment periods.  Note that there is no carriage return on the last line.  </p>
+<p><img alt="Screenshot" src="../img/workflow/custom_inputs_custom_tline.png" /></p>
+<h4 id="custom-transit-segments">Custom Transit Segments<a class="headerlink" href="#custom-transit-segments" title="Permanent link">&para;</a></h4>
+<p>This file allows the user to execute an arbitrary set of network transit segment calculations prior to running the model.  </p>
+<p>The <code>custom_tseg.txt</code> file should not have headers and requires the following information in tab delimited format</p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Result</th>
+<th>Expression</th>
+<th>Selection</th>
+<th>Aggregation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AM, MD, PM, or ALL</td>
+<td>Where the calculation should be stored (for instance ttf)</td>
+<td>The network calculation to be executed</td>
+<td>Which line(s) to execute the calculation on (optional - can be left blank to update all lines)</td>
+<td>Results aggregation (optional and generally left blank)</td>
+</tr>
+</tbody>
+</table>
+<p>Below is an example of changing the transit time function (ttf) on links 111902-111904 and 111904-111902 to ttf2.  Note that there is no carriage return on the last line.  </p>
+<p><img alt="Screenshot" src="../img/workflow/custom_inputs_custom_tseg.png" /></p>
 <!-- Question: should we package this example and share it? Download the example here -->
 
 <h3 id="example-2050-brt-line">Example: 2050 BRT Line<a class="headerlink" href="#example-2050-brt-line" title="Permanent link">&para;</a></h3>
