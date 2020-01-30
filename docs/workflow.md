@@ -319,7 +319,6 @@ Below is an example of changing the transit time function (ttf) on links 111902-
 ![Screenshot](img/workflow/custom_inputs_custom_tseg.png)
 
 
-<!-- TODO: example files for custom data? -->
 <!-- Question: should we package this example and share it? Download the example here -->
 
 ### Example: 2050 BRT Line
