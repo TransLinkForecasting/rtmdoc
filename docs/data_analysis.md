@@ -11,25 +11,26 @@ The RTM scripting employs a utility toolbox that creates functions for repeated 
 
 For example, util can be used to create a pandas dataframe for full matrices and append RTM matrices to it for further analysis or plotting in python.  
 
-        import inro.modeller as _m
+```Python
+    import inro.modeller as _m
 
-        util = _m.Modeller().tool("translink.util")
+    util = _m.Modeller().tool("translink.util")
 
-        eb = _m.Modeller().emmebank
+    eb = _m.Modeller().emmebank
 
-        df = util.get_pd_ij_df(eb) # create a longform pandas dataframe for full matrices
+    df = util.get_pd_ij_df(eb) # create a longform pandas dataframe for full matrices
 
-        # add columns for light and heavy truck OD tables to the data frame
-        df['amLGVDemand'] = util.get_matrix_numpy(eb, "mfLGVAM").flatten() 
-        df['amHGVDemand'] = util.get_matrix_numpy(eb, "mfHGVAM").flatten()
-
+    # add columns for light and heavy truck OD tables to the data frame
+    df['amLGVDemand'] = util.get_matrix_numpy(eb, "mfLGVAM").flatten() 
+    df['amHGVDemand'] = util.get_matrix_numpy(eb, "mfHGVAM").flatten()
+```
 
  Which yields the following results:
 
 
-![utiloutput](img/data_analysis/util_python_00_output_results.png)
+![Screenshot](img/data_analysis/util_python_00_output_results.png)
 
-In the above example matrix names or numbers can be used to access the data in util.get_matrix_numpy(). 
+In the above example matrix names or numbers can be used to access the data in `util.get_matrix_numpy()`. 
 
 ## Data extraction using variables of interest tool
 
@@ -38,15 +39,15 @@ In this example we use a spreadsheet to build a sqlite database.  This tools all
 #### Setting up the spreadsheet
 The `Datamap` tab describes what each field does in the `Sheet1` tab.  The `Sheet1` tab is used to build the database.  
 
-![Datamap](img/data_analysis/extractiontool_00_ssDatamap.png)
+![Screenshot](img/data_analysis/extractiontool_00_ssDatamap.png)
 
 A simple matrix calculation can be used to extract data.  Entering the following in `Sheet1` will create a table in the output sqlite database with AM demand for light and heavy goods vehicles equivalent to the pandas data frame example above:
 
-![Sheet1HgvLgv](img/data_analysis/extractiontool_00_lgv_hgv_example.png)
+![Screenshot](img/data_analysis/extractiontool_00_lgv_hgv_example.png)
 
 In addition to simple data extraction, new data can be generated based on RTM outputs using EMME matrix calculator expressions.  For example, we can create a matrix of the minimum time on transit between all zones considering both the bus and rail modes.  Note that we can reference EMME matrices by name or number.  
 
-![Sheet1MinTransit](img/data_analysis/extractiontool_00_min_transit_time.png)
+![Screenshot](img/data_analysis/extractiontool_00_min_transit_time.png)
 
 !!! Warning
     All `Attributes` (fields) associated with the same `Category` (table) must be of the same dimension.  For example, full matrices (MF) and vectors (MO/MD) must be placed in separate tables.
@@ -55,7 +56,7 @@ In addition to simple data extraction, new data can be generated based on RTM ou
 #### Running the Modeller Tool
 Once you have specified  the data you wish to output in in `Sheet1`, the modeller tool `Variables of Interest Extraction` located in the Phase3Analytics Toolbox can be run to produce the outputs.
 
-![toolboxlocation](img/data_analysis/extractiontool_01_toolbox.png)
+![Screenshot](img/data_analysis/extractiontool_01_toolbox.png)
 
 !!! note
     This tool requires the installation of one additional python library.  Installation instructions can be found in the tool documentation at `RTM/Documentation/ToolDoc_VariablesOfInterest.pdf`.  
@@ -67,4 +68,4 @@ To create the database with your specified tables and fields simply run the tool
 
 
 #### Viewing results
-The requested results will be output to a sqlite database named `Variables_of_Interest_Results.db`.  The output can be viewed in the same manner as the `trip_summaries.db` and `rtm.db` discussed here [data_outputs/#using-the-rtm-and-trip-summaries-databases]
+The requested results will be output to a sqlite database named `Variables_of_Interest_Results.db`.  The output can be viewed in the same manner as the `trip_summaries.db` and `rtm.db` discussed [here](../data_outputs/#using-the-rtm-and-trip-summaries-databases)
