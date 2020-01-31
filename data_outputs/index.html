@@ -157,6 +157,16 @@
               
                 <h1 id="model-data-output">Model Data Output<a class="headerlink" href="#model-data-output" title="Permanent link">&para;</a></h1>
 <h2 id="exporting-full-matrix-directory">Exporting full matrix directory<a class="headerlink" href="#exporting-full-matrix-directory" title="Permanent link">&para;</a></h2>
+<p>The RTM produces a lot of data for each run.  It is sometimes difficult to know what data is available afterwards.  EMME desktop provides a full matrix directory, but it is not directly searchable. However if we open the worksheet located here:</p>
+<p><code>Worksheets/Tables/EMME Standard - GENERAL/General/Matrices/Matrix directory - Full matrices (mf)</code></p>
+<p><img alt="Screenshot" src="../img/data_output/data_extraction_mf_worksheet.png" /></p>
+<p>Clicking on the icon that looks like a database table opens the worksheet as a datatable.  A datatable is effectively a sqlite database table.  </p>
+<p><img alt="Screenshot" src="../img/data_output/data_extraction_datatablebutton.png" /></p>
+<p>Click the <code>save as</code> button </p>
+<p><img alt="Screenshot" src="../img/data_output/data_extraction_datatablesaveas.png" /></p>
+<p>Removing spaces in the name simplifies later querying.</p>
+<p><img alt="Screenshot" src="../img/data_output/data_extraction_datatableremovespace.png" /></p>
+<p>The matrix directory will be saved in the <code>RTM\data_tables.db</code> sqlite database, which we will query in the next section.  </p>
 <h2 id="searching-for-matrices">Searching for matrices<a class="headerlink" href="#searching-for-matrices" title="Permanent link">&para;</a></h2>
 <h2 id="using-the-rtm-and-trip-summaries-databases">Using the rtm and trip summaries databases<a class="headerlink" href="#using-the-rtm-and-trip-summaries-databases" title="Permanent link">&para;</a></h2>
               
