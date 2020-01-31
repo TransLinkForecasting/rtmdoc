@@ -161,37 +161,38 @@
 <h2 id="python-util">Python + util<a class="headerlink" href="#python-util" title="Permanent link">&para;</a></h2>
 <p>The RTM scripting employs a utility toolbox that creates functions for repeated operations.  It is worth familiarizing yourself with the functions here as they are often employed outside the RTM run itself to post-process data.</p>
 <p>For example, util can be used to create a pandas dataframe for full matrices and append RTM matrices to it for further analysis or plotting in python.  </p>
-<pre><code>    import inro.modeller as _m
+<pre><code class="Python">    import inro.modeller as _m
 
-    util = _m.Modeller().tool("translink.util")
+    util = _m.Modeller().tool(&quot;translink.util&quot;)
 
     eb = _m.Modeller().emmebank
 
     df = util.get_pd_ij_df(eb) # create a longform pandas dataframe for full matrices
 
     # add columns for light and heavy truck OD tables to the data frame
-    df['amLGVDemand'] = util.get_matrix_numpy(eb, "mfLGVAM").flatten() 
-    df['amHGVDemand'] = util.get_matrix_numpy(eb, "mfHGVAM").flatten()
+    df['amLGVDemand'] = util.get_matrix_numpy(eb, &quot;mfLGVAM&quot;).flatten() 
+    df['amHGVDemand'] = util.get_matrix_numpy(eb, &quot;mfHGVAM&quot;).flatten()
 </code></pre>
+
 <p>Which yields the following results:</p>
-<p><img alt="utiloutput" src="../img/data_analysis/util_python_00_output_results.png" /></p>
-<p>In the above example matrix names or numbers can be used to access the data in util.get_matrix_numpy(). </p>
+<p><img alt="Screenshot" src="../img/data_analysis/util_python_00_output_results.png" /></p>
+<p>In the above example matrix names or numbers can be used to access the data in <code>util.get_matrix_numpy()</code>. </p>
 <h2 id="data-extraction-using-variables-of-interest-tool">Data extraction using variables of interest tool<a class="headerlink" href="#data-extraction-using-variables-of-interest-tool" title="Permanent link">&para;</a></h2>
 <p>In this example we use a spreadsheet to build a sqlite database.  This tools allows the user to create tables and fields within a table using EMME matrix calculations.  The <code>Variables_of_Interest.xlsx</code> spreadsheet is located in the <code>RTM/Scripts/Phase3Analytics</code> folder. </p>
 <h4 id="setting-up-the-spreadsheet">Setting up the spreadsheet<a class="headerlink" href="#setting-up-the-spreadsheet" title="Permanent link">&para;</a></h4>
 <p>The <code>Datamap</code> tab describes what each field does in the <code>Sheet1</code> tab.  The <code>Sheet1</code> tab is used to build the database.  </p>
-<p><img alt="Datamap" src="../img/data_analysis/extractiontool_00_ssDatamap.png" /></p>
+<p><img alt="Screenshot" src="../img/data_analysis/extractiontool_00_ssDatamap.png" /></p>
 <p>A simple matrix calculation can be used to extract data.  Entering the following in <code>Sheet1</code> will create a table in the output sqlite database with AM demand for light and heavy goods vehicles equivalent to the pandas data frame example above:</p>
-<p><img alt="Sheet1HgvLgv" src="../img/data_analysis/extractiontool_00_lgv_hgv_example.png" /></p>
+<p><img alt="Screenshot" src="../img/data_analysis/extractiontool_00_lgv_hgv_example.png" /></p>
 <p>In addition to simple data extraction, new data can be generated based on RTM outputs using EMME matrix calculator expressions.  For example, we can create a matrix of the minimum time on transit between all zones considering both the bus and rail modes.  Note that we can reference EMME matrices by name or number.  </p>
-<p><img alt="Sheet1MinTransit" src="../img/data_analysis/extractiontool_00_min_transit_time.png" /></p>
+<p><img alt="Screenshot" src="../img/data_analysis/extractiontool_00_min_transit_time.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>All <code>Attributes</code> (fields) associated with the same <code>Category</code> (table) must be of the same dimension.  For example, full matrices (MF) and vectors (MO/MD) must be placed in separate tables.</p>
 </div>
 <h4 id="running-the-modeller-tool">Running the Modeller Tool<a class="headerlink" href="#running-the-modeller-tool" title="Permanent link">&para;</a></h4>
 <p>Once you have specified  the data you wish to output in in <code>Sheet1</code>, the modeller tool <code>Variables of Interest Extraction</code> located in the Phase3Analytics Toolbox can be run to produce the outputs.</p>
-<p><img alt="toolboxlocation" src="../img/data_analysis/extractiontool_01_toolbox.png" /></p>
+<p><img alt="Screenshot" src="../img/data_analysis/extractiontool_01_toolbox.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This tool requires the installation of one additional python library.  Installation instructions can be found in the tool documentation at <code>RTM/Documentation/ToolDoc_VariablesOfInterest.pdf</code>.  </p>
@@ -202,7 +203,7 @@
 <p>The name <code>Sheet1</code> can be changed to any Excel allowable name.  The chosen name needs to be passed to the tool either in the modeller interface or the function call.    </p>
 </div>
 <h4 id="viewing-results">Viewing results<a class="headerlink" href="#viewing-results" title="Permanent link">&para;</a></h4>
-<p>The requested results will be output to a sqlite database named <code>Variables_of_Interest_Results.db</code>.  The output can be viewed in the same manner as the <code>trip_summaries.db</code> and <code>rtm.db</code> discussed here [data_outputs/#using-the-rtm-and-trip-summaries-databases]</p>
+<p>The requested results will be output to a sqlite database named <code>Variables_of_Interest_Results.db</code>.  The output can be viewed in the same manner as the <code>trip_summaries.db</code> and <code>rtm.db</code> discussed <a href="../data_outputs/#using-the-rtm-and-trip-summaries-databases">here</a></p>
               
             </div>
           </div>
