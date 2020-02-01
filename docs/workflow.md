@@ -45,18 +45,27 @@ cd 'RTM/Scripts/'
 bash 'relocate_tools.sh'
 ```
 
-Alternatively, you can run the batch file `RTM\Scripts\relocate_tools.bat` on Windows.
+Alternatively, you can run the batch file on Windows:
+
+```bash
+cd 'RTM/Scripts/'
+start 'relocate_tools.bat'
+```
 
 
 ## Folder Structure
 
-The RTM is delivered as a collection of input files in the `BaseNetworks/` folder with a collection of python scripts in `Scripts/` folder. The EMME project file `RTM.emp` reference all required folders and is loaded with a `Minimal Base Databank` stored in `Template/` folder. Before running the model, familiarize yourself with the model folder structure. 
+The RTM is delivered as a collection of input files in the `BaseNetworks/` folder with a collection of python scripts in `Scripts/` folder. The EMME project file `RTM.emp` references all required folders and is loaded with a `Minimal Base Databank` stored in `Template/` folder.
+
+Everything stored within the `RTM` folder is considered project-level, and run specific inputs are stored in the `BaseNetworks/` folder.
+
+Before running the model, familiarize yourself with the model folder structure. 
 
 ```Markdown
     RTM/
     ├── BaseNetworks/
     │   └── Inputs/
-    |
+    │
     ├── Documentation/
     ├── Logbook/
     ├── Media/
@@ -64,7 +73,7 @@ The RTM is delivered as a collection of input files in the `BaseNetworks/` folde
     ├── Template/
     ├── Views/
     ├── Worksheets/
-    |
+    │
     └── RTM.emp
 ```
 
@@ -112,7 +121,7 @@ The base network folder contains files required to build a databank from scratch
     │   ├── taz1700_ensembles.csv
     │   ├── modes.in
     │   ├── tvehicles.in
-    │   |
+    │   │
     │   └── Inputs/
     │         ├── taz1700_demographics_*.csv
     │         ├── taz1700_geographics_*.csv
@@ -121,12 +130,12 @@ The base network folder contains files required to build a databank from scratch
     │         ├── time_slicing.csv
     │         ├── time_slicing_gb.csv
     │         ├── transit_adj.csv
-    |         └── TruckBatchFiles/
+    │         └── TruckBatchFiles/
     │               ├── *AsiaPacificv1.txt
     │               ├── *CrossBorderv1.txt
     │               ├── IRBatchIn.txt
     │               ├── PMVActivity.txt
-    |               └── RGBatchIn.txt
+    │               └── RGBatchIn.txt
     └── ...
 ```
 <p></p>
@@ -148,7 +157,7 @@ This folder contains python scripts used to run the model:
     │   ├── relocate_tools.bat
     │   ├── relocate_tools.sh
     │   ├── toolbox_modify.py
-    │   |
+    │   │
     │   ├── Phase3Scripts/
     │   ├── Phase3Analytics/
     │   ├── util/
@@ -205,6 +214,8 @@ Once the run is completed, the **Tool complete** message will appear.
 ### With EMME Notebook
 
 If you are comfortable with python and Jupyter Notebook, we strongly recommend that you use EMME Notebook to initialize databanks. This improves the reproducibility of your model run. This is generally not needed for network scenario or testing, but for final copy of a run, it is highly recommend.
+
+The `init_many.ipynb` notebook contains a template for initialize many databanks.
 
 1. To open EMME Notebook, click on the EMME Notebook icon ![Icon](img/emme_notebook_icon.png).
 
@@ -319,8 +330,6 @@ Below is an example of changing the transit time function (ttf) on links 111902-
 ![Screenshot](img/workflow/custom_inputs_custom_tseg.png)
 
 
-<!-- Question: should we package this example and share it? Download the example here -->
-
 ### Example: 2050 BRT Line
 
 Similar to most model application exercises, in our example, there are two main components of changes we are making to the 2050 base model: network editing and model custom inputs.
@@ -330,20 +339,8 @@ Similar to most model application exercises, in our example, there are two main 
     * Add congestion pricing to the network with `custom_network.txt` input file
     * Use a custom demographic file for corridor intensification
 
-#### Step 1: create new scenarios
 
-Duplicate the base scenario input files, and rename them with a new scenario number. For example, if you are making changes on top of scenario "5000", name it "5001", "5002".
-
-> ![Screenshot](img/workflow/network_edit_brt_1_1.png)
-
-> ![Screenshot](img/workflow/network_edit_brt_1_2.png)
-
-Once you added all the scenarios, add these new scenario numbers into the `InitEmmebank.py` script. This will allow the initialize emmebank modeler tool to load the new scenarios.
-
-> ![Screenshot](img/workflow/network_edit_brt_1_3.png)
-
-
-#### Step 2: add new modes
+#### Step 1: add new modes
 
 Before we create a new transit line, we need to make sure the mode and the vehicle of is available, add the new mode to `modes.in` file in the base network folder:
 
@@ -355,18 +352,49 @@ Then check the `tvehicles.in` file in the base network folder:
 
 !!! note
 
-    After the modes are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank.
+    After new modes or vehicles are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank. This is why modes and vehicles 
 
-Now, you will need to initialize a new databank with the new scenario number, mode, and vehicle. You can give it a descriptive and abbreviated name such as `01_Lg_BRT_CP_LU_2050`.
+
+#### Step 2: create new scenarios
+
+Duplicate the base scenario input files, and rename them with a new scenario number. For example, if you are making changes on top of scenario "5000", name it "5001", "5002".
+
+> ![Screenshot](img/workflow/network_edit_brt_1_1.png)
+
+> ![Screenshot](img/workflow/network_edit_brt_1_2.png)
+
+
+##### Load new scenario manually
+
+To load new scenario into your current data bank, open Modeler and Import Network Tool:
+
+> ![Screenshot](img/workflow/network_edit_brt_1_2_1.png)
+
+Enter the scenario number and a title for it, click run to load the scenario.
+
+> ![Screenshot](img/workflow/network_edit_brt_1_2_2.png)
+
+It now should be available in the list of scenario and you can set it as your active scenario to perform your network changes.
+
+> ![Screenshot](img/workflow/network_edit_brt_1_2_3.png)
+
+
+##### Optional: Always load new scenario on databank initialization
+
+If you want the newly created scenario to be imported every time you initialize a new emmebank, modify `InitEmmebank.py`. Once you set up the scenarios, add these new scenario numbers into the `InitEmmebank.py` script. This will allow the initialize emmebank modeler tool to load the new scenarios.
+
+> ![Screenshot](img/workflow/network_edit_brt_1_3.png)
+
+Now, you can initialize a new databank and your new scenario will be loaded by default. You can give it a descriptive and abbreviated name such as `01_Lg_BRT_CP_LU_2050`.
 
 
 #### Step 3: perform network editing
 
  Open EMME network editor ![Icon](img/emme_networkeditor_icon.png), add notes, links, and transit line as needed. Make sure you save a copy of the build file before you save and exit the scenario. **Build files can be created from any changes you made while in the Network Editor.** The build file is a great way to save and replicate model network changes. If you have a build file, you can stage it and run the changes.
-<!-- Link to shared example build file  -->
-    * Copy your build file to `Network_builds/` folder.
-    * Open "Network History and Builds" prompt from EMME Network Editor ![Icon](img/emme_networkeditorbuild_icon.png). Click the folder icon to "Add network builds", then click "Stage".
-    * Preview the build, then run the build:
+ 
+* Copy your build file to `Network_builds/` folder.
+* Open "Network History and Builds" prompt from EMME Network Editor ![Icon](img/emme_networkeditorbuild_icon.png). Click the folder icon to "Add network builds", then click "Stage".
+* Preview the build, then run the build:
 
 > ![Screenshot](img/workflow/network_edit_brt_3.png)
 
@@ -375,8 +403,15 @@ Now, you will need to initialize a new databank with the new scenario number, mo
 
 For the BRT example, we will use `custom_network.txt` and a simple 8-zone shapefile to add congestion pricing attribute to the network in batch. We will also load a custom demographic file with 20% population intensification along the study corridor.
 
-* The custom input file such as `custom_network.txt` needs to be placed in the `Input/` folder within the emme databank folder, such as the folder `db_01_Lg_BRT_CP_LU_2050` or `01_Lg_BRT_CP_LU_2050`. (Do not place the file in the BaseNetworks folder!)
+* Custom inputs often require link tagging defined by the intersection of input polygons and network links in EMME. This can be done in Modeler or Notebook using the Geographic Tagging Tool:
+> ![Screenshot](img/workflow/network_edit_brt_4_1_1.png)
+> ![Screenshot](img/workflow/network_edit_brt_4_1_2.png)
+
+* After link tagging, the custom input file such as `custom_network.txt` needs to be placed in the `Input/` folder within the emme databank folder, such as the folder `db_01_Lg_BRT_CP_LU_2050` or `01_Lg_BRT_CP_LU_2050`. (Do not place the file in the BaseNetworks folder!)
+> ![Screenshot](img/workflow/network_edit_brt_4_1_3.png)
+
 * The custom demographic file such as `taz1700_demographics_2050-20.csv` needs to be selected as the demographic input when running the model.
+> ![Screenshot](img/workflow/network_edit_brt_4_2.png)
 
 
 ## Export Scenario
@@ -449,7 +484,7 @@ Once you have set up all the input files in the databank, such as customized dem
 
 ### EMME Notebook
 
-The EMME Notebook allows you to create `.ipynb` scripts that handles multiple model runs and runs with complex set up. It is ideal for our BRT example where we needed to perform link tagging and use custom network input file for congestion pricing.
+The `run_many.ipynb` notebook contains a template for running many model runs. It handles multiple model runs and runs with complex set up. It is ideal for our BRT example where we needed to perform link tagging and use custom network input file for congestion pricing. Note sometimes additional coding is required to call toolboxes that are relevant to the particular model run.
 
 1. To open EMME Notebook, click on the EMME Notebook icon ![Icon](img/emme_notebook_icon.png).
 
