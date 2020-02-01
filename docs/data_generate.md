@@ -7,8 +7,7 @@ In general Modeller tools more polished and can provide a GUI, but take more tim
 
 Python script can be built easily and often is enough to quickly complete a task at hand.  Maybe fragile, can break with simple model changes.  These may not be maintained.  These can work will with the notebooks.   They can just work with basic functions, easy to put together a basic but reproducible analysis.  
 
-
-#### Executing a python script from the EMME iPython shell
+### Executing a python script from the EMME iPython shell
 
 Open the ipython modeller shell in EMME desktop
 
@@ -21,6 +20,7 @@ Once in the shell, navigate to location of the subject script.  In this case the
 Check the files in this directory to ensure we have the one we want, then we can use the iPython magic `%run <filename.py>` to execute our script
 
 ![lsrun](img/data_generation/shell_02_ls_and_run.png)
+
 
 ## Example Tool for PA to OD
 
@@ -38,9 +38,9 @@ From there we can query and view the results
 
 ![querytable](img/data_generation/pad2od_02_query.png)
 
-#### Why does it run?
+### Why does it run?
 
-
+```python
     if __name__ == '__main__':
 
     eb = _m.Modeller().emmebank
@@ -48,10 +48,153 @@ From there we can query and view the results
     # run with no ensemble name and ensem_agg = False to get TAZ level results
     # note, TAZ level results create very large file
     main(eb, ensem='gy', ensem_agg=True)
+```
 
-And why does this work?  See this video on [Youtube Name and Main]
+And why does this work?  See this video on [YouTube Name and Main]
 
 [Youtube Name and Main]: https://www.youtube.com/watch?v=sugvnHA7ElY
 
+
 ## Using the notebook
+
+The EMME Notebook is a powerful tool to generate results and summary data across many model runs. To demonstrate this, we took the base case model and varied the park and ride price on a particular park and ride lot. We run a separate model run for each park and ride price point. Then, we summarized the result across all of these model runs.
+
+### Connect to EMME Modeler
+
+When working with Jupyter Notebook within EMME, you need to import some basic libraries and toolboxes first, then connect to EMME desktop and databank.
+
+```python
+import inro.modeller as _m
+import inro.emme.desktop as _d
+import csv
+import os
+import multiprocessing
+import numpy as np
+import pandas as pd
+import sqlite3
+import traceback as _traceback
+import shutil
+
+# connect to EMME
+dt = _m.Modeller().desktop
+de = dt.data_explorer()
+db = de.active_database()
+ebs = de.databases()
+
+# load toolbox
+util = _m.Modeller().tool("translink.util")
+
+```
+
+### Listing databanks
+
+Within the Notebook scripting environment, you have access to all of the databank that is loaded in your project, you can list them all to verify.
+
+```python
+# make sure modeller is closed or it will print to the python console in there
+counter = 0
+for eb in ebs:
+    print counter, eb.title()
+    counter += 1
+```
+```text
+0 Minimal Base Databank
+1 pnr_bp_2016_250
+2 pnr_bp_2016_750
+3 pnr_bp_2016_500
+4 pnr_bp_2016_450
+5 pnr_bp_2016_400
+6 pnr_bp_2016_350
+7 pnr_bp_2016_300
+```
+
+### Build functions
+
+To retrieve results from multiple runs, you should build a function to systematically get the results. In our example, we will get the lot usage at all park and ride lot, and export the results to csv.
+
+```python
+
+def get_all_pnr_usage(eb):
+    scenario_tag = str(util.get_eb_path(eb).split('\\')[-1].split('_')[-1])
+
+    df = util.get_pd_ij_df(eb)
+
+    df['price'] = scenario_tag
+
+    df['pnr_usage'] = (util.get_matrix_numpy(eb, "mf3000").flatten() +
+                       util.get_matrix_numpy(eb, "mf3001").flatten() +
+                       util.get_matrix_numpy(eb, "mf3002").flatten()) / 2
+
+    df = df[(df['j'] >99) & (df['j'] < 999)]
+    
+    return (df)
+
+
+# initialize dataframe, ij from any eb
+all_pnr_usage = pd.DataFrame()
+# loop to get result
+for eb in ebs:
+    title = eb.title()
+
+    if title == 'Minimal Base Databank':
+        continue
+
+    eb.open()
+    eb = _m.Modeller().emmebank
+
+    if HbW_rev.empty:
+        all_pnr_usage = get_all_pnr_usage(eb)
+    else:
+        all_pnr_usage = pd.concat([all_pnr_usage, get_all_pnr_usage(eb)], axis=0)
+        
+all_pnr_usage_summary = all_pnr_usage.groupby(
+    ['price', 'j']).sum()[['pnr_usage']].reset_index().pivot_table(
+        values='pnr_usage', index='j', columns='price').fillna(0)
+
+
+# export result for all pnr lot usage
+import datetime
+
+all_pnr_usage_summary.to_csv(
+    'Bridgeport_pnr_all_lot_usage_result_' +
+    datetime.datetime.today().strftime('%Y-%m-%d') + '.csv',
+    index=True)
+
+```
+
+Here is a snippet of the output data:
+
+| j | 300 | 350 | ... |
+|--------------|--------------|--------------|--------------|
+| 101 | 0 | 0 | ... |
+| 102 | 235.2006989 | 237.4086304 | ... |
+| 103 | 2.616934538 | 2.616484404 | ... |
+| 104 | 342.3994446 | 342.8656311 | ... |
+| 105 | 0 | 0 | ... |
+
+<!-- | 106 | 17.8613472 | 17.89091301 | ... |
+| 107 | 46.66278839 | 56.62704849 | ... |
+| 108 | 3.981952906 | 4.006924152 | ... |
+| 109 | 802.2699585 | 806.204834 | ... |
+| 110 | 14.6020813 | 14.60439682 | ... |
+| 111 | 674.9075928 | 680.3863525 | ... |
+| 112 | 27.87112427 | 28.24053574 | ... |
+| 113 | 42.22868347 | 42.26034164 | ... |
+| 114 | 1007.618408 | 1007.940491 | ... |
+| 115 | 994.1316528 | 996.2375488 | ... |
+| 116 | 483.9206238 | 484.8684387 | ... |
+| 117 | 736.5940552 | 736.9434204 | ... |
+| 118 | 472.0213623 | 471.8923035 | ... |
+| 119 | 28.24474144 | 28.24713707 | ... |
+| 120 | 653.9341431 | 654.5322266 | ... |
+| 121 | 18.69111061 | 19.11306763 | ... |
+| 122 | 22.63911438 | 22.34423828 | ... |
+| 123 | 0.263618499 | 0.264326453 | ... |
+| 124 | 3.084763765 | 3.084871769 | ... |
+| 125 | 0 | 0 | ... |
+| 126 | 1335.575195 | 1246.811401 | ... |
+| 127 | 0 | 0 | ... |
+| 128 | 24.41082954 | 24.37694168 | ... |
+| 129 | 0 | 0 | ... |
+| 130 | 0 | 0  | ... | -->
 
