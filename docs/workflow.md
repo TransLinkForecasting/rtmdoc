@@ -350,10 +350,12 @@ Then check the `tvehicles.in` file in the base network folder:
 
 > ![Screenshot](img/workflow/network_edit_brt_2.png)
 
+After new modes or vehicles are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank.
+
 !!! note
 
-    After new modes or vehicles are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank. This is why modes and vehicles 
-
+    Choosing the BRT and LRT vehicle in `tvehicles.in` with `modes.in` implements the unobserved mode discussed in the October 2019 User Group Meeting. [Presentation available here].
+    
 
 #### Step 2: create new scenarios
 
@@ -409,6 +411,13 @@ For the BRT example, we will use `custom_network.txt` and a simple 8-zone shapef
 
 * After link tagging, the custom input file such as `custom_network.txt` needs to be placed in the `Input/` folder within the emme databank folder, such as the folder `db_01_Lg_BRT_CP_LU_2050` or `01_Lg_BRT_CP_LU_2050`. (Do not place the file in the BaseNetworks folder!)
 > ![Screenshot](img/workflow/network_edit_brt_4_1_3.png)
+
+Read more about [Custom Networks].
+
+!!! note
+
+    Read more on link tagging tool in: `RTM\Documentation\ToolDoc_GeographicTagging.pdf`.
+
 
 * The custom demographic file such as `taz1700_demographics_2050-20.csv` needs to be selected as the demographic input when running the model.
 > ![Screenshot](img/workflow/network_edit_brt_4_2.png)
@@ -479,7 +488,7 @@ Once you have set up all the input files in the databank, such as customized dem
 
 !!! warning
 
-    Do not interrupt the model run. The RTM model is not designed to be run in separate stages or run multiple times. If you stopped a model run before it is done, you should start over - reinitialize the databank and start run.
+    Do not interrupt the model run. The RTM model is not designed to be run in separate stages or run multiple times. If you stopped a model run before it is done, you should start over and run the model again.
 
 
 ### EMME Notebook
@@ -535,6 +544,10 @@ Learn more about [git] and read more about [GitHub pull request].
 
 
 <!-- Links -->
+[Custom Networks]: ../workflow/#custom-network
+[Contributing]: ../about/contributing
+[Contact us]: ../about/contributing
+[Presentation available here]:https://github.com/TransLinkForecasting/rtm-workshops/blob/master/2019-Oct/5.Modeling_Non-existing_Modes.pdf
 [Python]: https://www.learnpython.org/
 [SQL]: https://www.w3schools.com/sql/
 [git]: https://git-scm.com/docs
@@ -544,7 +557,5 @@ Learn more about [git] and read more about [GitHub pull request].
 [EMME]: https://www.inrosoftware.com/en/products/emme/
 [EMME Desktop 4.4.2]: https://blog.inrosoftware.com/blog/emme-4.4-release
 [EMME Training Courses]: https://www.inrosoftware.com/en/services/training/
-[Contributing]: ../about/contributing
-[Contact us]: ../about/contributing
 [Git Setup]: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 [GitHub pull request]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
