@@ -118,14 +118,6 @@
                     
     <a class="" href="../about/contributing/">Contributing</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../about/release-notes/">Release Notes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../about/license/">License</a>
-                </li>
     </ul>
 	    </li>
           
@@ -543,9 +535,10 @@ start 'relocate_tools.bat'
 <blockquote>
 <p><img alt="Screenshot" src="../img/workflow/network_edit_brt_2.png" /></p>
 </blockquote>
+<p>After new modes or vehicles are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>After new modes or vehicles are added, it won't be available in the already initialized databank and scenario. You should re-initialize a working copy of the databank. This is why modes and vehicles </p>
+<p>Choosing the BRT and LRT vehicle in <code>tvehicles.in</code> with <code>modes.in</code> implements the unobserved mode discussed in the October 2019 User Group Meeting. <a href="https://github.com/TransLinkForecasting/rtm-workshops/blob/master/2019-Oct/5.Modeling_Non-existing_Modes.pdf">Presentation available here</a>.</p>
 </div>
 <h4 id="step-2-create-new-scenarios">Step 2: create new scenarios<a class="headerlink" href="#step-2-create-new-scenarios" title="Permanent link">&para;</a></h4>
 <p>Duplicate the base scenario input files, and rename them with a new scenario number. For example, if you are making changes on top of scenario "5000", name it "5001", "5002".</p>
@@ -598,9 +591,14 @@ start 'relocate_tools.bat'
 <p><img alt="Screenshot" src="../img/workflow/network_edit_brt_4_1_3.png" /></p>
 </blockquote>
 </li>
-<li>
-<p>The custom demographic file such as <code>taz1700_demographics_2050-20.csv</code> needs to be selected as the demographic input when running the model.</p>
-<blockquote>
+</ul>
+<p>Read more about <a href="../workflow/#custom-network">Custom Networks</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read more on link tagging tool in: <code>RTM\Documentation\ToolDoc_GeographicTagging.pdf</code>.</p>
+</div>
+<ul>
+<li>The custom demographic file such as <code>taz1700_demographics_2050-20.csv</code> needs to be selected as the demographic input when running the model.<blockquote>
 <p><img alt="Screenshot" src="../img/workflow/network_edit_brt_4_2.png" /></p>
 </blockquote>
 </li>
@@ -668,7 +666,7 @@ start 'relocate_tools.bat'
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not interrupt the model run. The RTM model is not designed to be run in separate stages or run multiple times. If you stopped a model run before it is done, you should start over - reinitialize the databank and start run.</p>
+<p>Do not interrupt the model run. The RTM model is not designed to be run in separate stages or run multiple times. If you stopped a model run before it is done, you should start over and run the model again.</p>
 </div>
 <h3 id="emme-notebook">EMME Notebook<a class="headerlink" href="#emme-notebook" title="Permanent link">&para;</a></h3>
 <p>The <code>run_many.ipynb</code> notebook contains a template for running many model runs. It handles multiple model runs and runs with complex set up. It is ideal for our BRT example where we needed to perform link tagging and use custom network input file for congestion pricing. Note sometimes additional coding is required to call toolboxes that are relevant to the particular model run.</p>
