@@ -99,8 +99,8 @@ for eb in ebs:
 ```
 ```text
 0 Minimal Base Databank
-1 pnr_bp_2016_300
-1 pnr_bp_2016_350
+1 pnr_bp_2016_250
+2 pnr_bp_2016_300
 ```
 
 ### Build functions
@@ -152,7 +152,6 @@ all_pnr_usage_summary.to_csv(
     'Bridgeport_pnr_all_lot_usage_result_' +
     datetime.datetime.today().strftime('%Y-%m-%d') + '.csv',
     index=True)
-    
 ```
 
 Here is a snippet of the output data:
@@ -160,8 +159,8 @@ Here is a snippet of the output data:
 | j | 300 | 350 | ... |
 |--------------|--------------|--------------|--------------|
 | 101 | 0 | 0 | ... |
-| 102 | 235.2006989 | 237.4086304 | ... |
-| 103 | 2.616934538 | 2.616484404 | ... |
-| 104 | 342.3994446 | 342.8656311 | ... |
+| 102 | 235.7 | 235.2 | ... |
+| 103 | 2.6 | 2.6 | ... |
+| 104 | 341.4 | 342.4 | ... |
 | 105 | 0 | 0 | ... |
 | ... | ... | ... | ... |
