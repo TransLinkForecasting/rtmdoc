@@ -19,8 +19,8 @@ nav:
             - data_generate.md
     - About:
             - about/contributing.md
-            - about/release-notes.md
-            - about/license.md
+            # - about/release-notes.md
+            # - about/license.md
 extra_css:
     - css/extra.css
 markdown_extensions:
