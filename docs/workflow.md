@@ -147,9 +147,10 @@ This folder contains python scripts used to run the model:
 
 * Toolbox relocate tool: `relocate_tools.bat`, `relocate_tools.sh`, `toolbox_modify.py`
 * Model Scripts toolbox: `Phase3Scripts/`
-* Analytics toolbox: `Phase3Analytics/`
 * Model utility toolbox: `util/`
-* Model tools, scripts and notebooks of model initialization and model runs: `util/`
+* Model tools, scripts and notebooks of model initialization and model runs: `Notebooks/`
+* Analytics toolbox: `Phase3Analytics/`
+* Tools toolbox: `Phase3Tools/`
 
 ```Markdown
     RTM/
@@ -158,10 +159,11 @@ This folder contains python scripts used to run the model:
     │   ├── relocate_tools.sh
     │   ├── toolbox_modify.py
     │   │
+    │   ├── Notebooks/
     │   ├── Phase3Scripts/
-    │   ├── Phase3Analytics/
     │   ├── util/
-    │   └── Tools/
+    │   ├── Phase3Analytics/
+    │   └── Phase3Tools/
     └── ...
 ```
 
