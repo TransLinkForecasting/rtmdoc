@@ -132,17 +132,17 @@ Note that the boarding perception factor used for transfer boarding only. The mo
 Bus/Rail/WCE | Time Component | Matrix | EMME Name | Value
 ------------ | -------------- | ------ | --------- | -----
 Bus | In-vehicle | ms300 | busIVTprcpWk                                      | 1.25
-&nbsp | Wait | ms301 | busWAITprcpWk                                     | 2.50
+-- | Wait | ms301 | busWAITprcpWk                                     | 2.50
 -- | Walk | ms302 | busWALKprcpWk                                     | 2.00
 -- | Boarding | ms303 | busBOARDSprcpWk                                   | 10.00
 Rail | In-vehicle | ms310 | railIVTprcpWk                                     | 1.00
 -- | Wait | ms311 | railWAITprcpWk                                    | 2.50 
 -- | Walk | ms312 | railWALKprcpWk                                    | 2.00 
-- | Boarding | ms313 | railBOARDSprcpWk                                  | 10.00 
+-- | Boarding | ms313 | railBOARDSprcpWk                                  | 10.00 
 WCE | In-vehicle | ms320 | wceIVTprcpWk                                      | 1.00
-- | Wait | ms321 | wceWAITprcpWk                                     | 2.50 
-- | Walk | ms322 | wceWALKprcpWk                                     | 2.00 
-- | Boarding | ms323 | wceBOARDSprcpWk                                   | 10.00 
+-- | Wait | ms321 | wceWAITprcpWk                                     | 2.50 
+-- | Walk | ms322 | wceWALKprcpWk                                     | 2.00 
+-- | Boarding | ms323 | wceBOARDSprcpWk                                   | 10.00 
 
 
 
