@@ -6,6 +6,7 @@ In this section, you will find some useful infomation you may need to use in you
 
 This section shows the link and transit mode, and transit vehicle type
 
+
 ### Link mode
 
 Mode | Description
@@ -72,6 +73,17 @@ Transit Vehicle | Mode | Fleet Size | Capacity(S/T) | OC($/h) | OC($/km) | Auto.
 37.CL-2017 | l | 999 | 88/288 | 0 | 3 | 0
 38.CL-2030 | l | 999 | 88/288 | 0 | 3 | 0
 39.CL-2045 | l | 999 | 110/360 | 0 | 3 | 0
+
+## Volume Delay Function
+
+VDF | Description | Expression
+--- | ----------- | ----------
+11 | Centroid Connector | length x 60/40
+12 | Bowen Island Service | 40 + (volume-100) x 60/volume x (volume>=100)
+13 | Highway Merge Lane | length x 60/posted_speed + 0.85 x (volume/(capacity x lanes))^5
+14 | Stop Sign and Signal| signal_delay + length x 60/posted_speed + 0.85 x (volume/(capacity x lanes))^4
+15 | Free Flow | length x 60/posted_speed x (1+0.6 x 0.85 x (volume/(capacity x lanes^1.05))^5)
+16 | Free Flow | length x 60/(posted_speed x 1.1) x (1+0.6 x 0.43 x (volume/(capacity x lanes^1.05))^5.25)
 
 
 ## Time of Assginment
@@ -147,6 +159,19 @@ WCE | In-vehicle | ms320 | wceIVTprcpWk                                      | 1
 
 
 
-matrix 
-ensembles
+## Matrix
+
+Over henduard matrices are used in the RTM simulation. Here is a list showing the matrices grouped by the functions
+
+![Ensemble Index](/docs/img/appendix/Matrix%20Index_copy.png)
+
+Click [here] to see the full list of the matrix
+[here]:
+
+
+
+## Ensembles
+
+The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is a list of ensembles that the latest RTM is using.
+![Ensemble Index](/docs/img/appendix/Ensemble%20Index.png)
 
