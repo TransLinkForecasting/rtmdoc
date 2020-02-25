@@ -161,12 +161,13 @@ WCE | In-vehicle | ms320 | wceIVTprcpWk                                      | 1
 
 ## Matrix
 
-Over henduard matrices are used in the RTM simulation. Here is a list showing the matrices grouped by the functions
+Over thousand matrices are used in the RTM simulation. Here is a list showing the matrices grouped by the functions
 
-![Ensemble Index](/docs/img/appendix/Matrix%20Index_copy.png)
+![Ensemble Index](/docs/img/appendix/Matrix%20Index.png)
 
 Click [here] to see the full list of the matrix
-[here]:
+
+[here]: matrix%20list.md
 
 
 
