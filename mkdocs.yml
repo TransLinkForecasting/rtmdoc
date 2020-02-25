@@ -2,7 +2,7 @@ site_name: RTM
 site_url: 'https://translinkforecasting.github.io/rtmdoc'
 site_description: 'RTM documentation for users and developers.'
 site_author: 'TransLink Forecasting'
-repo_url: 'https://github.com/xhan0703/rtmdoc/'
+repo_url: 'https://github.com/TransLinkForecasting/rtmdoc'
 edit_uri: ""
 copyright: 'Copyright &copy; 2020 TransLink Forecasting'
 theme:
