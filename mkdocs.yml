@@ -17,6 +17,7 @@ nav:
             - data_outputs.md
             - data_analysis.md
             - data_generate.md
+            - appendix.md
     - About:
             - about/contributing.md
             # - about/release-notes.md
