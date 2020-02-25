@@ -165,15 +165,16 @@ Over thousand matrices are used in the RTM simulation. Here is a list showing th
 
 ![Ensemble Index](img/appendix/Matrix_Index.png)
 
-Click [here] to see the full list of the matrix
-[here]:/matrix_list
-
+See [matrix list page] for the full list
 
 
 ## Ensembles
 
-The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. [This] is a list of ensembles that the latest RTM is using.
+The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is [a list of ensembles] that the latest RTM is using.
 
 ![Ensemble Index](/img/appendix/Ensemble_Index_copy.png)
 
-[This]:/img/appendix/Ensemble_Index.pdf "Ensemble Index pdf"
+
+<!-- links -->
+[matrix list page]: ../matrix_list/
+[a list of ensembles]:/img/appendix/Ensemble_Index.pdf "Ensemble Index pdf"
