@@ -7,15 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="TransLink Forecasting">
-  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/appendix/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Appendix - RTM</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  <link href="../css/extra.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -26,9 +25,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -49,7 +48,6 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
@@ -60,60 +58,76 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <p class="caption"><span class="caption-text">User Guide</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Appendix</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#modes-and-vehicles">Modes and Vehicles</a>
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../workflow/">Model Workflow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../data_outputs/">Model Data Output</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../data_analysis/">Model Data Analysis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../data_generate/">Custom Data Generation</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Appendix</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#appendix">Appendix</a></li>
+    
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#link-mode">Link mode</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#transit-mode">Transit mode</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#transit-vehicle-capacity-and-cost">Transit Vehicle Capacity and Cost</a>
-    </li>
+        
+            <li><a class="toctree-l4" href="#modes-and-vehicles">Modes and Vehicles</a></li>
+        
+            <li><a class="toctree-l4" href="#volume-delay-function">Volume Delay Function</a></li>
+        
+            <li><a class="toctree-l4" href="#time-of-assginment">Time of Assginment</a></li>
+        
+            <li><a class="toctree-l4" href="#expansion-factor">Expansion Factor</a></li>
+        
+            <li><a class="toctree-l4" href="#annual-factor">Annual Factor</a></li>
+        
+            <li><a class="toctree-l4" href="#transit-perception-factor">Transit Perception Factor</a></li>
+        
+            <li><a class="toctree-l4" href="#matrix">Matrix</a></li>
+        
+            <li><a class="toctree-l4" href="#ensembles">Ensembles</a></li>
+        
         </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#volume-delay-function">Volume Delay Function</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#time-of-assginment">Time of Assginment</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#expansion-factor">Expansion Factor</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#all-class">All Class</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#by-category">By Category</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#transit-ridership">Transit Ridership</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#annual-factor">Annual Factor</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#transit-perception-factor">Transit Perception Factor</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#matrix">Matrix</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ensembles">Ensembles</a>
-    </li>
+    
+
     </ul>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">About</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
-                    </li>
-                </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about/contributing/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
       </div>
-    </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -142,7 +156,6 @@
       
     </li>
   </ul>
-  
   <hr/>
 </div>
           <div role="main">
@@ -843,12 +856,17 @@ Note that the boarding perception factor used for transfer boarding only. The mo
 </tbody>
 </table>
 <h2 id="matrix">Matrix<a class="headerlink" href="#matrix" title="Permanent link">&para;</a></h2>
-<p>Over thousand matrices are used in the RTM simulation. Here is a list showing the matrices grouped by the functions</p>
+<p>Over thousand matrices are used in the RTM simulation. Here is a list showing the matrices grouped by type and function:</p>
+<blockquote>
 <p><img alt="Ensemble Index" src="../img/appendix/Matrix_Index.png" /></p>
-<p>See <a href="../matrix_list/">matrix list page</a> for the full list</p>
+</blockquote>
+<p>For the full list, see <a href="../matrix_list/">matrix list page</a>.</p>
 <h2 id="ensembles">Ensembles<a class="headerlink" href="#ensembles" title="Permanent link">&para;</a></h2>
-<p>The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is <a href="/img/appendix/Ensemble_Index.pdf" title="Ensemble Index pdf">a list of ensembles</a> that the latest RTM is using.</p>
-<p><img alt="Ensemble Index" src="/img/appendix/Ensemble_Index_copy.png" /></p>
+<p>The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is a list of ensembles that the latest RTM is using:</p>
+<blockquote>
+<p><img alt="Ensemble Index" src="../img/appendix/Ensemble_Index.png" /></p>
+</blockquote>
+<p>Download <a href="../img/appendix/Ensemble_Index.pdf" title="Ensemble_Index.pdf">Ensemble_Index.pdf</a></p>
 <!-- links -->
               
             </div>
@@ -874,7 +892,7 @@ Note that the boarding perception factor used for transfer boarding only. The mo
     
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -884,7 +902,7 @@ Note that the boarding perception factor used for transfer boarding only. The mo
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -900,11 +918,6 @@ Note that the boarding perception factor used for transfer boarding only. The mo
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
 
 </body>
 </html>

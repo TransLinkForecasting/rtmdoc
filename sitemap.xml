@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/workflow/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
-    </url><url>
+    </url>
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/data_outputs/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
-    </url><url>
+    </url>
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/data_analysis/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
-    </url><url>
+    </url>
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/data_generate/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
-    </url><url>
+    </url>
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/appendix/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
-    </url><url>
+    </url>
+    <url>
      <loc>https://translinkforecasting.github.io/rtmdoc/about/contributing/</loc>
      <lastmod>2020-02-25</lastmod>
      <changefreq>daily</changefreq>
