@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/appendix/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Appendix - RTM</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Appendix";
+    var mkdocs_page_input_path = "appendix.md";
+    var mkdocs_page_url = "/rtmdoc/appendix/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> RTM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Appendix</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#modes-and-vehicles">Modes and Vehicles</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#link-mode">Link mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transit-mode">Transit mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transit-vehicle-capacity-and-cost">Transit Vehicle Capacity and Cost</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#volume-delay-function">Volume Delay Function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#time-of-assginment">Time of Assginment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expansion-factor">Expansion Factor</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#all-class">All Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#by-category">By Category</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transit-ridership">Transit Ridership</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#annual-factor">Annual Factor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transit-perception-factor">Transit Perception Factor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#matrix">Matrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ensembles">Ensembles</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">RTM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Appendix</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h1>
+<p>In this section, you will find some useful infomation you may need to use in your RTM application project. Some of them are RTM assumptions and some of them are the calibrated factors. This document could be a dictionary of the model components.</p>
+<h2 id="modes-and-vehicles">Modes and Vehicles<a class="headerlink" href="#modes-and-vehicles" title="Permanent link">&para;</a></h2>
+<p>This section shows the link and transit mode, and transit vehicle type</p>
+<h3 id="link-mode">Link mode<a class="headerlink" href="#link-mode" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>Vehicles (Primary Auto Mode)</td>
+</tr>
+<tr>
+<td>c</td>
+<td>High Occupancy Vehicles (HOV)</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Single Occupancy Vehicles (SOV)</td>
+</tr>
+<tr>
+<td>x</td>
+<td>Light Trucks</td>
+</tr>
+<tr>
+<td>t</td>
+<td>Heavy Trucks</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Discourage Heavy Vehicle Traffic</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Bus</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Pedestrian</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Auxillary Transit Access</td>
+</tr>
+<tr>
+<td>l</td>
+<td>SkyTrain</td>
+</tr>
+<tr>
+<td>r</td>
+<td>Commuter Rail (WCE)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>SeaBus</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Gondola</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transit-mode">Transit mode<a class="headerlink" href="#transit-mode" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>Bus</td>
+</tr>
+<tr>
+<td>l</td>
+<td>SkyTrain</td>
+</tr>
+<tr>
+<td>r</td>
+<td>Commuter Rail (WCE)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>SeaBus</td>
+</tr>
+<tr>
+<td>g</td>
+<td>BRT</td>
+</tr>
+<tr>
+<td>f</td>
+<td>LRT</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Gondola</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transit-vehicle-capacity-and-cost">Transit Vehicle Capacity and Cost<a class="headerlink" href="#transit-vehicle-capacity-and-cost" title="Permanent link">&para;</a></h3>
+<p>The table below gives a transit vehicle capacity and cost catalog. The value is used in the capacited transit assignment. </p>
+<table>
+<thead>
+<tr>
+<th>Transit Vehicle</th>
+<th>Mode</th>
+<th>Fleet Size</th>
+<th>Capacity(S/T)</th>
+<th>OC($/h)</th>
+<th>OC($/km)</th>
+<th>Auto. equ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.Motor-Bus</td>
+<td>b</td>
+<td>747</td>
+<td>35/50</td>
+<td>65</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>2.Trolley</td>
+<td>b</td>
+<td>224</td>
+<td>31/47</td>
+<td>65</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>3.Blue-Bus</td>
+<td>b</td>
+<td>48</td>
+<td>31/47</td>
+<td>65</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>4.Sea-Bus</td>
+<td>s</td>
+<td>2</td>
+<td>300/400</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5.Sky-E</td>
+<td>l</td>
+<td>999</td>
+<td>88/287</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6.pcl-bus</td>
+<td>b</td>
+<td>20</td>
+<td>50/50</td>
+<td>30</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>7.Abbotsford</td>
+<td>b</td>
+<td>12</td>
+<td>48/60</td>
+<td>30</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>8.Comrail-5</td>
+<td>r</td>
+<td>5</td>
+<td>1500/1650</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>9.Chilliwack</td>
+<td>b</td>
+<td>12</td>
+<td>48/60</td>
+<td>30</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>10.Mot-Artics</td>
+<td>b</td>
+<td>42</td>
+<td>48/90</td>
+<td>65</td>
+<td>0.55</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>11.Tro-Artics</td>
+<td>b</td>
+<td>1</td>
+<td>49/70</td>
+<td>65</td>
+<td>0.55</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>12.HwyCoach</td>
+<td>b</td>
+<td>66</td>
+<td>49/49</td>
+<td>65</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>13.MiniBus</td>
+<td>b</td>
+<td>40</td>
+<td>20/24</td>
+<td>65</td>
+<td>0.55</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>14.Sky-M</td>
+<td>l</td>
+<td>999</td>
+<td>140/300</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>15.Sky-Sh</td>
+<td>l</td>
+<td>999</td>
+<td>150/350</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>16.BRT</td>
+<td>g</td>
+<td>42</td>
+<td>60/105</td>
+<td>0</td>
+<td>0</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>17.LRT</td>
+<td>f</td>
+<td>1</td>
+<td>160/300</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>18.Gondola</td>
+<td>h</td>
+<td>20</td>
+<td>28/35</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>20.Sky-ML2</td>
+<td>l</td>
+<td>999</td>
+<td>127/218</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>31.EL-2017</td>
+<td>l</td>
+<td>999</td>
+<td>174/424</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>32.EL-2030</td>
+<td>l</td>
+<td>999</td>
+<td>143/509</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33.EL-2045</td>
+<td>l</td>
+<td>999</td>
+<td>143/509</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>34.ML-2017</td>
+<td>l</td>
+<td>999</td>
+<td>66/222</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>35.ML-2030</td>
+<td>l</td>
+<td>999</td>
+<td>132/444</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>35.ML-2030</td>
+<td>l</td>
+<td>999</td>
+<td>132/444</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>36.ML-2045</td>
+<td>l</td>
+<td>999</td>
+<td>132/444</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>37.CL-2017</td>
+<td>l</td>
+<td>999</td>
+<td>88/288</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>38.CL-2030</td>
+<td>l</td>
+<td>999</td>
+<td>88/288</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>39.CL-2045</td>
+<td>l</td>
+<td>999</td>
+<td>110/360</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="volume-delay-function">Volume Delay Function<a class="headerlink" href="#volume-delay-function" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>VDF</th>
+<th>Description</th>
+<th>Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>Centroid Connector</td>
+<td>length x 60/40</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Bowen Island Service</td>
+<td>40 + (volume-100) x 60/volume x (volume&gt;=100)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Highway Merge Lane</td>
+<td>length x 60/posted_speed + 0.85 x (volume/(capacity x lanes))^5</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Stop Sign and Signal</td>
+<td>signal_delay + length x 60/posted_speed + 0.85 x (volume/(capacity x lanes))^4</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Free Flow</td>
+<td>length x 60/posted_speed x (1+0.6 x 0.85 x (volume/(capacity x lanes^1.05))^5)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Free Flow</td>
+<td>length x 60/(posted_speed x 1.1) x (1+0.6 x 0.43 x (volume/(capacity x lanes^1.05))^5.25)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="time-of-assginment">Time of Assginment<a class="headerlink" href="#time-of-assginment" title="Permanent link">&para;</a></h2>
+<p>The RTM model only handles 3 scenarios in each databank. Each scenario stores one-hour assignment result, and it is used to represent various periods throughout the day.</p>
+<table>
+<thead>
+<tr>
+<th>Peak Period</th>
+<th>Hour</th>
+<th>Hours of the day represented</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AM</td>
+<td>07:30 - 08:30</td>
+<td>06:00 - 10:00</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>12:00 - 13:00</td>
+<td>10:00 - 15:00, 18:00 - 06:00</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>16:30 - 17:30</td>
+<td>15:00 - 18:00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expansion-factor">Expansion Factor<a class="headerlink" href="#expansion-factor" title="Permanent link">&para;</a></h2>
+<p>The traffic expansion factor is to convert the model assigned hourly traffic volume to daily volume. The factor set has a generic set and categorized set. Both sets can be used according to the study purpose.</p>
+<h3 id="all-class">All Class<a class="headerlink" href="#all-class" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>AM</th>
+<th>MD</th>
+<th>PM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.68</td>
+<td>9.20</td>
+<td>3.11</td>
+</tr>
+</tbody>
+</table>
+<h3 id="by-category">By Category<a class="headerlink" href="#by-category" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>AM</th>
+<th>MD</th>
+<th>PM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOV</td>
+<td>3.44</td>
+<td>8.41</td>
+<td>3.95</td>
+</tr>
+<tr>
+<td>HOV</td>
+<td>1.51</td>
+<td>8.58</td>
+<td>5.32</td>
+</tr>
+<tr>
+<td>SOV+HOV</td>
+<td>3.22</td>
+<td>8.63</td>
+<td>4.05</td>
+</tr>
+<tr>
+<td>LGV</td>
+<td>3.59</td>
+<td>5.63</td>
+<td>6.17</td>
+</tr>
+<tr>
+<td>HGV</td>
+<td>4.88</td>
+<td>5.43</td>
+<td>6.36</td>
+</tr>
+<tr>
+<td>LGV+HGV</td>
+<td>3.83</td>
+<td>5.81</td>
+<td>6.63</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transit-ridership">Transit Ridership<a class="headerlink" href="#transit-ridership" title="Permanent link">&para;</a></h3>
+<p>The transit expansion factor converts the hourly transit ridership to daily value. Like auto traffic, the factor set is classed by different types of service. The value shows below. (*SeaBus has the same factor with Rail)</p>
+<table>
+<thead>
+<tr>
+<th>Transit mode</th>
+<th>AM</th>
+<th>MD</th>
+<th>PM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus</td>
+<td>2.54</td>
+<td>9.44</td>
+<td>2.57</td>
+</tr>
+<tr>
+<td>SkyTrain</td>
+<td>2.53</td>
+<td>9.54</td>
+<td>2.92</td>
+</tr>
+<tr>
+<td>WCE</td>
+<td>3.34</td>
+<td>-</td>
+<td>2.02</td>
+</tr>
+</tbody>
+</table>
+<h2 id="annual-factor">Annual Factor<a class="headerlink" href="#annual-factor" title="Permanent link">&para;</a></h2>
+<p>The annual expansion factor is to expend the daily volume on typical fall weekday to yearly volume. The generic expansion factor, including all vehicle classes, is 333. And the factors for each class are shown below: </p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All Classes</td>
+<td>333</td>
+</tr>
+<tr>
+<td>Auto</td>
+<td>335</td>
+</tr>
+<tr>
+<td>LGV</td>
+<td>313</td>
+</tr>
+<tr>
+<td>HGV</td>
+<td>276</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>299</td>
+</tr>
+<tr>
+<td>Skytrain</td>
+<td>331</td>
+</tr>
+<tr>
+<td>WCE</td>
+<td>224</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transit-perception-factor">Transit Perception Factor<a class="headerlink" href="#transit-perception-factor" title="Permanent link">&para;</a></h2>
+<p>Transit perception is a factor that can reflect the user’s feeling about taking transit in each stage. It is used in the mode choice model. The values are cited from the literature with some minor adjustment based on local knowledge.
+Note that the boarding perception factor used for transfer boarding only. The model assumed there is no penalty for initial boarding. Current model only account perception impact for work purpose only.</p>
+<table>
+<thead>
+<tr>
+<th>Bus/Rail/WCE</th>
+<th>Time Component</th>
+<th>Matrix</th>
+<th>EMME Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus</td>
+<td>In-vehicle</td>
+<td>ms300</td>
+<td>busIVTprcpWk</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Wait</td>
+<td>ms301</td>
+<td>busWAITprcpWk</td>
+<td>2.50</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Walk</td>
+<td>ms302</td>
+<td>busWALKprcpWk</td>
+<td>2.00</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Boarding</td>
+<td>ms303</td>
+<td>busBOARDSprcpWk</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>Rail</td>
+<td>In-vehicle</td>
+<td>ms310</td>
+<td>railIVTprcpWk</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Wait</td>
+<td>ms311</td>
+<td>railWAITprcpWk</td>
+<td>2.50</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Walk</td>
+<td>ms312</td>
+<td>railWALKprcpWk</td>
+<td>2.00</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Boarding</td>
+<td>ms313</td>
+<td>railBOARDSprcpWk</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>WCE</td>
+<td>In-vehicle</td>
+<td>ms320</td>
+<td>wceIVTprcpWk</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Wait</td>
+<td>ms321</td>
+<td>wceWAITprcpWk</td>
+<td>2.50</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Walk</td>
+<td>ms322</td>
+<td>wceWALKprcpWk</td>
+<td>2.00</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Boarding</td>
+<td>ms323</td>
+<td>wceBOARDSprcpWk</td>
+<td>10.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="matrix">Matrix<a class="headerlink" href="#matrix" title="Permanent link">&para;</a></h2>
+<p>Over henduard matrices are used in the RTM simulation. Here is a list showing the matrices grouped by the functions</p>
+<p><img alt="Ensemble Index" src="/docs/img/appendix/Matrix%20Index.png" /></p>
+<p>Click <a href="">here</a> to see the full list of the matrix</p>
+<h2 id="ensembles">Ensembles<a class="headerlink" href="#ensembles" title="Permanent link">&para;</a></h2>
+<p>The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is a list of ensembles that the latest RTM is using.
+<img alt="Ensemble Index" src="/docs/img/appendix/Ensemble%20Index.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../data_generate/" class="btn btn-neutral" title="Custom Data Generation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2020 TransLink Forecasting</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../data_generate/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
