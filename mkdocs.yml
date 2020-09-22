@@ -17,7 +17,12 @@ nav:
             - data_outputs.md
             - data_analysis.md
             - data_generate.md
-            - appendix.md
+    - 'Developer Guide':
+            - dev_getting_started.md
+            - coding_standard.md
+    - 'References':
+            - naming_conventions.md
+            - data_assumptions.md
     - About:
             - about/contributing.md
             # - about/release-notes.md
