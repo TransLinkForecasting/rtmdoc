@@ -1,4 +1,4 @@
-# Appendix
+# Data and Assumptions
 
 In this section, you will find some useful infomation you may need to use in your RTM application project. Some of them are RTM assumptions and some of them are the calibrated factors. This document could be a dictionary of the model components.
 
@@ -161,7 +161,7 @@ WCE | In-vehicle | ms320 | wceIVTprcpWk                                      | 1
 
 Over thousand matrices are used in the RTM simulation. Here is a list showing the matrices grouped by type and function:
 
-> ![Ensemble Index](img/appendix/Matrix_Index.png)
+> ![Ensemble Index](img/reference/Matrix_Index.png)
 
 For the full list, see [matrix list page].
 
@@ -170,10 +170,10 @@ For the full list, see [matrix list page].
 
 The ensemble is a useful tool to group the zones by different purposes, either for geographical mapping or model calculating. There are various ensembles in the RTM model. Some of them are under implementation. Some of them are historically used and not functional at this moment, but we keep them as a placeholder for future usage. Here is a list of ensembles that the latest RTM is using:
 
-> ![Ensemble Index](img/appendix/Ensemble_Index.png)
+> ![Ensemble Index](img/reference/Ensemble_Index.png)
 
 Download [Ensemble_Index.pdf]
 
 <!-- links -->
 [matrix list page]: ../matrix_list/
-[Ensemble_Index.pdf]: img/appendix/Ensemble_Index.pdf "Ensemble_Index.pdf"
+[Ensemble_Index.pdf]: img/reference/Ensemble_Index.pdf "Ensemble_Index.pdf"
