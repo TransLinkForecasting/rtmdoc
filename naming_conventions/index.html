@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RTM documentation for users and developers.">
+  
   <meta name="author" content="TransLink Forecasting">
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>RTM - RTM</title>
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Naming Conventions - RTM</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="css/extra.css" rel="stylesheet">
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "RTM";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/rtmdoc/";
+    var mkdocs_page_name = "Naming Conventions";
+    var mkdocs_page_input_path = "naming_conventions.md";
+    var mkdocs_page_url = "/rtmdoc/naming_conventions/";
   </script>
   
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
@@ -49,9 +49,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> RTM</a>
+        <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -67,19 +67,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="workflow/">Model Workflow</a>
+    <a class="" href="../workflow/">Model Workflow</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="data_outputs/">Model Data Output</a>
+    <a class="" href="../data_outputs/">Model Data Output</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="data_analysis/">Model Data Analysis</a>
+    <a class="" href="../data_analysis/">Model Data Analysis</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="data_generate/">Custom Data Generation</a>
+    <a class="" href="../data_generate/">Custom Data Generation</a>
                 </li>
     </ul>
 	    </li>
@@ -90,11 +90,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="dev_getting_started/">Getting Started</a>
+    <a class="" href="../dev_getting_started/">Getting Started</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="coding_standard/">Coding Standard</a>
+    <a class="" href="../coding_standard/">Coding Standard</a>
                 </li>
     </ul>
 	    </li>
@@ -103,13 +103,25 @@
 		
     <span class="caption-text">References</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="naming_conventions/">Naming Conventions</a>
+    <a class="current" href="./">Naming Conventions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#naming-conventions">Naming Conventions</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#matrix-names">Matrix Names</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="data_assumptions/">Data and Assumptions</a>
+    <a class="" href="../data_assumptions/">Data and Assumptions</a>
                 </li>
     </ul>
 	    </li>
@@ -120,7 +132,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="about/contributing/">Contributing</a>
+    <a class="" href="../about/contributing/">Contributing</a>
                 </li>
     </ul>
 	    </li>
@@ -135,7 +147,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">RTM</a>
+        <a href="..">RTM</a>
       </nav>
 
       
@@ -143,11 +155,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>References &raquo;</li>
+        
+      
     
-    <li>RTM</li>
+    <li>Naming Conventions</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -157,18 +173,76 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rtm">RTM<a class="headerlink" href="#rtm" title="Permanent link">&para;</a></h1>
-<p>The Greater Vancouver Regional Travel Model (RTM) is a four-step travel demand model developed and maintained by the South Coast British Columbia Transportation Authority (also known as TransLink). It provides long-range forecast and informs major transportation investments and policy decisions for the Metro Vancouver Regional District (MVRD).</p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>The RTM is a package of software that extends the functionalities of INRO EMME to model travel behaviors in the MVRD. The RTM software, written in python for EMME, handles all aspect of the four-step travel demand model: trip generation, trip distribution, mode choice, and network assignment. The RTM takes advantage of EMME's network editor and network assignment capability to capture user equilibrium network conditions.</p>
-<p>The latest version of the model is based on: <a href="https://www.translink.ca/Plans-and-Projects/Transportation-Surveys.aspx">2011 Trip Diary and Screenline Survey</a>; Metro Vancouver Regional Growth Projections; and <a href="https://www2.gov.bc.ca/gov/content/data/geographic-data-services/topographic-data/roads">BC Provincial Digital Road Atlas</a>.</p>
-<h2 id="get-in-touch">Get in touch<a class="headerlink" href="#get-in-touch" title="Permanent link">&para;</a></h2>
-<p>If you require access to the RTM or would like to stay in touch, see <a href="about/contributing">Contributing</a>.</p>
-<!-- Links -->
+                <h1 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h1>
+<h2 id="matrix-names">Matrix Names<a class="headerlink" href="#matrix-names" title="Permanent link">&para;</a></h2>
+<p>Matrix names stored either as intermediate or final data will have the following naming conventions:</p>
+<ul>
+<li>Data Type (dtype)<ul>
+<li>DLT – Daily trips (Logsum)</li>
+<li>LSM – Logsum utility (Logsum)</li>
+<li>AMT – AM trips (Logsum)</li>
+<li>MDT – Midday trips (Logsum)</li>
+<li>PMT – PM trips (Logsum)</li>
+<li>AMM – AM time (ROH)</li>
+<li>MDM – Midday time (ROH)</li>
+<li>PMM – PM constant (ROH)</li>
+<li>AMC – AM constant (ROH)</li>
+<li>MDC – Midday constant (ROH)</li>
+<li>PMC – PM constant (ROH)</li>
+</ul>
+</li>
+<li>Purpose<ul>
+<li>HWRK – Home-based work</li>
+<li>HUNI – Home-based university</li>
+<li>HSCH – Home-based school</li>
+<li>HSHP – Home-based shopping</li>
+<li>HPBS – Home-based personal business</li>
+<li>HSOC – Home-based social</li>
+<li>HESC – Home-based escort</li>
+<li>NWRK – Non-home-based work</li>
+<li>NOTH – Non-home-based other</li>
+</ul>
+</li>
+<li>Income<ul>
+<li>I1 – low </li>
+<li>I2 – medium </li>
+<li>I3 – high </li>
+<li>I9 – all </li>
+</ul>
+</li>
+<li>Auto Ownership<ul>
+<li>A0 – no car</li>
+<li>A1 – 1 car</li>
+<li>A2 – 2 cars</li>
+<li>A9 – all </li>
+</ul>
+</li>
+<li>Mode<ul>
+<li>SOV – single occupancy vehicle</li>
+<li>HOV – high occupancy vehicle</li>
+<li>BUS – bus</li>
+<li>RAL – rail</li>
+<li>WCE – West Coast Express</li>
+<li>LGV – light truck</li>
+<li>HGV – heavy truck</li>
+</ul>
+</li>
+</ul>
+<p>This is an example for <em>daily trip for home-based work, low income and 1-car household</em>:</p>
+<p><img alt="Matrix Names" src="../img/reference/Matrix_Names.png" /></p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../data_assumptions/" class="btn btn-neutral float-right" title="Data and Assumptions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../coding_standard/" class="btn btn-neutral" title="Coding Standard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -196,17 +270,16 @@
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../coding_standard/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../data_assumptions/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-09-22 17:34:56
--->
