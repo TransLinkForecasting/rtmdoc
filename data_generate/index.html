@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/data_generate/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Custom Data Generation - RTM</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,9 +26,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -48,6 +49,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
@@ -58,92 +60,62 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../workflow/">Model Workflow</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_outputs/">Model Data Output</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_analysis/">Model Data Analysis</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Custom Data Generation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#custom-data-generation">Custom Data Generation</a></li>
-    
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Custom Data Generation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#python-script-vs-modeller-tool">Python script vs modeller tool</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#python-script-vs-modeller-tool">Python script vs modeller tool</a></li>
-        
-            <li><a class="toctree-l4" href="#example-tool-for-pa-to-od">Example Tool for PA to OD</a></li>
-        
-            <li><a class="toctree-l4" href="#using-the-notebook">Using the notebook</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#executing-a-python-script-from-the-emme-ipython-shell">Executing a python script from the EMME iPython shell</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../dev_getting_started/">Getting Started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../coding_standard/">Coding Standard</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">References</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../naming_conventions/">Naming Conventions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_assumptions/">Data and Assumptions</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">About</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../about/contributing/">Contributing</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-tool-for-pa-to-od">Example Tool for PA to OD</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-does-it-run">Why does it run?</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-notebook">Using the notebook</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#connect-to-emme-modeler">Connect to EMME Modeler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#listing-databanks">Listing databanks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#build-functions">Build functions</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">References</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -172,6 +144,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -197,7 +170,7 @@
 <p>From there we can query and view the results</p>
 <p><img alt="querytable" src="../img/data_generation/pad2od_02_query.png" /></p>
 <h3 id="why-does-it-run">Why does it run?<a class="headerlink" href="#why-does-it-run" title="Permanent link">&para;</a></h3>
-<pre><code class="python">    if __name__ == '__main__':
+<pre><code class="language-python">    if __name__ == '__main__':
 
     eb = _m.Modeller().emmebank
     # run with ensemble name and ensem_agg = True to aggregate
@@ -205,13 +178,12 @@
     # note, TAZ level results create very large file
     main(eb, ensem='gy', ensem_agg=True)
 </code></pre>
-
 <p>And why does this work?  See this video on <a href="https://www.youtube.com/watch?v=sugvnHA7ElY">YouTube Name and Main</a></p>
 <h2 id="using-the-notebook">Using the notebook<a class="headerlink" href="#using-the-notebook" title="Permanent link">&para;</a></h2>
 <p>The EMME Notebook is a powerful tool to generate results and summary data across many model runs. To demonstrate this, we took the base case model and varied the park and ride price on a particular park and ride lot. We run a separate model run for each park and ride price point. Then, we summarized the result across all of these model runs.</p>
 <h3 id="connect-to-emme-modeler">Connect to EMME Modeler<a class="headerlink" href="#connect-to-emme-modeler" title="Permanent link">&para;</a></h3>
 <p>When working with Jupyter Notebook within EMME, you need to import some basic libraries and toolboxes first, then connect to EMME desktop and databank.</p>
-<pre><code class="python">import inro.modeller as _m
+<pre><code class="language-python">import inro.modeller as _m
 import inro.emme.desktop as _d
 import csv
 import os
@@ -232,24 +204,21 @@ ebs = de.databases()
 util = _m.Modeller().tool(&quot;translink.util&quot;)
 
 </code></pre>
-
 <h3 id="listing-databanks">Listing databanks<a class="headerlink" href="#listing-databanks" title="Permanent link">&para;</a></h3>
 <p>Within the Notebook scripting environment, you have access to all of the databank that is loaded in your project, you can list them all to verify.</p>
-<pre><code class="python"># make sure modeller is closed or it will print to the python console in there
+<pre><code class="language-python"># make sure modeller is closed or it will print to the python console in there
 counter = 0
 for eb in ebs:
     print counter, eb.title()
     counter += 1
 </code></pre>
-
-<pre><code class="text">0 Minimal Base Databank
+<pre><code class="language-text">0 Minimal Base Databank
 1 pnr_bp_2016_250
 2 pnr_bp_2016_300
 </code></pre>
-
 <h3 id="build-functions">Build functions<a class="headerlink" href="#build-functions" title="Permanent link">&para;</a></h3>
 <p>To retrieve results from multiple runs, you should build a function to systematically get the results. In our example, we will get the lot usage at all park and ride lot, and export the results to csv.</p>
-<pre><code class="python">def get_all_pnr_usage(eb):
+<pre><code class="language-python">def get_all_pnr_usage(eb):
     scenario_tag = str(util.get_eb_path(eb).split('\\')[-1].split('_')[-1])
 
     df = util.get_pd_ij_df(eb)
@@ -294,7 +263,6 @@ all_pnr_usage_summary.to_csv(
     datetime.datetime.today().strftime('%Y-%m-%d') + '.csv',
     index=True)
 </code></pre>
-
 <p>Here is a snippet of the output data:</p>
 <table>
 <thead>
@@ -368,7 +336,7 @@ all_pnr_usage_summary.to_csv(
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -378,7 +346,7 @@ all_pnr_usage_summary.to_csv(
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -394,6 +362,11 @@ all_pnr_usage_summary.to_csv(
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

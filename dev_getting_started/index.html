@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/dev_getting_started/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Getting Started - RTM</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,9 +26,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -48,6 +49,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
@@ -58,88 +60,52 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../workflow/">Model Workflow</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_outputs/">Model Data Output</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_analysis/">Model Data Analysis</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_generate/">Custom Data Generation</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer Guide</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Getting Started</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#getting-started">Getting Started</a></li>
-    
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Getting Started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#setup">Setup</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#formatter-and-linter">Formatter and Linter</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#step-1-install-yapf-and-optionally-pylint">Step 1: install yapf, and optionally pylint</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-2-configure-formatting-setting-for-vs-code">Step 2: configure formatting setting for VS Code</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../coding_standard/">Coding Standard</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">References</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../naming_conventions/">Naming Conventions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_assumptions/">Data and Assumptions</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">About</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../about/contributing/">Contributing</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
         </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">References</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -168,6 +134,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -181,11 +148,10 @@
 <h3 id="formatter-and-linter">Formatter and Linter<a class="headerlink" href="#formatter-and-linter" title="Permanent link">&para;</a></h3>
 <h5 id="step-1-install-yapf-and-optionally-pylint">Step 1: install yapf, and optionally pylint<a class="headerlink" href="#step-1-install-yapf-and-optionally-pylint" title="Permanent link">&para;</a></h5>
 <p>Make sure you have the correct coding environment activated in your IDE, for example VS Code</p>
-<pre><code class="bash">pip install -U yapf
+<pre><code class="language-bash">pip install -U yapf
 pip install -U pylint
 </code></pre>
-
-<h5 id="step-2-configure-formatting-setting-example-for-vs-code">Step 2: configure formatting setting (example for VS Code)<a class="headerlink" href="#step-2-configure-formatting-setting-example-for-vs-code" title="Permanent link">&para;</a></h5>
+<h5 id="step-2-configure-formatting-setting-for-vs-code">Step 2: configure formatting setting for VS Code<a class="headerlink" href="#step-2-configure-formatting-setting-for-vs-code" title="Permanent link">&para;</a></h5>
 <p>To specify preset coding style and custom argument for presets, set the following argument for yapf in user settings:</p>
 <pre><code>{
     &quot;python.linting.enabled&quot;: true,
@@ -197,11 +163,11 @@ pip install -U pylint
     &quot;editor.formatOnSave&quot;: true,
 }
 </code></pre>
-
 <p>You may modify editor behavior such as <code>formatOnSave</code> as per your reference.</p>
 <p>For location of VS Code settings files, see <a href="https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations">VS Code Documentation on File Locations</a>.</p>
 <p>For references to VS Code settings, see <a href="https://code.visualstudio.com/docs/python/settings-reference#_formatting-settings">VS Code Documentation on Settings Reference</a>.</p>
 <!-- ## Model Structure
+
 
 ## Coding Example
 
@@ -236,7 +202,7 @@ Please see the following code example of "00_RunModel.py" for best practices aro
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -246,7 +212,7 @@ Please see the following code example of "00_RunModel.py" for best practices aro
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -262,6 +228,11 @@ Please see the following code example of "00_RunModel.py" for best practices aro
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

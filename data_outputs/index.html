@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/data_outputs/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Model Data Output - RTM</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,9 +26,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -48,6 +49,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
@@ -58,92 +60,56 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../workflow/">Model Workflow</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Model Data Output</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#model-data-output">Model Data Output</a></li>
-    
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Model Data Output</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exporting-full-matrix-directory">Exporting full matrix directory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#searching-for-matrices">Searching for matrices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-rtm-and-trip-summaries-databases">Using the rtm and trip summaries databases</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#exporting-full-matrix-directory">Exporting full matrix directory</a></li>
-        
-            <li><a class="toctree-l4" href="#searching-for-matrices">Searching for matrices</a></li>
-        
-            <li><a class="toctree-l4" href="#using-the-rtm-and-trip-summaries-databases">Using the rtm and trip summaries databases</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#database-queries">Database queries</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#query-example-traffic-zone-with-highest-employment-density">Query example: Traffic zone with highest employment density</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#query-example-total-vehicle-kilometers-vkt-by-peak-period-and-origin-gy">Query example: Total vehicle-kilometers (VKT) by peak period and origin GY</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_analysis/">Model Data Analysis</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_generate/">Custom Data Generation</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../dev_getting_started/">Getting Started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../coding_standard/">Coding Standard</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">References</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../naming_conventions/">Naming Conventions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_assumptions/">Data and Assumptions</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">About</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../about/contributing/">Contributing</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
         </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">References</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -172,6 +138,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -192,7 +159,7 @@
 <h2 id="searching-for-matrices">Searching for matrices<a class="headerlink" href="#searching-for-matrices" title="Permanent link">&para;</a></h2>
 <p>Now that we have the full matrix directory saved at the project level in the <code>RTM\data_tables.db</code> sqlite database, we can use SQL to search for matrices that are of interest.  Although there are a number of ways to access the database we recommend a sqlite viewer such as <a href="https://sqlitestudio.pl/index.rvt?act=download">SQLite Studio</a></p>
 <p>Suppose we are interested in commute trips and want to find home-based work production attraction (PA) matrices.  We can open the database in the sqlite viewer and execute the following query</p>
-<pre><code class="SQL">SELECT 
+<pre><code class="language-SQL">SELECT 
      Matrix
     ,[Name]
     ,[Description]
@@ -206,11 +173,10 @@ WHERE 1=1
     or  UPPER([Description]) LIKE '%WORK%'
 
 </code></pre>
-
 <p>Which yields the following results</p>
 <p><img alt="Screenshot" src="../img/data_output/mf_query_longresults.png" /></p>
 <p>We get 164 records, but can see the matrices we want highlighted in the red box.  Changing the <code>WHERE</code> clause returns only the results we want:</p>
-<pre><code class="SQL">SELECT 
+<pre><code class="language-SQL">SELECT 
      Matrix
     ,[Name]
     ,[Description]
@@ -220,11 +186,10 @@ FROM Fullmatrixdirectory
 WHERE 1=1
     and UPPER([Name]) LIKE 'HBWP-A%'
 </code></pre>
-
 <p>Now we get only 9 results, 3 income categories by 3 auto ownership levels</p>
 <p><img alt="Screenshot" src="../img/data_output/mf_query_shortresults.png" /></p>
 <p>Changing the <code>WHERE</code> clause as follows let's us see the PA tables for all home-based purposes</p>
-<pre><code class="SQL">SELECT 
+<pre><code class="language-SQL">SELECT 
      Matrix
     ,[Name]
     ,[Description]
@@ -234,11 +199,10 @@ FROM Fullmatrixdirectory
 WHERE 1=1
     and UPPER([Name]) LIKE 'HB%P-A%'
 </code></pre>
-
 <p>Note that we get 55 records.  There are 7 home-based purposes, but home-based university does not have income and auto-ownership distinction so 6 x 9 + 1 = 55.  </p>
 <p><img alt="Screenshot" src="../img/data_output/mf_query_hbresults.png" /></p>
 <p>Finally, we can add an 'N' to the <code>WHERE</code> clause to see the non-home-based purposes.  </p>
-<pre><code class="SQL">SELECT 
+<pre><code class="language-SQL">SELECT 
      Matrix
     ,[Name]
     ,[Description]
@@ -248,7 +212,6 @@ FROM Fullmatrixdirectory
 WHERE 1=1
     and UPPER([Name]) LIKE 'NH%P-A%'
 </code></pre>
-
 <p>And here we get 2 records because there are 2 non-home-based purposes and they do not have income and auto-ownership distinction. </p>
 <p><img alt="Screenshot" src="../img/data_output/mf_query_nhresults.png" /></p>
 <p>Similar methods can be used to find other data of interest</p>
@@ -297,9 +260,8 @@ The following tables contain some intermediate values and high-level model resul
 </blockquote>
 <h4 id="query-example-traffic-zone-with-highest-employment-density">Query example: Traffic zone with highest employment density<a class="headerlink" href="#query-example-traffic-zone-with-highest-employment-density" title="Permanent link">&para;</a></h4>
 <p>If you are trying to get the max value from a table, use the max(colname) builtin function.</p>
-<pre><code class="sql">SELECT max(empdens) FROM densities
+<pre><code class="language-sql">SELECT max(empdens) FROM densities
 </code></pre>
-
 <p>Results of the query would look something like this:</p>
 <table>
 <thead>
@@ -314,14 +276,13 @@ The following tables contain some intermediate values and high-level model resul
 </tbody>
 </table>
 <p>If you are trying to get the max value for a certain set of rows, for instance, a certain range from taz, add <code>WHERE</code> statement</p>
-<pre><code class="sql">SELECT max(empdens) 
+<pre><code class="language-sql">SELECT max(empdens) 
 
 FROM densities 
 
 WHERE TAZ1700&gt;=10000 and 
       TAZ1700&lt;20000
 </code></pre>
-
 <p>Sample results of query:</p>
 <table>
 <thead>
@@ -338,7 +299,7 @@ WHERE TAZ1700&gt;=10000 and
 <p>Notice how traffic zones in the 10000 series have lower maximum employment density than the entire region.</p>
 <h4 id="query-example-total-vehicle-kilometers-vkt-by-peak-period-and-origin-gy">Query example: Total vehicle-kilometers (VKT) by peak period and origin GY<a class="headerlink" href="#query-example-total-vehicle-kilometers-vkt-by-peak-period-and-origin-gy" title="Permanent link">&para;</a></h4>
 <p>SQL is great at creating pivot tables from large dataset. The <code>sum</code> function computes total of values, and the <code>group by</code> statement define the variable which was used to aggregates the table values.</p>
-<pre><code class="sql">SELECT gy_i, 
+<pre><code class="language-sql">SELECT gy_i, 
        peak,
        sum(vkt) 
 
@@ -347,7 +308,6 @@ FROM autoVktGy
 GROUP BY gy_i,
          peak
 </code></pre>
-
 <p>Sample results of query:</p>
 <table>
 <thead>
@@ -431,7 +391,7 @@ GROUP BY gy_i,
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -441,7 +401,7 @@ GROUP BY gy_i,
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -457,6 +417,11 @@ GROUP BY gy_i,
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/workflow/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Model Workflow - RTM</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,9 +26,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -48,6 +49,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> RTM</a>
         <div role="search">
@@ -58,102 +60,118 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Model Workflow</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#model-workflow">Model Workflow</a></li>
-    
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Model Workflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloning-the-model">Cloning the Model</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
-        
-            <li><a class="toctree-l4" href="#cloning-the-model">Cloning the Model</a></li>
-        
-            <li><a class="toctree-l4" href="#folder-structure">Folder Structure</a></li>
-        
-            <li><a class="toctree-l4" href="#initialize-databank">Initialize Databank</a></li>
-        
-            <li><a class="toctree-l4" href="#build-scenario">Build Scenario</a></li>
-        
-            <li><a class="toctree-l4" href="#export-scenario">Export Scenario</a></li>
-        
-            <li><a class="toctree-l4" href="#run-model">Run Model</a></li>
-        
-            <li><a class="toctree-l4" href="#commit-changes">Commit Changes</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#update-file-references">Update File References</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_outputs/">Model Data Output</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_analysis/">Model Data Analysis</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_generate/">Custom Data Generation</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../dev_getting_started/">Getting Started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../coding_standard/">Coding Standard</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">References</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../naming_conventions/">Naming Conventions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data_assumptions/">Data and Assumptions</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">About</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../about/contributing/">Contributing</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#folder-structure">Folder Structure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#base-networks-folder">Base Networks Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripts-folder">Scripts Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-folders">Other Folders</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initialize-databank">Initialize Databank</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#with-emme-modeler">With EMME Modeler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#with-emme-notebook">With EMME Notebook</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-scenario">Build Scenario</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#network-editing">Network editing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-inputs">Custom Inputs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#custom-scalars">Custom Scalars</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#custom-network">Custom Network</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#custom-transit-lines">Custom Transit Lines</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#custom-transit-segments">Custom Transit Segments</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2050-brt-line">Example: 2050 BRT Line</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#step-1-add-new-modes">Step 1: add new modes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-2-create-new-scenarios">Step 2: create new scenarios</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-3-perform-network-editing">Step 3: perform network editing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-4-set-up-custom-inputs">Step 4: set up custom inputs</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#export-scenario">Export Scenario</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-network">Export Network</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#organize-scenario-inputs">Organize Scenario Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-model">Run Model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#emme-modeler">EMME Modeler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#emme-notebook">EMME Notebook</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit Changes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#push-changes-to-github">Push Changes to GitHub</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">References</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -182,6 +200,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -195,7 +214,7 @@
 <li>Licensed installation of <a href="https://blog.inrosoftware.com/blog/emme-4.4-release">EMME Desktop 4.4.2</a></li>
 <li>Installation of <a href="https://git-scm.com/docs">git</a></li>
 <li>Installation of <a href="https://git-lfs.github.com/">git lfs</a></li>
-<li>Installation of <a href="https://sqlitestudio.pl/index.rvt?act=download">SQLite Studio</a></li>
+<li>Installation of <a href="https://sqlitestudio.pl/">SQLite Studio</a></li>
 <li>Installation of <a href="https://code.visualstudio.com/download">Visual Studio Code</a> (optional)</li>
 </ul>
 <div class="admonition note">
@@ -204,31 +223,28 @@
 </div>
 <h2 id="cloning-the-model">Cloning the Model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
 <p>To get the latest version of the rtm, clone it from the RTM github repository. The following bash commands will clone the repository from the master branch, and fetch the latest commit with large file storage support. Then, it will checkout the current branch into a new branch named <code>master_working_01</code>. We recommend that you rename the new branch based on the project you are working on:</p>
-<pre><code class="bash">git clone https://github.com/TransLinkForecasting/rtm.git --branch master --single-branch
+<pre><code class="language-bash">git clone https://github.com/TransLinkForecasting/rtm.git --branch master --single-branch
 cd rtm/
 git fetch --all
 git lfs install
 git lfs pull
 git checkout -b 'master_working_01'
 </code></pre>
-
 <p>To clone a specific official release, replace <code>master</code> with a version tag such as <code>RTM3.3</code>. If this is the first time you use git, you might need to set your name and email for git commits, see <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>.</p>
 <h3 id="update-file-references">Update File References<a class="headerlink" href="#update-file-references" title="Permanent link">&para;</a></h3>
 <p>EMME toolbox stores absolute paths and they need to be updated when the model has been copied or moved to a new directory. Please also run the following after you clone the model:</p>
-<pre><code class="bash">cd 'RTM/Scripts/'
+<pre><code class="language-bash">cd 'RTM/Scripts/'
 bash 'relocate_tools.sh'
 </code></pre>
-
 <p>Alternatively, you can run the batch file on Windows:</p>
-<pre><code class="bash">cd 'RTM/Scripts/'
+<pre><code class="language-bash">cd 'RTM/Scripts/'
 start 'relocate_tools.bat'
 </code></pre>
-
 <h2 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">&para;</a></h2>
 <p>The RTM is delivered as a collection of input files in the <code>BaseNetworks/</code> folder with a collection of python scripts in <code>Scripts/</code> folder. The EMME project file <code>RTM.emp</code> references all required folders and is loaded with a <code>Minimal Base Databank</code> stored in <code>Template/</code> folder.</p>
 <p>Everything stored within the <code>RTM</code> folder is considered project-level, and run specific inputs are stored in the <code>BaseNetworks/</code> folder.</p>
 <p>Before running the model, familiarize yourself with the model folder structure. </p>
-<pre><code class="Markdown">    RTM/
+<pre><code class="language-Markdown">    RTM/
     ├── BaseNetworks/
     │   └── Inputs/
     │
@@ -242,7 +258,6 @@ start 'relocate_tools.bat'
     │
     └── RTM.emp
 </code></pre>
-
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not delete the <code>Minimal Base Databank</code> in EMME or the <code>Template/</code> folder. This is an empty placeholder databank that is packaged with the RTM to enable the initialization of databank through EMME Modeler or EMME Notebook.</p>
@@ -267,7 +282,7 @@ start 'relocate_tools.bat'
 <li>Transit bias calibrations: <code>transit_adj.csv</code></li>
 <li>Truck model batch files: <code>TruckBatchFiles/*</code></li>
 </ul>
-<pre><code class="Markdown">    RTM/
+<pre><code class="language-Markdown">    RTM/
     ├── BaseNetworks/
     │   ├── base_network_*.txt
     │   ├── link_shape_*.txt
@@ -301,7 +316,6 @@ start 'relocate_tools.bat'
     │               └── RGBatchIn.txt
     └── ...
 </code></pre>
-
 <p></p>
 
 <h3 id="scripts-folder">Scripts Folder<a class="headerlink" href="#scripts-folder" title="Permanent link">&para;</a></h3>
@@ -314,7 +328,7 @@ start 'relocate_tools.bat'
 <li>Analytics toolbox: <code>Phase3Analytics/</code></li>
 <li>Tools toolbox: <code>Phase3Tools/</code></li>
 </ul>
-<pre><code class="Markdown">    RTM/
+<pre><code class="language-Markdown">    RTM/
     ├── Scripts/
     │   ├── relocate_tools.bat
     │   ├── relocate_tools.sh
@@ -327,7 +341,6 @@ start 'relocate_tools.bat'
     │   └── Phase3Tools/
     └── ...
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Scripts control the model behavior of the RTM. You are free to go through the script to familiarize with the implementation of the model. For more information regarding the modeling structure of the RTM, modeling decisions, data sources, estimation of sub models, please <a href="../about/contributing">contact us</a>.</p>
@@ -343,7 +356,7 @@ start 'relocate_tools.bat'
 <li><code>View</code> folder contains standard views provided in the EMME environment.</li>
 <li><code>Worksheets</code> folder contains standardized worksheets in the EMME environment.</li>
 </ul>
-<pre><code class="Markdown">    RTM/
+<pre><code class="language-Markdown">    RTM/
     ├── Media/
     ├── Documentation/
     ├── Logbook/
@@ -352,7 +365,6 @@ start 'relocate_tools.bat'
     ├── Worksheets/
     └── ...
 </code></pre>
-
 <h2 id="initialize-databank">Initialize Databank<a class="headerlink" href="#initialize-databank" title="Permanent link">&para;</a></h2>
 <p>You can initialize a single databank using the EMME Modeler or initialize multiple databanks using EMME Notebook, depending on your need.</p>
 <p>To start the EMME, open the <img alt="Icon" src="../img/RTM_emp_icon.png" /> file. This will launch EMME, open the Minimal Base Databank's Placeholder Scenario when prompted.</p>
@@ -648,7 +660,7 @@ start 'relocate_tools.bat'
 </blockquote>
 <h3 id="organize-scenario-inputs">Organize Scenario Inputs<a class="headerlink" href="#organize-scenario-inputs" title="Permanent link">&para;</a></h3>
 <p>We highly recommend that you store every input required to rebuild your new scenario and replicate your model run within a sub folder of the <code>Scenario_Inputs</code> folder. For our example, this would be the folder structure for all the changes we have made in our BRT example:</p>
-<pre><code class="Markdown">    RTM/
+<pre><code class="language-Markdown">    RTM/
     ├── Scenario_Inputs/
     │   └── 01_2050-20-hw8-cp_Lg_BRT-g/
     │         ├── custom_network.txt
@@ -670,7 +682,6 @@ start 'relocate_tools.bat'
     │               └── RTM_8ZonePolygon.shp
     └── ...
 </code></pre>
-
 <h2 id="run-model">Run Model<a class="headerlink" href="#run-model" title="Permanent link">&para;</a></h2>
 <p>You can run the model using a single databank using the EMME Modeler or run multiple databanks using the EMME Notebook, depending on your need. </p>
 <h3 id="emme-modeler">EMME Modeler<a class="headerlink" href="#emme-modeler" title="Permanent link">&para;</a></h3>
@@ -754,9 +765,8 @@ start 'relocate_tools.bat'
 </div>
 <h3 id="push-changes-to-github">Push Changes to GitHub<a class="headerlink" href="#push-changes-to-github" title="Permanent link">&para;</a></h3>
 <p>If you are a collaborator, you may push your changes to the rtm repository on GitHub. You will not be able to push directly to most of the branches already on the rtm repository as they are protected, so always push your working branch and merge to any main branch with a pull request. An admin will review your changes when you submit a pull request.</p>
-<pre><code class="bash">git push origin master_your-project
+<pre><code class="language-bash">git push origin master_your-project
 </code></pre>
-
 <p>Learn more about <a href="https://git-scm.com/docs">git</a> and read more about <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">GitHub pull request</a>.</p>
 <!-- Links -->
               
@@ -781,7 +791,7 @@ start 'relocate_tools.bat'
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -791,7 +801,7 @@ start 'relocate_tools.bat'
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -805,6 +815,11 @@ start 'relocate_tools.bat'
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
