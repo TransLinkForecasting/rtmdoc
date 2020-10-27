@@ -554,7 +554,7 @@ Learn more about [git] and read more about [GitHub pull request].
 [SQL]: https://www.w3schools.com/sql/
 [git]: https://git-scm.com/docs
 [git lfs]: https://git-lfs.github.com/
-[SQLite Studio]: https://sqlitestudio.pl/index.rvt?act=download
+[SQLite Studio]: https://sqlitestudio.pl/
 [Visual Studio Code]: https://code.visualstudio.com/download
 [EMME]: https://www.inrosoftware.com/en/products/emme/
 [EMME Desktop 4.4.2]: https://blog.inrosoftware.com/blog/emme-4.4-release

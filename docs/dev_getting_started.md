@@ -21,7 +21,7 @@ pip install -U yapf
 pip install -U pylint
 ```
 
-##### Step 2: configure formatting setting (example for VS Code)
+##### Step 2: configure formatting setting for VS Code
 
 To specify preset coding style and custom argument for presets, set the following argument for yapf in user settings:
 
