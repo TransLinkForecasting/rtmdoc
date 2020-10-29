@@ -19,9 +19,14 @@ The coding standard for the RTM has two major comonent: guideline and compliance
     * **Imports**: separate lines of import starting with standard library, related third party, then local application imports.
     * **Comments**: block comments should explain following code and what and why they do or may be used to section the code.
     * **Docstring (Documentation String)**: docstring is required for all *modules*, *functions*, *classes*, and *methods*. It should contain short description of what, how, and why the code exists. When applicable, describe the input and output types of the function. For more specific conventions on docstring, see PEP 257.
-* Basic Naming Conventions:
+* Python Naming Conventions:
     * **Naming of classes**: CapitalizedWords
     * **Naming of functions and variables**: lower_case_with_underscores
+        * You may maintain matrix and constant naming conventions when declaring class level variables. For instant variables, lower_case_with_underscores is still preferred.
+* Data Naming Conventions
+    * **Naming of matrices**: DLTHWRKI1A1 
+        * see [Matrix Naming Conventions] for more
+    * **Naming of constants**: C_HWRKBIAS
 
 
 ### Function Abstraction
@@ -33,10 +38,15 @@ The coding standard for the RTM has two major comonent: guideline and compliance
 
 ### Data Management
 
-* Intermediate data should not be persisted into EMME databank.
-* Intermediate and final output data may be stored as omx data format, see [osPlanning/omx].
-* Intermediate and final output data should follow fixed length naming conventions based on attribute category, see [Matrix Naming Conventions] (note these categories may be used for long or wide table columns). The use of legacy EMME matrix numbering system should be avoided.
-* Definition of naming of array, matrices, and data tables may be specified with metadata configurations.
+* Intermediate data 
+    * must not be persisted into EMME databank. They may be persisted using fast and lightweight data storage such as [arrow for numpy] and [feather for pandas]. 
+    * should have descriptive names, and when possible, use the fixed length naming convention established in [Matrix Naming Conventions].
+    * should be removed after a model run (unless if running in test/debug mode).
+* Final output data 
+    * must be stored as EMME matrices, or into the omx data format (see [osPlanning/omx]).
+    * must follow fixed length naming conventions based on attribute category, see [Matrix Naming Conventions].
+* Do not use of legacy EMME matrix numbering system.
+* Definition of naming of array, matrices, and data tables may be specified with metadata configurations. This is especially useful when a large amount of intermediate data are carried across the modeling process.
 
 
 ### Managing Logging and Exceptions
@@ -52,7 +62,7 @@ The code checking tool and code review procedure are used to enforce the guideli
 
 
 ### Code Checking Tool
-Rules covered by PEP8 will be automatically checked upon any commit to the main RTM repository (feature to be launched on the main RTM repository).
+Rules covered by PEP8 will be automatically checked upon any commit to the main RTM repository (feature to be launched on the main RTM repository at a future date).
 
 
 ### Code Review Procedure
@@ -66,4 +76,5 @@ The code review procedure is to be conducted after the initiation of a Pull Requ
 [VS Code Documentation on Settings]: https://vscode.readthedocs.io/en/latest/getstarted/settings/
 [osPlanning/omx]: https://github.com/osPlanning/omx
 [pylint for GitHub]: https://github.com/marketplace/actions/github-action-for-pylint
-
+[arrow for numpy]: https://arrow.apache.org/docs/python/numpy.html#numpy-to-arrow
+[feather for pandas]: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_feather.html
