@@ -168,9 +168,20 @@
 <li><strong>Docstring (Documentation String)</strong>: docstring is required for all <em>modules</em>, <em>functions</em>, <em>classes</em>, and <em>methods</em>. It should contain short description of what, how, and why the code exists. When applicable, describe the input and output types of the function. For more specific conventions on docstring, see PEP 257.</li>
 </ul>
 </li>
-<li>Basic Naming Conventions:<ul>
+<li>Python Naming Conventions:<ul>
 <li><strong>Naming of classes</strong>: CapitalizedWords</li>
-<li><strong>Naming of functions and variables</strong>: lower_case_with_underscores</li>
+<li><strong>Naming of functions and variables</strong>: lower_case_with_underscores<ul>
+<li>You may maintain matrix and constant naming conventions when declaring class level variables. For instant variables, lower_case_with_underscores is still preferred.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Naming Conventions<ul>
+<li><strong>Naming of matrices</strong>: DLTHWRKI1A1 <ul>
+<li>see <a href="../naming_conventions/#matrix-names">Matrix Naming Conventions</a> for more</li>
+</ul>
+</li>
+<li><strong>Naming of constants</strong>: C_HWRKBIAS</li>
 </ul>
 </li>
 </ul>
@@ -184,10 +195,19 @@
 </ul>
 <h3 id="data-management">Data Management<a class="headerlink" href="#data-management" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Intermediate data should not be persisted into EMME databank.</li>
-<li>Intermediate and final output data may be stored as omx data format, see <a href="https://github.com/osPlanning/omx">osPlanning/omx</a>.</li>
-<li>Intermediate and final output data should follow fixed length naming conventions based on attribute category, see <a href="../naming_conventions/#matrix-names">Matrix Naming Conventions</a> (note these categories may be used for long or wide table columns). The use of legacy EMME matrix numbering system should be avoided.</li>
-<li>Definition of naming of array, matrices, and data tables may be specified with metadata configurations.</li>
+<li>Intermediate data <ul>
+<li>must not be persisted into EMME databank. They may be persisted using fast and lightweight data storage such as <a href="https://arrow.apache.org/docs/python/numpy.html#numpy-to-arrow">arrow for numpy</a> and <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_feather.html">feather for pandas</a>. </li>
+<li>should have descriptive names, and when possible, use the fixed length naming convention established in <a href="../naming_conventions/#matrix-names">Matrix Naming Conventions</a>.</li>
+<li>should be removed after a model run (unless if running in test/debug mode).</li>
+</ul>
+</li>
+<li>Final output data <ul>
+<li>must be stored as EMME matrices, or into the omx data format (see <a href="https://github.com/osPlanning/omx">osPlanning/omx</a>).</li>
+<li>must follow fixed length naming conventions based on attribute category, see <a href="../naming_conventions/#matrix-names">Matrix Naming Conventions</a>.</li>
+</ul>
+</li>
+<li>Do not use of legacy EMME matrix numbering system.</li>
+<li>Definition of naming of array, matrices, and data tables may be specified with metadata configurations. This is especially useful when a large amount of intermediate data are carried across the modeling process.</li>
 </ul>
 <h3 id="managing-logging-and-exceptions">Managing Logging and Exceptions<a class="headerlink" href="#managing-logging-and-exceptions" title="Permanent link">&para;</a></h3>
 <ul>
@@ -198,7 +218,7 @@
 <h2 id="compliance-and-procedure">Compliance and Procedure<a class="headerlink" href="#compliance-and-procedure" title="Permanent link">&para;</a></h2>
 <p>The code checking tool and code review procedure are used to enforce the guideline. The code checking tool enforces standard rules using automated tools such as <a href="https://github.com/marketplace/actions/github-action-for-pylint">pylint for GitHub</a>. Then, the review procedure is carried out to ensure area of compliance not covered by the code checking tool. The intention of the code checking tool is to minimize the compliance effort, so it will not replace the standard review procedure. If a commit does not meet compliance, it will be rejected by the RTM code maintainer with comments.</p>
 <h3 id="code-checking-tool">Code Checking Tool<a class="headerlink" href="#code-checking-tool" title="Permanent link">&para;</a></h3>
-<p>Rules covered by PEP8 will be automatically checked upon any commit to the main RTM repository (feature to be launched on the main RTM repository).</p>
+<p>Rules covered by PEP8 will be automatically checked upon any commit to the main RTM repository (feature to be launched on the main RTM repository at a future date).</p>
 <h3 id="code-review-procedure">Code Review Procedure<a class="headerlink" href="#code-review-procedure" title="Permanent link">&para;</a></h3>
 <p>The code review procedure is to be conducted after the initiation of a Pull Request into any protected branches. For a commit to a non-protected branch, developers do not need to conform to the guideline for ease of development, testing and debugging. However, protected branches such as “master” will be checked for compliance. At least 1 approver review by an RTM maintainer (typically the Project Manager) is needed. If more than 1 deviation has been found, the commit is to be rejected with comments. No comments are required for any approved commits.</p>
 <!-- Links -->
