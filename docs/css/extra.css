@@ -7,11 +7,11 @@ div.versions{
     rst-versions: '3.3.0';
 }
 
-/* remove duplicated page headings */
+/* remove duplicated page headings - no longer applicable for mkdocs>=1.1 */
 /* https://github.com/mkdocs/mkdocs/issues/318 */
-li.toctree-l3:first-child {
+/* li.toctree-l3:first-child {
     display: none;
-}
+} */
 .wy-side-nav-search {
    /*background color of the top search bar*/
     background-color: #1266a4;
