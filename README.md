@@ -21,7 +21,7 @@ Follow the steps below create or update mkdocs-generated html:
    * `conda remove --name rtm_docs --all`
    * `conda create -n rtm_docs python=3.6 pip`
    * `conda activate rtm_docs`
-   * `pip install -U -r requirements\project.txt`
+   * `pip install -U -r requirements/project.txt`
 
 ### Clone rtmdoc and develop
 

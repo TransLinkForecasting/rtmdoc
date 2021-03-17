@@ -14,6 +14,7 @@ theme:
 nav:
     - 'User Guide':
             - workflow.md
+            - adv_inputs.md
             - data_outputs.md
             - data_analysis.md
             - data_generate.md
@@ -21,6 +22,7 @@ nav:
             - dev_getting_started.md
             - coding_standard.md
     - 'References':
+            - reports.md
             - naming_conventions.md
             - data_assumptions.md
     - About:
@@ -30,9 +32,9 @@ nav:
 extra_css:
     - css/extra.css
 markdown_extensions:
-    -
-        toc:
+    - toc:
             permalink: true
+    - attr_list
     - admonition
     - def_list
 plugins:
