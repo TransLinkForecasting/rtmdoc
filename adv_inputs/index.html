@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="TransLink Forecasting">
+  <link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/adv_inputs/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Advanced Inputs - RTM</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Advanced Inputs";
+    var mkdocs_page_input_path = "adv_inputs.md";
+    var mkdocs_page_url = "/rtmdoc/adv_inputs/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> RTM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced Inputs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configurations">Configurations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#folder-structures">Folder Structures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#yaml-files">Yaml Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#input-files">Input Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#flat-files">Flat Files</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#binary-files">Binary Files</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compute-best-lot">Compute Best Lot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blended-skim">Blended Skim</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mode-choice-by-purpose">Mode Choice By Purpose</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#trip-purposes">Trip Purposes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nhb-trip-generations">Nhb Trip Generations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#utility">Utility</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#probability">Probability</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trip-distribution">Trip Distribution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trip-demand">Trip Demand</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessibility">Accessibility</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#time-slicing">Time Slicing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#load-pa-trips">Load PA Trips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sub-modes-splits">Sub Modes Splits</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multimodal-trip-split">Multimodal Trip Split</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assignment-modes">Assignment Modes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#factors">Factors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zov-mask">ZOV Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#occupancy">Occupancy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#time-slice">Time Slice</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#segment-disaggregation">Segment disaggregation</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">References</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../reports/">Reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">RTM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Advanced Inputs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="advanced-inputs">Advanced Inputs<a class="headerlink" href="#advanced-inputs" title="Permanent link">&para;</a></h1>
+<p>Advanced inputs are enabled for most of mode choice in the RTM. This allows modelers to update the mode choice model, household segmentations for assignment, and update time slicing definitions.</p>
+<p>The figure below presents elements of the RTM framework that is programmable through advanced inputs using a set of yaml configuration files and input data. </p>
+<p><img alt="Screenshot" src="../img/adv_inputs/model_components.png" /></p>
+<p>Components labeled in grey - trip attraction, trip production, generalized cost and accessibility calculations, trip assignment, and data export - cannot be modified using advanced inputs. If you need to reprogram those components of the RTM, proficiency with EMME toolbox and Python is required.</p>
+<h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
+<p>Settings to advanced input modules can be modified via the input files inside the <code>RTM/BaseNetworks/Inputs</code> folder. The input folder content copied to the run, then it is loaded at the run level. This makes it possible to modify model specifications that are part of the advanced inputs at the run level for the RTM.</p>
+<h3 id="folder-structures">Folder Structures<a class="headerlink" href="#folder-structures" title="Permanent link">&para;</a></h3>
+<pre><code class="language-Markdown">    RTM/
+    ├── BaseNetworks/
+    │   └── Inputs/
+    │        ├── BestStop/
+    │        ├── ModeChoice/
+    │        └── TimeSlicing/
+    │
+    ├── ...
+    └── RTM.emp
+</code></pre>
+<p>There are three subfolders relevant to the advanced input modules: <code>BestStop</code>, <code>ModeChoice</code>, and <code>TimeSlicing</code>. Under each subfolder, there are yaml files for major modules such as <code>ComputeBestLot.yaml</code>, <code>Blended_Skim.yaml</code>, <code>TimeSlicing.yaml</code>, <code>UtilityByPurpose/HWRK.yaml</code>, etc. The yaml files require input files in csv or binary data format depending on the procedures relevant in each module.</p>
+<h3 id="yaml-files">Yaml Files<a class="headerlink" href="#yaml-files" title="Permanent link">&para;</a></h3>
+<p>The Yaml configuration file for RTM advanced inputs have three major sections: Files, Steps, and Functional Parameters. The Files section provides input and output files locations. The Steps section provides a list of function calls that are made in python. Finally, the Functional Parameters section provide a list of parameter values relevant to each function call. An Example of yaml file for best lot calculations can be found below:</p>
+<pre><code class="language-yaml"># Compute Best Lot Input Files
+FILES:
+    INPUTS:
+        COST: BestStop/ComputeBestLot_Cost.csv
+        AVAILABLE_LOT: BestStop/ComputeBestLot_Lot.csv
+
+    OUTPUTS: 
+        BEST_LOT: BestStop/BestLot.fea
+
+# Blended Skim Steps: Each Step is a Function
+STEPS:
+    - get_best_lots
+
+get_best_lots: 
+    Target_Column: Target
+    Available_Lot_Column: Available_Lot
+    Costij_Column: Costij
+    Costjk_Column: Costjk
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adding additional steps will require changes be made in python. Changing input and output file values as well as functional parameter values can be done directly with the yaml file.</p>
+</div>
+<h3 id="input-files">Input Files<a class="headerlink" href="#input-files" title="Permanent link">&para;</a></h3>
+<h4 id="flat-files">Flat Files<a class="headerlink" href="#flat-files" title="Permanent link">&para;</a></h4>
+<p>Flat files are used for specifying matrices used in calculations. The matrices specify can be input, output (or intermediate) matrices depending on the context of the flat file being used. For more information on a specific flat input file, please refer to the flat file in the context of the yaml file and relevant step in the model flow.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intermediate matrices are generally stored as binary files. It can be the output of an upstream module that becomes the input of a downstream module.</p>
+</div>
+<h4 id="binary-files">Binary Files<a class="headerlink" href="#binary-files" title="Permanent link">&para;</a></h4>
+<p>Binary files are often used for serialized input data or intermediate data storage. Binary files are not designed to be read by users, and they are typically cleaned up after a full model run. The current binary data format being used the the RTM is <code>feather</code>. Since the deserialization of binary file depends on the version of the data format implemented, there is no guarantee that these data files are backward or forward compatible; therefore, binary files are intended only for transient data and are not used for permanent data storage.</p>
+<h2 id="compute-best-lot">Compute Best Lot<a class="headerlink" href="#compute-best-lot" title="Permanent link">&para;</a></h2>
+<p>The Compute Best Lot step generates matrices used in evaluating the optimal cost of intermodal trips. From a list of eligible zones (j), the compute best lot algorithm builds a list of total cost from i to j to k, then find the best cost for every i to k pair via the optimal j lot. This procedure requires the following inputs, as identified in <code>ComputeBestLot.yaml</code>:</p>
+<ul>
+<li><strong>AVAILABLE_LOT</strong> (default: <code>BestStop/ComputeBestLot_Cost.csv</code>) - a list of intermediate lots available for each horizon year. <ul>
+<li>Each lot type is delimited by comma which is then further delimited by semicolon, for example for year 2017, <code>gn1;gn3,gn1;gn3,gn1;gn3</code> corresponds to PNR_Lot of <code>gn1</code> and <code>gn3</code>, KNR_Lot of <code>gn1</code> and <code>gn3</code>, TNCNR_Lot of <code>gn1</code> and <code>gn3</code>. </li>
+<li>Add new columns if additional lots are needed.</li>
+</ul>
+</li>
+<li><strong>COST</strong> (default: <code>BestStop/ComputeBestLot_Lot.csv</code>) - specification of cost for matrix calculation. <ul>
+<li>The cost is calculated by the optimizing the total cost of <code>Costij_Column</code> and <code>Costjk_Column</code> using a convolution algorithm. The minimum cost for an optimal lot is the result of the computation.</li>
+<li>Variable is assigned to new matrix name defined by <code>Target_Column</code>. The variables are specified by row.</li>
+<li>The lot type is defined by shared column name for <code>Available_Lot_Column</code>. </li>
+<li>A specific mode for each leg of the cost need to be specified also with <code>Modeij</code> and <code>Modejk</code>. </li>
+<li>Add more rows for additional cost that need to be computed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="blended-skim">Blended Skim<a class="headerlink" href="#blended-skim" title="Permanent link">&para;</a></h2>
+<p>Skim blending further prepares data required for mode choice after best lot computation. Skim blending is the process of producing daily cost from peak hour scenarios, using a set of blending factor. The skim blending process first build daily cost from simple expressions (if applicable). Then, it adds all the peak hour components multiplied by corresponding factors. Finally, adjustments are made for intermodal variables requiring cost from best lot calculations. There are three required file inputs, which can be found in <code>Blended_Skim.yaml</code>:</p>
+<ul>
+<li><strong>SPEC</strong> (default: <code>ModeChoice/Blended_Skim.csv</code>) - path to csv file containing the list of skims (or expressions) associated with blending factors, segmentations, and associated trip purpose.</li>
+<li><strong>COEFFICIENTS</strong> (default: <code>ModeChoice/Blended_Skim_Coeffs.csv</code>) - path to csv file containing all blending factors that are referenced by the <strong>SPEC</strong> file. Typically, the blending factors are time of day and production-attraction (PA) specific.</li>
+<li><strong>BEST_LOT</strong> (default: <code>BestStop/BestLot.fea</code>, <em>leave as default</em>) - the intermediate binary data file output from the compute best lot calculation. </li>
+</ul>
+<p>In addition to file inputs that provide the required data for skim blending, a structure of the blending procedure needs to be specifed in the YAML file under the <code>Blending</code> setting:</p>
+<ul>
+<li><strong>Target_Column</strong> - the name of the maxtrix which the <em>result</em> of the skim blending calculation to be stored.</li>
+<li><strong>Key_Column</strong> - the name of the factor that will be applied to perform skim blending.</li>
+<li><strong>Seg_Column</strong> - the list of columns containing segmentation.</li>
+<li><strong>Factors</strong> - outlines the structure of blending factor that corresponds to the data provided in <strong>COEFFICIENTS</strong> input. The columns in P-A or A-P will be multiplied by columns in <strong>Skims_Columns</strong> when calculating each skim blending variable.</li>
+<li><strong>Skims_Columns</strong> - the list of columns with time of day scenario skims.</li>
+<li><strong>Expresstion_Column</strong> - instead of Skim Columns by time period, an expression may be specified for all time periods. For example, <code>np.transpose(df['prtrmt'])</code> for transposed vector matrices of park and ride terminal time.</li>
+</ul>
+<h2 id="mode-choice-by-purpose">Mode Choice By Purpose<a class="headerlink" href="#mode-choice-by-purpose" title="Permanent link">&para;</a></h2>
+<h3 id="trip-purposes">Trip Purposes<a class="headerlink" href="#trip-purposes" title="Permanent link">&para;</a></h3>
+<p>The mode choice module computes the trips from production to attraction zones, and prepares the model data for time slicing, and subsequently, trip assignment. There is a total of nine trip purposes modeled, each have a separate mode choice model structure:</p>
+<ul>
+<li><strong>Home-based Work</strong> - settings in <code>ModeChoice/UtilityByPurpose/HWRK.yaml</code></li>
+<li><strong>Home-based University</strong> - settings in <code>ModeChoice/UtilityByPurpose/HUNI.yaml</code></li>
+<li><strong>Home-based School</strong> - settings in <code>ModeChoice/UtilityByPurpose/HSCH.yaml</code></li>
+<li><strong>Home-based Escorting</strong> - settings in <code>ModeChoice/UtilityByPurpose/HESC.yaml</code></li>
+<li><strong>Home-based Shopping</strong> - settings in <code>ModeChoice/UtilityByPurpose/HSHP.yaml</code></li>
+<li><strong>Home-based Social</strong> - settings in <code>ModeChoice/UtilityByPurpose/HSOC.yaml</code></li>
+<li><strong>Home-based Personal Business</strong> - settings in <code>ModeChoice/UtilityByPurpose/HPBS.yaml</code></li>
+<li><strong>Non-home-based Work</strong> - settings in <code>ModeChoice/UtilityByPurpose/NWRK.yaml</code></li>
+<li><strong>Non-home-based Other</strong> - settings in <code>ModeChoice/UtilityByPurpose/NOTH.yaml</code></li>
+</ul>
+<p>In order to compute trip demand by purpose and by mode, utility, probability, trip distribution, trip demand, and accessibility calculation were performed. These steps are outlined in detail in the following sub sections.</p>
+<h3 id="nhb-trip-generations">Nhb Trip Generations<a class="headerlink" href="#nhb-trip-generations" title="Permanent link">&para;</a></h3>
+<p>Newer RTM releases use the attraction of home-based trips as production of non-home-based trips. As such, a custom trip generation needs to be performed at the beginning of each non-home-based mode, after all the home-based models are computed. This procedure is called <code>NonHomeBased_TripGen</code> and are appended to <code>STEPS</code> for <code>NWRK.yaml</code> and <code>NOTH.yaml</code>.</p>
+<h3 id="utility">Utility<a class="headerlink" href="#utility" title="Permanent link">&para;</a></h3>
+<p>The utilities of available modes are based on mode availability and cost. The global mode availabilities are defined in <code>AVAILCONDITION</code> and <code>AVAILCHECK</code>. The <code>AVAILCONDITION</code> csv file defines all the availability tests performed to establish the availability conditions. There will often be more than 1 condition per each mode's availability. The <code>AVAILCHECK</code> csv file establish mode availability by segmentation. Availability parameters can vary across trip purposes and are specifried in <code>ComputeUtil:Availability</code>. Segmentations are often different across trip purpose and are specified in <code>ComputeUtil:SEGMENTS</code>. </p>
+<p>The mode choice utility calculation for unavailable modes are masked with a large negative value (-99999). For available choices, the utility of each sub-mode is calculated based on the mode choice utility functions, specified by a set of csvs:</p>
+<ul>
+<li><code>SPEC</code> (i.e.: <code>HWRK.csv</code>) - a list of cost with expression and coefficients, by default, these costs are grouped into variables and are further defined by <code>COEFFICIENTS</code> and <code>SEGMENTS</code>.</li>
+<li><code>COEFFICIENTS</code> (i.e.: <code>HWRK_Coeffs.csv</code>) - a list of coefficient variable and values.</li>
+<li><code>SEGMENTS</code> (i.e.: <code>HWRK_Segments.csv</code>) - segment specific values and coefficient for utility computation.</li>
+<li><code>MATRIXDATA</code> (i.e.: <code>HWRK_MatrixData.csv</code>) - a list of matrices by mode to be prepared for utility calculations. They should be specified if they are used as a variable, so they are ready to be used.</li>
+</ul>
+<h3 id="probability">Probability<a class="headerlink" href="#probability" title="Permanent link">&para;</a></h3>
+<p>After utility calculations, the choice probability for each mode is calculated based on theta and nesting strcture defined in <code>CalcProb:NESTS</code> within each yaml file. The list of alternatives at the lowest nesting level must match the name of the modes in <code>Util_Data_Mode_Group</code>.</p>
+<h3 id="trip-distribution">Trip Distribution<a class="headerlink" href="#trip-distribution" title="Permanent link">&para;</a></h3>
+<p>Trip distribution is performed based on balncing type and impedance function defined for the trip purpose. Depending on the tirp purpose, different balancing types such as <code>two_dim_matrix_balancing</code> and <code>one_dim_matrix_balancing</code> can be specified. The impedance is based on calculation with K-factor (Kij) and needs to be specified in the <code>DISTRIBUTIONIMP</code> csv file. The impedance function may vary by segmentation and by modes.</p>
+<h3 id="trip-demand">Trip Demand<a class="headerlink" href="#trip-demand" title="Permanent link">&para;</a></h3>
+<p>Although the mode choice trips can have very detailed segmentation and sub-modes, for the purpose of network assignment, the trips need to be aggregated and separated into different networks, mainly auto network, transit network, and active network. The TNC or Taxi network may be available depending on the availability of those modes. The trip demand calculation varies by trip purpose and can be specifed in <code>TripsByMode</code> within each yaml file.</p>
+<h3 id="accessibility">Accessibility<a class="headerlink" href="#accessibility" title="Permanent link">&para;</a></h3>
+<p>The accessibility calculation is a post-processing routine that produce logsum accessibility measures that can be useful for preliminary analysis of user benefits. The <code>ComputeAccessibility:Logsum_Coeff</code> for each trip purpose should correspond to the top level theta for that mode choice model. And the specific modes used in accessibility calculation can be specified within <code>ComputeAccessibility:Accessibility_Modes</code>. The group of modes specified here do not need to reflect mode choice nesting structure and are provided here for reporting purposes.</p>
+<h2 id="time-slicing">Time Slicing<a class="headerlink" href="#time-slicing" title="Permanent link">&para;</a></h2>
+<p>Time slicing is required to split daily trips into multiple time of day so the trip demand results can be feed back into the model for network assignment. Specification for time slicing can be found in <code>TimeSlicing/TimeSlicing.yaml</code></p>
+<p>In order to perform time slicing, the production-attraction (PA) trips need to be split into multimodal legs and into specific assignment classes, as specified in the <code>MULTIMODAL_LEGS</code> csv. Using the best lot computation results, the multimodal trip travel times are built.</p>
+<p>If zero-occupancy vehicles are present, the trip matrices will be adjusted accordingly. For high-occupancy modes like HOV, transit, and TNCs, occupancy adjustments will be made. Finally, the time slicing factors then need to be applied to the adjusted daily trips.</p>
+<h3 id="load-pa-trips">Load PA Trips<a class="headerlink" href="#load-pa-trips" title="Permanent link">&para;</a></h3>
+<p>The first step in time slicing, all the PA trip matrices are read and loaded into memory. Matrices are tracked by the mode choice module using a <code>trips_dict</code> data object internally. If certain matrices are missing from utility calculation (for example, it has not been entered into the calculation or didn't exist from previous runs), an error will be raised. Missing matrices must be addressed before time slicing can be completed.</p>
+<h3 id="sub-modes-splits">Sub Modes Splits<a class="headerlink" href="#sub-modes-splits" title="Permanent link">&para;</a></h3>
+<!-- this is going to be incorporated into mode choice module - to be revised -->
+
+<p>Typically, demands for different mode of transport are calculated as part of mode choice; however, certain sub modes are not modeled explicitly in the mode choice model due to some underlying assumptions about the behavior of those sub modes.</p>
+<p>For example, for home-based escorting trips, we do not explicitly model SOV, HOV2 and HOV3 like we do for home-based work trips. This is due to the joint decision at the household level for escorting trip, which is not modeled in the RTM. So, we establish an assumption that the occupancy for escorting trips is similar to what we observed in our household travel survey.</p>
+<h3 id="multimodal-trip-split">Multimodal Trip Split<a class="headerlink" href="#multimodal-trip-split" title="Permanent link">&para;</a></h3>
+<p>Trips using multiple modes are modeled as single multimodal trips throughout mode choice. In order to properly assign those trips onto the road and transit network, the multimodal trips need to be split into trip legs, with their appripriate intermediate transit or parking facility assigned. Definition for multimodal trips is specified as rows in a CSV file from the <code>MULTIMODAL_LEGS</code> setting under <code>FILES/INPUTS</code>. This step also requires <code>BEST_LOT</code> results to be specified as an input in the <code>TimeSlicing.yaml</code>.</p>
+<h3 id="assignment-modes">Assignment Modes<a class="headerlink" href="#assignment-modes" title="Permanent link">&para;</a></h3>
+<p>Modes used by mode choice often occupany the same network and belong to the same assignment class (most notably the HOV modes). These matrix names of each of the mode choice demand are updated to include information regarding the mode's assignment class. This allows groups of matrices belonging to the same assignment class be retrieved during time slicing.</p>
+<h3 id="factors">Factors<a class="headerlink" href="#factors" title="Permanent link">&para;</a></h3>
+<p>Time slicing factors and their corresponding ensembles (i.e.: ga, gb, gc ensembles) are read and processed. A <code>min_val</code> should be specified to fill in any missing value after merging the ensemble and factor tables.</p>
+<h3 id="zov-mask">ZOV Mask<a class="headerlink" href="#zov-mask" title="Permanent link">&para;</a></h3>
+<p>If Connected and Autonomous Vehicle (CAVs) is enabled in the RTM, Zero Occupancy Vehicles (ZOVs) will need to be generated in the network for trips performed by the CAVs without any occupants. The RTM models the decision to park versus drive home the CAVs as a trade off between parking cost and driving cost. Users may specify the cost matrices and parking cost information under <code>CalculateZOVMask</code> in <code>TimeSlicing.yaml</code>.</p>
+<h3 id="occupancy">Occupancy<a class="headerlink" href="#occupancy" title="Permanent link">&para;</a></h3>
+<p>In RTM, PA trips in trip generation, distribution and mode choice are modeled as person trips while assignment trips are modeled as vehicle trips for the auto network and person trips for the transit network. Therefore, occupancy is an important prerequisite to time slicing calculations. This step allows users to define scalar or matrices for occupancy and generate <code>occupancy_dict</code> that will be used in time slicing to process trips with HOV assignment class (<code>assign_mode</code>) and corresponding Mode Choice modes (<code>mc_mode</code>).</p>
+<h3 id="time-slice">Time Slice<a class="headerlink" href="#time-slice" title="Permanent link">&para;</a></h3>
+<p>The <code>TimeSlice</code> function is the main step in producing time slicing results for assignment. The time slicing procedure first split the daily trips into time of day trips (i.e. AM, MD, PM) using <code>time_of_day_factors</code>. Then, it converts person trip to driver trip using occupancy by mode choice modes, which is then stored as matrices by demand segments.</p>
+<p>To generate the ZOV trips, ZOV mask by TAZs, which represent the propensity for the CAV to drive home instead of parking, is applied to the ZOV demand and are assigned to the driver segment.</p>
+<p>To get OD trips, the time slicing factors is applied to all PA trips to get OD demand by time of day, by trip purpose, by mode, and by assignment class. Finally, all trips are aggregated and generated by assignment class. If TNC is being modeled, it will be added as a separate assignment class.</p>
+<h4 id="segment-disaggregation">Segment disaggregation<a class="headerlink" href="#segment-disaggregation" title="Permanent link">&para;</a></h4>
+<p>The RTM uses a paramterized naming convention throughout time slicing. To specify this, users may modify the <code>segment_disaggregation</code> definition under <code>TimeSlice</code>. To define a segment, the start and end character index, and disaggreation criteria (<em>char_start, char_end, disaggregation</em>) need to be entered. For example, <code>assign_mode:   19, 22, True</code> means the segment <code>assign_mode</code> need to be aggregated over the matrix name character index <code>[19, 22)</code>, 19th character to 21st character. Then, the segment is to remain disaggregated. </p>
+<p>If the disaggreation criteria is <code>False</code>, then the segment would become aggregated for time slicing. Users may also filter by segments. For example, <code>mat_type:       0,  3, AMT, MDT, PMT</code> will keep <code>mat_type</code> segment disaggregated but only process segment AMT, MDT, PMT (processed as a list). If daily trips or other time period trips are present, they will be ignored. For more detail on naming conventions related to <code>segment_disaggregation</code>, refer to the figure below.</p>
+<p><img alt="Screenshot" src="../img/adv_inputs/matrix_naming.png" /></p>
+<!-- Links -->
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../data_outputs/" class="btn btn-neutral float-right" title="Model Data Output">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../workflow/" class="btn btn-neutral" title="Model Workflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2020 TransLink Forecasting</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../workflow/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../data_outputs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
