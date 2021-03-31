@@ -19,6 +19,7 @@ The coding standard for the RTM has two major comonent: guideline and compliance
     * **Imports**: separate lines of import starting with standard library, related third party, then local application imports.
     * **Comments**: block comments should explain following code and what and why they do or may be used to section the code.
     * **Docstring (Documentation String)**: docstring is required for all *modules*, *functions*, *classes*, and *methods*. It should contain short description of what, how, and why the code exists. When applicable, describe the input and output types of the function. For more specific conventions on docstring, see PEP 257.
+        * You may use extension/tools to generate docstring. For example, [Python Docstring Generator] is available for VSCode.
 * Python Naming Conventions:
     * **Naming of classes**: CapitalizedWords
     * **Naming of functions and variables**: lower_case_with_underscores
@@ -78,3 +79,4 @@ The code review procedure is to be conducted after the initiation of a Pull Requ
 [pylint for GitHub]: https://github.com/marketplace/actions/github-action-for-pylint
 [arrow for numpy]: https://arrow.apache.org/docs/python/numpy.html#numpy-to-arrow
 [feather for pandas]: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_feather.html
+[Python Docstring Generator]: https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring

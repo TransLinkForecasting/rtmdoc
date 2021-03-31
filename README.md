@@ -32,3 +32,8 @@ Follow the steps below create or update mkdocs-generated html:
    * `git checkout -b master_pr_num`
    * `git commit`
    * `git push origin master_pr_num`
+
+### Build task with VSCode
+
+* Inside VSCode, go to **Terminal -> Run Build Task**
+   * This will automatically call `mkdocs serve` using the setting inside `.vscode/tasks.json`
