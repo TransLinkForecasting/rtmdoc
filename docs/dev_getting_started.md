@@ -12,18 +12,19 @@ Once all the requirements are fulfilled, install [Visual Studio Code], then set 
 
 ### Formatter and Linter
 
-##### Step 1: install yapf, and optionally pylint
+##### Step 1: install yapf and pylint
 
-Make sure you have the correct coding environment activated in your IDE, for example VS Code
+Make sure you have the correct coding environment activated (following example is for EMME 4.5 on Windows 10). Then install the required packages.
 
 ```bash
-pip install -U yapf
-pip install -U pylint
+%ComSpec% /C ""C:\Program Files\INRO\Emme\Emme 4\Emme-4.5.0\programs\Emme-cmd.bat" "
+python -m pip install --user yapf
+python -m pip install --user pylint
 ```
 
 ##### Step 2: configure formatting setting for VS Code
 
-To specify preset coding style and custom argument for presets, set the following argument for yapf in user settings:
+To specify preset coding style and custom argument for presets, add the following argument for yapf in your user settings:
 
 ```
 {
@@ -32,16 +33,15 @@ To specify preset coding style and custom argument for presets, set the followin
     "python.formatting.provider": "yapf",
     "python.formatting.yapfArgs": [
         "--style={ based_on_style: pep8, column_limit: 96, USE_TABS: False}"
-    ],
-    "editor.formatOnSave": true,
+    ]
 }
 ```
-
-You may modify editor behavior such as `formatOnSave` as per your reference.
 
 For location of VS Code settings files, see [VS Code Documentation on File Locations].
 
 For references to VS Code settings, see [VS Code Documentation on Settings Reference].
+
+You may add other editor behavior such as `"editor.formatOnSave": true,` as per your reference.
 
 
 <!-- ## Model Structure
