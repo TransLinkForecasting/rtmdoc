@@ -81,7 +81,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#formatter-and-linter">Formatter and Linter</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#step-1-install-yapf-and-optionally-pylint">Step 1: install yapf, and optionally pylint</a>
+    <li class="toctree-l4"><a class="reference internal" href="#step-1-install-yapf-and-pylint">Step 1: install yapf and pylint</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#step-2-configure-formatting-setting-for-vs-code">Step 2: configure formatting setting for VS Code</a>
     </li>
@@ -150,26 +150,31 @@
 <p>Before starting your development environment set up, make sure you have all of the requirements specified in the <a href="../workflow/#requirements">User Guide's Requirements</a>.</p>
 <p>Once all the requirements are fulfilled, install <a href="https://code.visualstudio.com/download">Visual Studio Code</a>, then set up your environment with Formatter and Linter.</p>
 <h3 id="formatter-and-linter">Formatter and Linter<a class="headerlink" href="#formatter-and-linter" title="Permanent link">&para;</a></h3>
-<h5 id="step-1-install-yapf-and-optionally-pylint">Step 1: install yapf, and optionally pylint<a class="headerlink" href="#step-1-install-yapf-and-optionally-pylint" title="Permanent link">&para;</a></h5>
-<p>Make sure you have the correct coding environment activated in your IDE, for example VS Code</p>
-<pre><code class="language-bash">pip install -U yapf
-pip install -U pylint
+<h4 id="step-1-install-yapf-and-pylint">Step 1: install yapf and pylint<a class="headerlink" href="#step-1-install-yapf-and-pylint" title="Permanent link">&para;</a></h4>
+<p>Make sure you have the correct coding environment activated (following example is for EMME 4.5 on Windows 10). Then install the required packages.</p>
+<pre><code class="language-bash">%ComSpec% /C &quot;&quot;C:\Program Files\INRO\Emme\Emme 4\Emme-4.5.0\programs\Emme-cmd.bat&quot; &quot;
+python -m pip install --user yapf
+python -m pip install --user pylint
 </code></pre>
-<h5 id="step-2-configure-formatting-setting-for-vs-code">Step 2: configure formatting setting for VS Code<a class="headerlink" href="#step-2-configure-formatting-setting-for-vs-code" title="Permanent link">&para;</a></h5>
-<p>To specify preset coding style and custom argument for presets, set the following argument for yapf in user settings:</p>
+<h4 id="step-2-configure-formatting-setting-for-vs-code">Step 2: configure formatting setting for VS Code<a class="headerlink" href="#step-2-configure-formatting-setting-for-vs-code" title="Permanent link">&para;</a></h4>
+<p>To specify preset coding style and custom argument for presets, add the following argument for yapf in your user settings:</p>
 <pre><code>{
     &quot;python.linting.enabled&quot;: true,
     &quot;python.linting.pylintPath&quot;: &quot;pylint&quot;,
+    &quot;python.linting.pylintArgs&quot;: [
+        &quot;--ignored-modules=inro&quot;,
+        &quot;--ignored-classes=inro&quot;,
+        &quot;--extension-pkg-whitelist=inro&quot;
+    ],
     &quot;python.formatting.provider&quot;: &quot;yapf&quot;,
     &quot;python.formatting.yapfArgs&quot;: [
         &quot;--style={ based_on_style: pep8, column_limit: 96, USE_TABS: False}&quot;
-    ],
-    &quot;editor.formatOnSave&quot;: true,
+    ]
 }
 </code></pre>
-<p>You may modify editor behavior such as <code>formatOnSave</code> as per your reference.</p>
 <p>For location of VS Code settings files, see <a href="https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations">VS Code Documentation on File Locations</a>.</p>
 <p>For references to VS Code settings, see <a href="https://code.visualstudio.com/docs/python/settings-reference#_formatting-settings">VS Code Documentation on Settings Reference</a>.</p>
+<p>You may add other editor behavior such as <code>"editor.formatOnSave": true,</code> as per your reference.</p>
 <!-- ## Model Structure
 
 
