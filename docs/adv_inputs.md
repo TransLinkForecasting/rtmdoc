@@ -80,7 +80,7 @@ Binary files are often used for serialized input data or intermediate data stora
 
 The Compute Best Lot step generates matrices used in evaluating the optimal cost of intermodal trips. From a list of eligible zones (j), the compute best lot algorithm builds a list of total cost from i to j to k, then find the best cost for every i to k pair via the optimal j lot. This procedure requires the following inputs, as identified in `ComputeBestLot.yaml`:
 
-* **AVAILABLE_LOT** (default: `BestStop/ComputeBestLot_Cost.csv`) - a list of intermediate lots available for each horizon year. 
+* **AVAILABLE_LOT** (default: `Inputs/BestStop/ComputeBestLot_Cost.csv`) - a list of intermediate lots available for each horizon year. 
     * Each lot type is delimited by comma which is then further delimited by semicolon, for example for year 2017, `gn1;gn3,gn1;gn3,gn1;gn3` corresponds to PNR_Lot of `gn1` and `gn3`, KNR_Lot of `gn1` and `gn3`, TNCNR_Lot of `gn1` and `gn3`. 
     * Add new columns if additional lots are needed.
 * **COST** (default: `BestStop/ComputeBestLot_Lot.csv`) - specification of cost for matrix calculation. 
@@ -167,7 +167,7 @@ The accessibility calculation is a post-processing routine that produce logsum a
 
 ## Time Slicing
 
-Time slicing is required to split daily trips into multiple time of day so the trip demand results can be feed back into the model for network assignment. Specification for time slicing can be found in `TimeSlicing/TimeSlicing.yaml`
+Time slicing is required to split daily trips into multiple time of day so the trip demand results can be feed back into the model for network assignment. Specification for time slicing can be found in `Input/TimeSlicing/TimeSlicing.yaml`
 
 In order to perform time slicing, the production-attraction (PA) trips need to be split into multimodal legs and into specific assignment classes, as specified in the `MULTIMODAL_LEGS` csv. Using the best lot computation results, the multimodal trip travel times are built.
 
@@ -216,12 +216,38 @@ To get OD trips, the time slicing factors is applied to all PA trips to get OD d
 
 #### Segment disaggregation
 
-The RTM uses a paramterized naming convention throughout time slicing. To specify this, users may modify the `segment_disaggregation` definition under `TimeSlice`. To define a segment, the start and end character index, and disaggreation criteria (*char_start, char_end, disaggregation*) need to be entered. For example, `assign_mode:   19, 22, True` means the segment `assign_mode` need to be aggregated over the matrix name character index `[19, 22)`, 19th character to 21st character. Then, the segment is to remain disaggregated. 
+The RTM uses a paramterized naming convention throughout time slicing. To specify this, users may modify the `segment_disaggregation` definition under `TimeSlice`. To define a segment, the start and end character index, and disaggreation criteria (*char_start, char_end, disaggregation*) need to be entered. For example, `assign_mode: 19, 22, True` means the segment `assign_mode` need to be aggregated over the matrix name character index `[19, 22)`, 19th character to 21st character. Then, the segment is to remain disaggregated. 
 
-If the disaggreation criteria is `False`, then the segment would become aggregated for time slicing. Users may also filter by segments. For example, `mat_type:       0,  3, AMT, MDT, PMT` will keep `mat_type` segment disaggregated but only process segment AMT, MDT, PMT (processed as a list). If daily trips or other time period trips are present, they will be ignored. For more detail on naming conventions related to `segment_disaggregation`, refer to the figure below.
+If the disaggreation criteria is `False`, then the segment would become aggregated for time slicing. Users may also filter by segments. For example, `mat_type: 0,  3, AMT, MDT, PMT` will keep `mat_type` segment disaggregated but only process segment AMT, MDT, PMT (processed as a list). If daily trips or other time period trips are present, they will be ignored. For more detail on naming conventions related to `segment_disaggregation`, refer to the figure below.
 
 ![Screenshot](img/adv_inputs/matrix_naming.png)
 
+### Demand Summary
+
+With the introduction of more flexible segment disaggregation, users now have control over how to aggregate demand matrices by adjusting settings in `TimeSlice` step (`segment_daily_demand`, `segment_tod_demand`) within `TimeSlicing.yaml`. The Demand Summary yaml allows user to have additional control over how the aggregated demand matrices are summarized, as well as different format of export.
+
+Multiple Demand Summary yaml can be implemented using `DemandSummary_*.yaml` file pattern. For example, user may add a project specific Demand Summary yaml like `DemandSummary_prjectA.yaml` in addition to `DemandSummary_Default.yaml` within the `Inputs/TimeSlice` input data folder. At model run time, all of the Demand Summary yaml will be executed. To specify custom Demand Summary, refer to default Demand Summary yaml and comments for instruction. Here are the fields you may modify to generate custom Demand Summary outputs:
+
+* Data type: matrix or data_table
+* Export format
+    * sql: save to trip_summaries.db
+    * csv: comma separated text file
+    * fea: Dataframe as feather
+    * emx: emme matrices   – matrix only
+* Group by:
+    * segmentations to keep, i.e.: [mat_type, purpose, assign_mode]
+* Filter by: 
+    * List of attribute values to include
+* Geography:
+    * gy, TAZ, i or j      – data_table only
+    * Post eval:
+    * col or df operations – data_table only
+
+Example of snippet of default Demand Summary yaml:
+![Screenshot](img/adv_inputs/demand_summary1.png)
+
+Example of snippet of a project based Demand Summary yaml:
+![Screenshot](img/adv_inputs/demand_summary2.png)
 
 <!-- Links -->
 [User Guide's Requirements]: ../workflow/#requirements
