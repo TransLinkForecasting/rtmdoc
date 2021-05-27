@@ -161,7 +161,7 @@ WCE | In-vehicle | ms320 | wceIVTprcpWk                                      | 1
 
 Over thousand matrices are used in the RTM simulation. Here is a list showing the matrices grouped by type and function:
 
-> ![Ensemble Index](img/reference/Matrix_Index.png)
+> ![Matrix Index](img/reference/Matrix_Index.png)
 
 For the full list, see [matrix list page].
 
