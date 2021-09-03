@@ -3,7 +3,14 @@
 
 Advanced inputs are enabled for most of mode choice in the RTM. This allows modelers to update the mode choice model, household segmentations for assignment, and update time slicing definitions.
 
-The figure below presents elements of the RTM framework that is programmable through advanced inputs using a set of yaml configuration files and input data. 
+
+## Model Structure
+
+The RTM is an advanced four step transportation model comprise of trip generation, trip distribution, mode choice, and trip assignment.
+
+![Screenshot](img/RTM-detailed.png)
+
+Some elements within the RTM framework are programmable through advanced inputs using a set of yaml configuration files and input data. 
 
 ![Screenshot](img/adv_inputs/model_components.png)
 
