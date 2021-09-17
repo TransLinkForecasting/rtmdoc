@@ -66,6 +66,8 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced Inputs</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#model-structure">Model Structure</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#configurations">Configurations</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#folder-structures">Folder Structures</a>
@@ -198,7 +200,10 @@
               
                 <h1 id="advanced-inputs">Advanced Inputs<a class="headerlink" href="#advanced-inputs" title="Permanent link">&para;</a></h1>
 <p>Advanced inputs are enabled for most of mode choice in the RTM. This allows modelers to update the mode choice model, household segmentations for assignment, and update time slicing definitions.</p>
-<p>The figure below presents elements of the RTM framework that is programmable through advanced inputs using a set of yaml configuration files and input data. </p>
+<h2 id="model-structure">Model Structure<a class="headerlink" href="#model-structure" title="Permanent link">&para;</a></h2>
+<p>The RTM is an advanced four step transportation model comprise of trip generation, trip distribution, mode choice, and trip assignment.</p>
+<p><img alt="Screenshot" src="../img/RTM-detailed.png" /></p>
+<p>Some elements within the RTM framework are programmable through advanced inputs using a set of yaml configuration files and input data. </p>
 <p><img alt="Screenshot" src="../img/adv_inputs/model_components.png" /></p>
 <p>Components labeled in grey - trip attraction, trip production, generalized cost and accessibility calculations, trip assignment, and data export - cannot be modified using advanced inputs. If you need to reprogram those components of the RTM, proficiency with EMME toolbox and Python is required.</p>
 <h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
