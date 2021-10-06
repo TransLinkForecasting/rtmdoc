@@ -18,9 +18,9 @@ Follow the steps below create or update mkdocs-generated html:
 * download and install [git](https://git-scm.com/downloads)
 * download and install [python anaconda](https://www.anaconda.com/distribution/)
 * set up environment with prerequisites:
-   * `conda remove --name rtm_docs --all`
-   * `conda create -n rtm_docs python=3.6 pip`
-   * `conda activate rtm_docs`
+   * `conda remove --name rtmdoc --all`
+   * `conda create -n rtmdoc python=3.6 pip`
+   * `conda activate rtmdoc`
    * `pip install -U -r requirements/project.txt`
 
 ### Clone rtmdoc and develop
