@@ -28,12 +28,14 @@ To specify preset coding style and custom argument for presets, add the followin
 
 ```
 {
+    "python.linting.lintOnSave": true,
     "python.linting.enabled": true,
     "python.linting.pylintPath": "pylint",
     "python.linting.pylintArgs": [
-        "--ignored-modules=inro",
-        "--ignored-classes=inro",
-        "--extension-pkg-whitelist=inro"
+        "--ignored-modules=inro,inro.emme.desktop,openmatrix",
+        "--ignored-classes=inro,inro.emme.desktop,openmatrix",
+        "--extension-pkg-whitelist=inro,inro.emme.desktop,openmatrix",
+        "--disable=C,E1101"
     ],
     "python.formatting.provider": "yapf",
     "python.formatting.yapfArgs": [
