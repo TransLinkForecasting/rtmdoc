@@ -9,7 +9,7 @@ In this section, we will show you the best practices when working with the RTM f
 
 We encourage all users and developers to be familiar with [EMME] as well as the RTM development stack: [python], [SQL] and [git]. If you are new to EMME, we recommend you to take [EMME Training Courses]. If you are new to programming, you should go through some online tutorials and documentations for [python], [SQL] and [git] before proceeding. 
 
-* Licensed installation of [EMME Desktop 4.4.2]
+* Licensed installation of [EMME] Desktop 4.5.0 for RTM 3.5
 * Installation of [git]
 * Installation of [git lfs]
 * Installation of [SQLite Studio]
@@ -18,6 +18,25 @@ We encourage all users and developers to be familiar with [EMME] as well as the 
 !!! note
 
     A valid [EMME] license is required to run the RTM. See [Contributing] if you need help obtaining a license or need access to the RTM.
+
+### Previous RTM version requirements
+
+The RTM is developed and tested against specific versions of the EMME software. If you are using previous RTM versions, here are the EMME Desktop versions you would need:
+* for RTM-3.3, install EMME-v4.4.2
+* for RTM-3.4, install EMME-v4.4.4.2
+* for RTM-3.5, install EMME-v4.5.0
+
+### System requirements
+
+The minimimum system requirement for running the RTM is:
+* 2-core processor 3.0 GHz
+* 16 GB memory
+* 15 GB Storage (for 1 scenario runs, 12 GB is required for each additional scenario)
+
+The recommended system requirement is:
+* 8-core processor with 4.0 GHz
+* 32 GB memory or more
+* 50 GB Storage (for minimize of 3 scenario runs with extra space for advanced analysis)
 
 
 ## Cloning the Model
@@ -557,7 +576,6 @@ Learn more about [git] and read more about [GitHub pull request].
 [SQLite Studio]: https://sqlitestudio.pl/
 [Visual Studio Code]: https://code.visualstudio.com/download
 [EMME]: https://www.inrosoftware.com/en/products/emme/
-[EMME Desktop 4.4.2]: https://blog.inrosoftware.com/blog/emme-4.4-release
 [EMME Training Courses]: https://www.inrosoftware.com/en/services/training/
 [Git Setup]: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 [GitHub pull request]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
