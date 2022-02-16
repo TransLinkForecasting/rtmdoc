@@ -22,6 +22,7 @@ We encourage all users and developers to be familiar with [EMME] as well as the 
 ### Previous RTM version requirements
 
 The RTM is developed and tested against specific versions of the EMME software. If you are using previous RTM versions, here are the EMME Desktop versions you would need:
+
 * for RTM-3.3, install EMME-v4.4.2
 * for RTM-3.4, install EMME-v4.4.4.2
 * for RTM-3.5, install EMME-v4.5.0
@@ -29,11 +30,13 @@ The RTM is developed and tested against specific versions of the EMME software. 
 ### System requirements
 
 The minimimum system requirement for running the RTM is:
+
 * 2-core processor 3.0 GHz
 * 16 GB memory
 * 15 GB Storage (for 1 scenario runs, 12 GB is required for each additional scenario)
 
 The recommended system requirement is:
+
 * 8-core processor with 4.0 GHz
 * 32 GB memory or more
 * 50 GB Storage (for minimize of 3 scenario runs with extra space for advanced analysis)
