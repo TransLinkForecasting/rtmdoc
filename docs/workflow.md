@@ -39,7 +39,7 @@ The recommended system requirement is:
 
 * 8-core processor with 4.0 GHz
 * 32 GB memory or more
-* 50 GB Storage (for minimize of 3 scenario runs with extra space for advanced analysis)
+* 50 GB Storage (for 3 scenario runs with extra space for advanced analysis)
 
 
 ## Cloning the Model
