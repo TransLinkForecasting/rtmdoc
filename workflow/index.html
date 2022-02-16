@@ -65,6 +65,12 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Model Workflow</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#previous-rtm-version-requirements">Previous RTM version requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-requirements">System requirements</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cloning-the-model">Cloning the Model</a>
         <ul>
@@ -215,7 +221,7 @@
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <p>We encourage all users and developers to be familiar with <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> as well as the RTM development stack: <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a>. If you are new to EMME, we recommend you to take <a href="https://www.inrosoftware.com/en/services/training/">EMME Training Courses</a>. If you are new to programming, you should go through some online tutorials and documentations for <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a> before proceeding. </p>
 <ul>
-<li>Licensed installation of <a href="https://blog.inrosoftware.com/blog/emme-4.4-release">EMME Desktop 4.4.2</a></li>
+<li>Licensed installation of <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> Desktop 4.5.0 for RTM 3.5</li>
 <li>Installation of <a href="https://git-scm.com/docs">git</a></li>
 <li>Installation of <a href="https://git-lfs.github.com/">git lfs</a></li>
 <li>Installation of <a href="https://sqlitestudio.pl/">SQLite Studio</a></li>
@@ -225,6 +231,20 @@
 <p class="admonition-title">Note</p>
 <p>A valid <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> license is required to run the RTM. See <a href="../about/contributing">Contributing</a> if you need help obtaining a license or need access to the RTM.</p>
 </div>
+<h3 id="previous-rtm-version-requirements">Previous RTM version requirements<a class="headerlink" href="#previous-rtm-version-requirements" title="Permanent link">&para;</a></h3>
+<p>The RTM is developed and tested against specific versions of the EMME software. If you are using previous RTM versions, here are the EMME Desktop versions you would need:
+* for RTM-3.3, install EMME-v4.4.2
+* for RTM-3.4, install EMME-v4.4.4.2
+* for RTM-3.5, install EMME-v4.5.0</p>
+<h3 id="system-requirements">System requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h3>
+<p>The minimimum system requirement for running the RTM is:
+* 2-core processor 3.0 GHz
+* 16 GB memory
+* 15 GB Storage (for 1 scenario runs, 12 GB is required for each additional scenario)</p>
+<p>The recommended system requirement is:
+* 8-core processor with 4.0 GHz
+* 32 GB memory or more
+* 50 GB Storage (for minimize of 3 scenario runs with extra space for advanced analysis)</p>
 <h2 id="cloning-the-model">Cloning the Model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
 <p>To get the latest version of the rtm, clone it from the RTM github repository. The following bash commands will clone the repository from the master branch, and fetch the latest commit with large file storage support. Then, it will checkout the current branch into a new branch named <code>master_working_01</code>. We recommend that you rename the new branch based on the project you are working on:</p>
 <pre><code class="language-bash">git clone https://github.com/TransLinkForecasting/rtm.git --branch master --single-branch
