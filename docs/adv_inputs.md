@@ -256,5 +256,62 @@ Example of snippet of default Demand Summary yaml:
 Example of snippet of a project based Demand Summary yaml:
 ![Screenshot](img/adv_inputs/demand_summary2.png)
 
+#### Example Use Case: Export Daily Demands at the PA level
+
+By default, daily demand at the TAZ level from production to attraction zones is not being saved at the end of the model run. In order to create summary of this data, users can use the demand summary function to export this data to feather file:
+
+```yaml
+# Demand Summary (Time Slicing Sub Routine) - RTS Toolbox
+
+# - Sub routine is executed at the end of Time Slicing.
+# - If multiple DemandSummary_*.yaml exist, table names
+#   must not be identical across yaml configurations.
+# - Please refer to TimeSlice-segment_disagg_demand
+#   within TimeSlicing.yaml for available segments.
+
+STEPS:
+    - DemandSummary
+
+DemandSummary:
+    # steps to export demand summaries, method of summary is always sum of trips
+    export_demand_steps:
+        # name of step will be used as table or file name
+        RTS_Demand:
+            # result data type: 
+            #     data_table - long data table with segments
+            #     matrix - named array/column with full OD
+            type: matrix
+            # data export format: 
+            #     ['sql', # trip_summaries sqlite db
+            #      'csv', # comma separated
+            #      'fea', # feather file
+            #      'emx'] # emme matrix output (matrix only)
+            export_format: ['fea']
+            # group data by columns:
+            #     should match segment_disaggregation naming
+            #     variable not specified in group by will be summed
+            #     mat_type (for TOD/Daily) should always be included
+            group_by: [mat_type, purpose, income, assign_mode, vot]
+            # filter segment:
+            filter_by:
+                mat_type: ['DPA']
+                pr_dr: ['PR']
+
+    # directory output folder relative to db_xx
+    output_directory: Outputs
+    # export matrix addition spec, default False
+    export_mat_spec: False
+    # export every cycle, default False
+    export_every_cycle: False
+```
+
+You can save this example using this link: [DemandSummary_RTS.yaml](asset/scripts/DemandSummary_RTS.yaml)
+
+
+!!! note
+
+    Please double check the `/BaseNetworks/Inputs/TimeSlicing/TimeSlicing.yaml` file to make sure the existing or new data summary files are not being included in FileCleanup function near the end of the yaml file.
+
+
 <!-- Links -->
 [User Guide's Requirements]: ../workflow/#requirements
