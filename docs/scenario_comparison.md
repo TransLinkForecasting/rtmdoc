@@ -2,7 +2,7 @@
 
 ## How it works
 
-The Scenario Comparison EMME toolbox is an utility that allows planners/modellers to quickly compare metrics across two different EMME scenarios. This toolbox requires two RTM runs to be completed using the latest RTM version.
+The Scenario Comparison EMME toolbox is an utility that allows planners/modellers to quickly compare metrics across two different EMME scenarios. This toolbox requires two RTM runs to be completed using the latest version of RTM.
 
 For each run of the RTM, the model will create two databases for each scenario the model was run for: `rtm.db`, and `trip_summaries.db`. The two databases house data relating to transportation metrics. The tool will connect to the pair of databases for each scenario, pull relevant data, join the data for each scenario, and then output the data for each metric/aggregation/disaggregation as a csv. 
 
