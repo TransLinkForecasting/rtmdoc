@@ -6,7 +6,7 @@ The Scenario Comparison EMME toolbox is an utility that allows planners/modeller
 
 For each run of the RTM, the model will create two databases for each scenario the model was run for: `rtm.db`, and `trip_summaries.db`. The two databases house data relating to transportation metrics. The tool will connect to the pair of databases for each scenario, pull relevant data, join the data for each scenario, and then output the data for each metric/aggregation/disaggregation as a csv. 
 
-The code reads from the configuration file `config.json`. The config file will give a series of tables from the two databases for the script to pull from. For each table, the `disagg` field will give a list of columns to disaggregate by for the measure, what type of aggregation/group by action to perform (ex average or summing), and what columns to sum/average for (ex volumes or trips). 
+The code reads from the configuration file `ScenarioComparison.json`. The config file will give a series of tables from the two databases for the script to pull from. For each table, the `disagg` field will give a list of columns to disaggregate by for the measure, what type of aggregation/group by action to perform (ex average or summing), and what columns to sum/average for (ex volumes or trips). 
 
 In certain cases, the config file will also tell the script if it needs to rename certain columns in the database output, if multiple levels of aggregation are needed, or if custom SQL queries are needed (stored in the `queries` folder).
 
