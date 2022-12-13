@@ -32,7 +32,7 @@ The following image lists the tables that each of the outputs pulls data from. I
 
 Once the tool has been imported to EMME, the tool needs 3 inputs to run. Scenario 1 Directory and Scenario 2 Directory refers to the directories that house the `rtm.db` and `trip_summaries.db` for each of the two scenarios. Output directory refers to the directory where the outputs will be saved to. The tool will create a folder named `ScenarioComparison` where all the output csvs will be saved to. 
 
-## Output CSV Format
+## Output format
 
 The outputs are saved in a single csv, where the name of the file is in the following format. 
 
