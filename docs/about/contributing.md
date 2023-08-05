@@ -1,7 +1,7 @@
 
 # Contributing
 
-If you require access to the RTM or would like to stay in touch, please join our mailing list.
+If you would like to stay in touch, please join our mailing list.
 
 <p></p>
 <form class="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQZOaJok5gcDUIUlsuOxsqBZO7yPDoAqF-AkFAlPuIJM2W6Q/formResponse">
@@ -35,5 +35,5 @@ Thank you for joining our mailing list.
 
 If you have trouble with submitting the form, please visit [Google Forms]. 
 
-[Google Forms]: https://docs.google.com/forms/d/e/1FAIpQLSfQZOaJok5gcDUIUlsuOxsqBZO7yPDoAqF-AkFAlPuIJM2W6Q/viewform?usp=pp_url&entry.839337160=request+RTM+access
+[Google Forms]: https://docs.google.com/forms/d/e/1FAIpQLSfQZOaJok5gcDUIUlsuOxsqBZO7yPDoAqF-AkFAlPuIJM2W6Q/viewform
 
