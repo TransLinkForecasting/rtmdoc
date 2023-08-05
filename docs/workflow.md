@@ -9,7 +9,7 @@ In this section, we will show you the best practices when working with the RTM f
 
 We encourage all users and developers to be familiar with [EMME] as well as the RTM development stack: [python], [SQL] and [git]. If you are new to EMME, we recommend you to take [EMME Training Courses]. If you are new to programming, you should go through some online tutorials and documentations for [python], [SQL] and [git] before proceeding. 
 
-* Licensed installation of [EMME] Desktop 4.5.0 for RTM 3.5
+* Licensed installation of [EMME] Desktop 4.5.0 for RTM 3.6
 * Installation of [git]
 * Installation of [git lfs]
 * Installation of [SQLite Studio]
@@ -25,7 +25,8 @@ The RTM is developed and tested against specific versions of the EMME software. 
 
 * for RTM-3.3, install EMME-v4.4.2
 * for RTM-3.4, install EMME-v4.4.4.2
-* for RTM-3.5, install EMME-v4.5.0
+* for RTM-3.5, install EMME-v4.5.0.2
+* for RTM-3.6, install EMME-v4.5.0.2
 
 ### System requirements
 
