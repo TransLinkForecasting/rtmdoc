@@ -18,6 +18,7 @@ nav:
             - data_outputs.md
             - data_analysis.md
             - data_generate.md
+            - scenario_comparison.md
     - 'Developer Guide':
             - dev_getting_started.md
             - coding_standard.md
