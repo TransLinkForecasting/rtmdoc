@@ -21,6 +21,7 @@ nav:
     - 'Developer Guide':
             - dev_getting_started.md
             - coding_standard.md
+            - code_review.md
     - 'References':
             - reports.md
             - naming_conventions.md
