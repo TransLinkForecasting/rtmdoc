@@ -4,7 +4,7 @@ site_description: 'RTM documentation for users and developers.'
 site_author: 'TransLink Forecasting'
 repo_url: 'https://github.com/TransLinkForecasting/rtmdoc'
 edit_uri: ""
-copyright: 'Copyright &copy; 2020 TransLink Forecasting'
+copyright: 'Copyright &copy; 2023 TransLink Forecasting'
 theme:
     name: readthedocs
     highlightjs: true
@@ -41,6 +41,5 @@ markdown_extensions:
     - def_list
 plugins:
     - search
-google_analytics:
-    - ""
-    - auto
+# analytics:
+#     gtag: G-ABC123
