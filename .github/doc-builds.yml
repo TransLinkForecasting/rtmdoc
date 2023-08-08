@@ -1,0 +1,92 @@
+name: Documentation Tests and Builds
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+
+  test-doc:
+    name: test-doc
+    env:
+      mamba-env-prefix: /usr/share/miniconda3/envs/rtmdoc
+      python-version: "3.9"
+      label: linux-64
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # get all tags, lets setuptools_scm do its thing
+      - name: Install dependencies
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          activate-environment: rtmdoc
+          use-mamba: true
+          python-version: ${{ matrix.python-version }}
+      - name: Install mkdocs
+        run: |
+          python -m pip install mkdocs==1.1.2
+      - name: Conda checkup
+        run: |
+          conda info -a
+          conda list
+          echo ${{ github.repository }}
+          echo ${{ github.ref_name }}
+      - name: Build the docs
+      # building documentation
+      # after building doc, incorporate changes into official gh-pages branch
+        run: |
+          mkdocs build --verbose --clean --strict
+      # no github push action for doc tests
+
+  build-doc:
+    name: build-doc
+    if: "(github.ref_name == 'master') || (github.ref_name == 'main') || (github.ref_name == 'develop')"
+    env:
+      mamba-env-prefix: /usr/share/miniconda3/envs/rtmdoc
+      python-version: "3.9"
+      label: linux-64
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # get all tags, lets setuptools_scm do its thing
+      - name: Install dependencies
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          activate-environment: rtmdoc
+          use-mamba: true
+          python-version: ${{ matrix.python-version }}
+      - name: Install mkdocs
+        run: |
+          python -m pip install mkdocs==1.1.2
+      - name: Conda checkup
+        run: |
+          conda info -a
+          conda list
+          echo ${{ github.repository }}
+          echo ${{ github.ref_name }}
+      - name: Build the docs
+      # building documentation
+      # after building doc, incorporate changes into official gh-pages branch
+        run: |
+          mkdocs build --verbose --clean --strict
+      - name: Push to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Token is created automatically by Github Actions, no other config needed
+          publish_branch: gh-pages
+          publish_dir: ./site
+          destination_dir: ./
