@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="TransLink Forecasting" /><link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/scenario_comparison/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Scenario Comparison Tool - RTM</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Scenario Comparison Tool";
+        var mkdocs_page_input_path = "scenario_comparison.md";
+        var mkdocs_page_url = "/rtmdoc/scenario_comparison/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> RTM
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../adv_inputs/">Advanced Inputs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Scenario Comparison Tool</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interface">Interface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output-format">Output format</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_review/">Code Review</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">References</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../reports/">Reports</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">RTM</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>User Guide &raquo;</li>
+      <li class="breadcrumb-item active">Scenario Comparison Tool</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="scenario-comparison-tool">Scenario Comparison Tool<a class="headerlink" href="#scenario-comparison-tool" title="Permanent link">&para;</a></h1>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p>The Scenario Comparison EMME toolbox is an utility that allows planners/modellers to quickly compare metrics across two different EMME scenarios. This toolbox requires two RTM runs to be completed using the latest version of RTM.</p>
+<p>For each run of the RTM, the model will create two databases for each scenario the model was run for: <code>rtm.db</code>, and <code>trip_summaries.db</code>. The two databases house data relating to transportation metrics. The tool will connect to the pair of databases for each scenario, pull relevant data, join the data for each scenario, and then output the data for each metric/aggregation/disaggregation as a csv. </p>
+<p>The code reads from the configuration file <code>ScenarioComparison.json</code>. The config file will give a series of tables from the two databases for the script to pull from. For each table, the <code>disagg</code> field will give a list of columns to disaggregate by for the measure, what type of aggregation/group by action to perform (ex average or summing), and what columns to sum/average for (ex volumes or trips). </p>
+<p>In certain cases, the config file will also tell the script if it needs to rename certain columns in the database output, if multiple levels of aggregation are needed, or if custom SQL queries are needed (stored in the <code>queries</code> folder).</p>
+<p>If multiple levels of aggregation is needed, the additional column of aggregation is specified under <code>"filter_col"</code>. The script will aggregate over each value specified under <code>"filter"</code>, and the values under the column specified in the <code>"col"</code> field.</p>
+<p>The script uses one generic function to for each of the outputs. To add an additional output, or to remove/modify the output, the config file would need to be modified.</p>
+<p>Measures are calculated in two ways.</p>
+<ol>
+<li>
+<p>If <code>"groupby":true</code>, then the script will group the database output by the <code>col</code> specificed using the aggregation specified in <code>"how"</code>. The resulting value is the aggregated results of the column specified in the <code>"value"</code> field.</p>
+</li>
+<li>
+<p>If <code>"groupby":false</code>, then the script will aggregate all values specified in <code>"col"</code> according to the aggregation method specified in <code>"how"</code>. It will name the output of the aggregation according to the <code>"value"</code>. The disaggregation column will be named according to the name set under <code>"alias"</code>, and the disaggregation values are the names of the columns specified under <code>"col"</code>.</p>
+</li>
+</ol>
+<p>Nearly all measures are aggregated using <code>sum</code>. Fare measures (average fare by gy origin and average fares by period) are the only measures that aggregate using the mean. Most measures specified in the script/json are some form of a demand indicator, therefore the most best aggregation method is to sum the trips/crossings/boardings by disaggregation column.</p>
+<p>The following image lists the tables that each of the outputs pulls data from. It also lists all the functions, and what outputs are created by each function.</p>
+<p><img alt="images" src="../img/Output%20Sources%20Table.png" /></p>
+<h2 id="interface">Interface<a class="headerlink" href="#interface" title="Permanent link">&para;</a></h2>
+<p><img alt="images" src="../img/interface.PNG" /></p>
+<p>Once the tool has been imported to EMME, the tool needs 3 inputs to run. Scenario 1 Directory and Scenario 2 Directory refers to the directories that house the <code>rtm.db</code> and <code>trip_summaries.db</code> for each of the two scenarios. Output directory refers to the directory where the outputs will be saved to. The tool will create a folder named <code>ScenarioComparison</code> where all the output csvs will be saved to. </p>
+<h2 id="output-format">Output format<a class="headerlink" href="#output-format" title="Permanent link">&para;</a></h2>
+<p>The outputs are saved in a single csv, where the name of the file is in the following format. </p>
+<p><code>summary_comparison-1_{Scenario 1 ID}_{Scenario 1 Name}-2_{Scenario 2 ID}_{Scenario 2 Name}</code></p>
+<p>The tables are in the following format.</p>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>value_1_{Scenario 1 ID}_{Scenario 1 Name}</th>
+<th>value_2_{Scenario 2 ID}_{Scenario 2 Name}</th>
+<th>abs_change</th>
+<th>rel_change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fare_matrix_gy-fare-gy_i-7</td>
+<td>4</td>
+<td>6</td>
+<td>2</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+<p>The name of each metric follows the following format.</p>
+<p><code>{Database table}-{Measure}-{Disaggregation Column}-{Disaggregation Value}</code></p>
+<p>For example, for <code>fare_matrix_gy-fare-gy_i-7</code>
+* Data is pulled from the <code>fare_matrix_gy</code> table
+* The values in the table are the average <code>fare</code>
+* The data is disaggregated by <code>gy</code> origin zone
+* This specific metric shows the average fare for origins from gy zone <code>7</code> for both Scenario 1 and 2</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data_generate/" class="btn btn-neutral float-left" title="Custom Data Generation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dev_getting_started/" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2023 TransLink Forecasting</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../data_generate/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dev_getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

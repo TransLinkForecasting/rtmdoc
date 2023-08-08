@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="TransLink Forecasting" /><link rel="canonical" href="https://translinkforecasting.github.io/rtmdoc/code_review/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Code Review - RTM</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Code Review";
+        var mkdocs_page_input_path = "code_review.md";
+        var mkdocs_page_url = "/rtmdoc/code_review/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> RTM
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../workflow/">Model Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../adv_inputs/">Advanced Inputs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_outputs/">Model Data Output</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">Model Data Analysis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_generate/">Custom Data Generation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenario_comparison/">Scenario Comparison Tool</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../dev_getting_started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../coding_standard/">Coding Standard</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Code Review</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-pull-request">Create a pull request</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conduct-model-testing">Conduct model testing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-validate_manyipynb-for-model-testing">Using validate_many.ipynb for model testing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#assign-a-reviewer">Assign a reviewer</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">References</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../reports/">Reports</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../naming_conventions/">Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_assumptions/">Data and Assumptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../about/contributing/">Contributing</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">RTM</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Developer Guide &raquo;</li>
+      <li class="breadcrumb-item active">Code Review</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="code-review">Code Review<a class="headerlink" href="#code-review" title="Permanent link">&para;</a></h1>
+<p>Code review is an important part of model development to ensure consistency of general coding and modeling practices. A thorough code review should be conducted when changes are introduced to the main codebase via pull requests. Code reviews are required whenever a new pull request has been created in the main RTM repository. Typically, a member of the RTM development team will review the requested code change and work with the contributor that created the pull request. Overall, this is the general procedure for code review:</p>
+<ol>
+<li>Create a pull request</li>
+<li>Conduct model testing</li>
+<li>Assign a reviewer</li>
+</ol>
+<h2 id="create-a-pull-request">Create a pull request<a class="headerlink" href="#create-a-pull-request" title="Permanent link">&para;</a></h2>
+<p>Pull request is the recommended channel to introduce model changes and start the code review process. We encourage contributors to provides relevant information regarding the changes introduced, outline and assess the impact of the changes on model results, and provide model testing and comparison results. These information allow the RTM development team to efficiently process pull requests.  </p>
+<p>If you have never created a pull request before, please refer to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">GitHub Docs - Creating a pull request</a> for more information.</p>
+<h2 id="conduct-model-testing">Conduct model testing<a class="headerlink" href="#conduct-model-testing" title="Permanent link">&para;</a></h2>
+<p>Model testing is a critical part of the quality control and assurance process in maintaining the RTM. The model testing ensure new versions of RTM is free from software bugs and errors, and the impact of the changes on the RTM results is well understood. Model testing should be performed for all base years. These are the steps to perform model testing:</p>
+<ul>
+<li><strong>Step 1</strong>: Complete a set of reference model runs (for each base year) from a previous version of RTM, use the branch you are trying to pull your changes into as reference.</li>
+<li><strong>Step 2</strong>: Complete a set of updated model runs (for each base year) from the new version of RTM</li>
+<li><strong>Step 3</strong>: Run scenario comparison tool between the reference and updated model runs</li>
+<li><strong>Step 4</strong>: Package scenario comparison result excel files, and archive databank files (with input folder, rtm.db, and trip_summaries.db)</li>
+</ul>
+<h3 id="using-validate_manyipynb-for-model-testing">Using validate_many.ipynb for model testing<a class="headerlink" href="#using-validate_manyipynb-for-model-testing" title="Permanent link">&para;</a></h3>
+<p>If you are familiar with using EMME notebook with Python, you may use the <a href="https://github.com/TransLinkForecasting/rtm/blob/develop/RTM/Scripts/Tools/validate_many.ipynb">validate_many.ipynb</a> notebook within the <code>Scripts/Tools</code> folder to conduct reference and updated model runs, perform scenario comparison, and generate archive databank files.</p>
+<ul>
+<li><strong>Step 1</strong>: After downloading a previous version of RTM, run <em>validate_many.ipynb</em> with the default config of the notebook, this will run all of the base year scenarios. The archive version of your databanks can be found in the <code>Media/ScenarioComparison</code> folder</li>
+<li><strong>Step 2</strong>: With the new version of RTM, open <em>validate_many.ipynb</em>, update the <code>prev_version_databank_folder</code> option for each of the scenario specified within <code>params</code> to point to the databank folders of each of the corresponding base year. Then run <em>validate_many.ipynb</em>. Note that the last 2 blocks of the code in the <em>validate_many.ipynb</em> notebook will package an archive version of your databanks, and generate scenario comparison result excel files. Everything you need to share with the reviewer will be with the <code>Media/ScenarioComparison</code> folder.</li>
+</ul>
+<h2 id="assign-a-reviewer">Assign a reviewer<a class="headerlink" href="#assign-a-reviewer" title="Permanent link">&para;</a></h2>
+<p>Once you have all the relevant information included in your pull request and conducted the model testing procedure. Please reach out to your contact at the RTM development team via email. They will provide you an ETA and give you updates on your pull request. If additional changes are requested, you may need to conduct additional model testing.</p>
+<!-- Links -->
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../coding_standard/" class="btn btn-neutral float-left" title="Coding Standard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../reports/" class="btn btn-neutral float-right" title="Reports">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2023 TransLink Forecasting</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/TransLinkForecasting/rtmdoc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../coding_standard/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../reports/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
