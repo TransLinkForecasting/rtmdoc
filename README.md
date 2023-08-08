@@ -1,6 +1,6 @@
 # RTM Documentation for Users and Developers
 
-[![Build Status](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds/badge.svg)](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds)
+[![Build Status](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds.yml/badge.svg)](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds.yml)
 [![RTD Build Status](https://readthedocs.org/projects/rtm/badge/?version=latest&style=flat)](https://readthedocs.org/projects/rtm)
 
 This is a mkdocs-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting. This repository has been set up with GitHub Workflow and readthedoc for automated deployment.
