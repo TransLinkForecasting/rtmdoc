@@ -1,9 +1,9 @@
 # RTM Documentation for Users and Developers
 
-[![Build Status](https://travis-ci.com/TransLinkForecasting/rtmdoc.svg?branch=master)](https://travis-ci.com/TransLinkForecasting/rtmdoc)
+[![Build Status](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds/badge.svg)](https://github.com/TransLinkForecasting/rtmdoc/actions/workflows/doc-builds)
 [![RTD Build Status](https://readthedocs.org/projects/rtm/badge/?version=latest&style=flat)](https://readthedocs.org/projects/rtm)
 
-This is a mkdocs-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting. This repository has been set up with travis ci and readthedoc for automated deployment.
+This is a mkdocs-generated documentation for the Regional Transportation Model (RTM) by TransLink Forecasting. This repository has been set up with GitHub Workflow and readthedoc for automated deployment.
 
 Please visit the documentation on [github.io](https://translinkforecasting.github.io/rtmdoc) or [readthedoc](https://rtm.readthedocs.io).
 
@@ -19,7 +19,7 @@ Follow the steps below create or update mkdocs-generated html:
 * download and install [python anaconda](https://www.anaconda.com/distribution/)
 * set up environment with prerequisites:
    * `conda remove --name rtmdoc --all`
-   * `conda create -n rtmdoc python=3.6 pip`
+   * `conda create -n rtmdoc python=3.9 pip`
    * `conda activate rtmdoc`
    * `pip install -U -r requirements/project.txt`
 
