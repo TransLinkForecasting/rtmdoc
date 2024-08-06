@@ -10,7 +10,7 @@ Code review is an important part of model development to ensure consistency of g
 
 ## Create a pull request
 
-Pull request is the recommended channel to introduce model changes and start the code review process. We encourage contributors to provides relevant information regarding the changes introduced, outline and assess the impact of the changes on model results, and provide model testing and comparison results. These information allow the RTM development team to efficiently process pull requests.  
+Pull request is the recommended channel to introduce model changes and start the code review process. We encourage contributors to provides relevant information regarding the changes introduced, outline and assess the impact of the changes on model results and provide model testing and comparison results. This information allows the RTM development team to efficiently process pull requests.
 
 If you have never created a pull request before, please refer to [GitHub Docs - Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for more information.
 
