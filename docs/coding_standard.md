@@ -1,16 +1,16 @@
 
 # Coding Standard
 
-The coding standard for the RTM has two major comonent: guideline and compliance. Coding Standard Guideline spell out the best practices around the design of the RTM code. It is comprised of 3 elements: styles, function abstraction, data management. Following the guideline ensures the programming paradigm used by all developers of the RTM remain the consistent. Code Standard Compliance refers to the set of tools and procedures employed to ensure that the guideline has been met.
+The coding standard for the RTM has two major comonent: guideline and compliance. Coding Standard Guideline spell out the best practices around the design of the RTM code. It is comprised of 3 elements: styles, function abstraction, data management. Following the guideline ensures the programming paradigm used by all developers of the RTM remain the consistent. Code Standard Compliance refers to the set of tools and procedures employed to ensure that the guideline has been met. The code review standards will be enforce through our [code review] process.
 
 
 ## General Guideline
 
 ### Styles
 
-* Recommended Code Formator: [google/yapf] (yet another python formatter)
-    * Ensures PEP8 standard is followed
-    * yapf linked with GitHub Action to automatically check for compliance
+* Recommended Code Formator: Black from [Python Software Foundation]
+    * Compliant with the recent changes in the [PEP 8 style guide]
+    * For integration with your favourite IDE, see [Editor Integration for Black]
 * Key requirements taken from the Python PEP8 Standard:
     * **Indentation**: spaces are preferred (4 spaces in place of 1 tab)
     * **Maximum Line Length**: 96 characters
@@ -59,7 +59,7 @@ The coding standard for the RTM has two major comonent: guideline and compliance
 
 ## Compliance and Procedure
 
-The code checking tool and code review procedure are used to enforce the guideline. The code checking tool enforces standard rules using automated tools such as [pylint for GitHub]. Then, the review procedure is carried out to ensure area of compliance not covered by the code checking tool. The intention of the code checking tool is to minimize the compliance effort, so it will not replace the standard review procedure. If a commit does not meet compliance, it will be rejected by the RTM code maintainer with comments.
+All code submissions shall be done using GitHub pull request feature. The code checking tool and code review procedure are used to enforce our coding standards. The code checking tool, if applicable, enforces standard rules using automated tools such as [pylint for GitHub]. Then, the review procedure is carried out to ensure area of compliance not covered by the code checking tool. The intention of the code checking tool is to aid in the submission process and is not intended to replace the standard review procedure. If a commit does not meet our standard, RTM code maintainers will request for revision on the pull reuqest you submit.
 
 
 ### Code Checking Tool
@@ -67,13 +67,16 @@ Rules covered by PEP8 will be automatically checked upon any commit to the main 
 
 
 ### Code Review Procedure
-The code review procedure is to be conducted after the initiation of a Pull Request into any protected branches. For a commit to a non-protected branch, developers do not need to conform to the guideline for ease of development, testing and debugging. However, protected branches such as “master” will be checked for compliance. At least 1 approver review by an RTM maintainer (typically the Project Manager) is needed. If more than 1 deviation has been found, the commit is to be rejected with comments. No comments are required for any approved commits.
+The code review procedure is to be conducted after the initiation of a Pull Request into any protected branches. For a commit to a non-protected branch, developers do not need to conform to the guideline for ease of development, testing and debugging. However, protected branches such as “master” will be checked for compliance. At least 1 approver review by an RTM maintainer (typically the Project Manager) is needed. The RTM maintainer shall provide specific comments and suggestions if revisions are needed. No comments are required for any approved commits.
 
 
 <!-- Links -->
+[code review]: https://translinkforecasting.github.io/rtmdoc/code_review/
 [Naming Conventions]: ../naming_conventions/
 [Matrix Naming Conventions]: ../naming_conventions/#matrix-names
-[google/yapf]: https://github.com/google/yapf
+[Python Software Foundation]: https://github.com/psf/black
+[PEP 8 style guide]: https://peps.python.org/pep-0008
+[Editor Integration for Black]: https://black.readthedocs.io/en/stable/integrations/editors.html#visual-studio-code
 [VS Code Documentation on Settings]: https://vscode.readthedocs.io/en/latest/getstarted/settings/
 [osPlanning/omx]: https://github.com/osPlanning/omx
 [pylint for GitHub]: https://github.com/marketplace/actions/github-action-for-pylint

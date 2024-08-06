@@ -12,44 +12,43 @@ Once all the requirements are fulfilled, install [Visual Studio Code], then set 
 
 ### Formatter and Linter
 
-#### Step 1: install yapf and pylint
+#### Step 1: install pylint
 
-Make sure you have the correct coding environment activated (following example is for EMME 4.5 on Windows 10). Then install the required packages.
-
-```bash
-%ComSpec% /C ""C:\Program Files\INRO\Emme\Emme 4\Emme-4.5.0\programs\Emme-cmd.bat" "
-python -m pip install --user yapf
-python -m pip install --user pylint
-```
+* Please visit [https://marketplace.visualstudio.com/items?itemName=ms-python.pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint), and open the extension page through Visual Studio Code.
+* Typically, pylint will automatically install PyLance - Python language server, if not, please install manually via this link: [https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 
 #### Step 2: configure formatting setting for VS Code
 
-To specify preset coding style and custom argument for presets, add the following argument for yapf in your user settings:
+* Please visit [https://marketplace.visualstudio.com/items?itemName=ms-python.pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter), and open the extension page through Visual Studio Code.
 
-```
+
+#### Optional: advanced settings
+
+* You may customize behavior of VS Code using `settings.json`. For windows OS, it's typically located in `%APPDATA%\Code\User\settings.json`
+* This is our recommended `settings.json` values, you may add more settings by referencing documentation for VS Code and its extensions:
+
+```json
 {
-    "python.linting.lintOnSave": true,
-    "python.linting.enabled": true,
-    "python.linting.pylintPath": "pylint",
-    "python.linting.pylintArgs": [
+    "python.languageServer": "Pylance",
+    "pylint.lintOnChange": true,
+    "pylint.args": [
         "--ignored-modules=inro,inro.emme.desktop,openmatrix",
         "--ignored-classes=inro,inro.emme.desktop,openmatrix",
         "--extension-pkg-whitelist=inro,inro.emme.desktop,openmatrix",
-        "--disable=C,E1101"
+        "--disable=C,E1101",
+        "--max-line-length=120"
     ],
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfArgs": [
-        "--style={ based_on_style: pep8, column_limit: 96, USE_TABS: False}"
-    ]
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    }
 }
 ```
 
-For location of VS Code settings files, see [VS Code Documentation on File Locations].
-
-For references to VS Code settings, see [VS Code Documentation on Settings Reference].
-
-You may add other editor behavior such as `"editor.formatOnSave": true,` as per your reference.
-
+You may specify and save specific changes for your set up using setting files for VS Code:
+* For location of VS Code settings files, see [VS Code Documentation on File Locations].
+* For references to VS Code settings, see [VS Code Documentation on Settings Reference].
+* You may add other editor behavior such as `"editor.formatOnSave": true,` as per your reference.
 
 
 
