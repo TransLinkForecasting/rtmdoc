@@ -1,7 +1,7 @@
 
 # Coding Standard
 
-The coding standard for the RTM has two major comonent: guideline and compliance. Coding Standard Guideline spell out the best practices around the design of the RTM code. It is comprised of 3 elements: styles, function abstraction, data management. Following the guideline ensures the programming paradigm used by all developers of the RTM remain the consistent. Code Standard Compliance refers to the set of tools and procedures employed to ensure that the guideline has been met. The code review standards will be enforce through our [code review] process.
+The coding standard for the RTM has two major components: guideline and compliance. Coding Standard Guideline spell out the best practices around the design of the RTM code. It is comprised of 3 elements: styles, function abstraction, data management. Following the guideline ensures the programming paradigm used by all developers of the RTM remain the consistent. Code Standard Compliance refers to the set of tools and procedures employed to ensure that the guideline has been met. The code review standards will be enforced through our [code review] process.
 
 
 ## General Guideline
@@ -12,14 +12,14 @@ The coding standard for the RTM has two major comonent: guideline and compliance
     * Compliant with the recent changes in the [PEP 8 style guide]
     * For integration with your favourite IDE, see [Editor Integration for Black]
 * Key requirements taken from the Python PEP8 Standard:
-    * **Indentation**: spaces are preferred (4 spaces in place of 1 tab)
-    * **Maximum Line Length**: 96 characters
+    * **Indentation**: spaces are strongly preferred (4 spaces in place of 1 tab)
+    * **Maximum Line Length**: no less than 80 and no more than 100 characters, [note that Black defaults to 88](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length)
     * **Line Break**: occur before binary operators
-    * **Blank lines**: surround top-level function and class definitions with two blank lines. Method definitions inside a class are surrounded by a single blank line.
-    * **Imports**: separate lines of import starting with standard library, related third party, then local application imports.
-    * **Comments**: block comments should explain following code and what and why they do or may be used to section the code.
-    * **Docstring (Documentation String)**: docstring is required for all *modules*, *functions*, *classes*, and *methods*. It should contain short description of what, how, and why the code exists. When applicable, describe the input and output types of the function. For more specific conventions on docstring, see PEP 257.
-        * You may use extension/tools to generate docstring. For example, [Python Docstring Generator] is available for VSCode.
+    * **Blank lines**: surround top-level function and class definitions with two blank lines. Method definitions inside a class are surrounded by a single blank line
+    * **Imports**: separate lines of import starting with standard library, related third party, then local application imports
+    * **Comments**: block comments should explain following code and what and why they do or may be used to section the code
+    * **Docstring (Documentation String)**: docstring is required for all *modules*, *functions*, *classes* and *methods*. It should contain short description of what, how, and why the code exists. When applicable, describe the input and output types of the function. For more specific conventions on docstring, see PEP 257
+        * You may use extension/tools to generate docstring. For example, [Python Docstring Generator] is available for VSCode
 * Python Naming Conventions:
     * **Naming of classes**: CapitalizedWords
     * **Naming of functions and variables**: lower_case_with_underscores
@@ -53,13 +53,13 @@ The coding standard for the RTM has two major comonent: guideline and compliance
 ### Managing Logging and Exceptions
 
 * Logging level may be modified during development as per need.
-* Mimimal logging should be used for commits pulled into master or main branch of the RTM.
+* Minimal logging should be used for commits pulled into master or main branch of the RTM.
 * Error messages and exception handling need to always be reported to logs.
 
 
 ## Compliance and Procedure
 
-All code submissions shall be done using GitHub pull request feature. The code checking tool and code review procedure are used to enforce our coding standards. The code checking tool, if applicable, enforces standard rules using automated tools such as [pylint for GitHub]. Then, the review procedure is carried out to ensure area of compliance not covered by the code checking tool. The intention of the code checking tool is to aid in the submission process and is not intended to replace the standard review procedure. If a commit does not meet our standard, RTM code maintainers will request for revision on the pull reuqest you submit.
+All code submissions shall be done using GitHub pull request feature. The code checking tool and code review procedure are used to enforce our coding standards. The code checking tool, if applicable, enforces standard rules using automated tools such as [pylint for GitHub]. Then, the review procedure is carried out to ensure area of compliance not covered by the code checking tool. The intention of the code checking tool is to aid in the submission process and is not intended to replace the standard review procedure. If a commit does not meet our standard, RTM code maintainers will request revision on your pull request.
 
 
 ### Code Checking Tool
