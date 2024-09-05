@@ -84,8 +84,9 @@ VDF | Description | Expression
 14 | Stop Sign and Signal| signal_delay + length x 60/posted_speed + 0.85 x (volume/(capacity x lanes))^4
 15 | Free Flow | length x 60/posted_speed x (1+0.6 x 0.85 x (volume/(capacity x lanes^1.05))^5)
 16 | Free Flow | length x 60/(posted_speed x 1.1) x (1+0.6 x 0.43 x (volume/(capacity x lanes^1.05))^5.25)
-> ![VolTime Plot](img/reference/VolTime.png)
-> ![VC_Time Plot](img/reference/VC_Time.png)
+
+![VolTime Plot](img/reference/VolTime.png)
+![VC_Time Plot](img/reference/VC_Time.png)
 
 ## Time of Assginment
 
