@@ -13,9 +13,9 @@ If you would like to stay in touch, please join our mailing list.
 <label>Organization (required)</label>
 <input name="entry.1178562779" type="text" required />
 <p></p>
-
+form
 <label>Email (required)</label>
-<input name="emailAddress" type="email" required />
+<input name="entry.1014626081" type="email" required />
 <p></p>
 
 <label>Phone Number</label>
