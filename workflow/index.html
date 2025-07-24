@@ -48,14 +48,22 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rtm-users">RTM Users</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rtm-developers">RTM Developers</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#previous-rtm-version-requirements">Previous RTM version requirements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#system-requirements">System requirements</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cloning-the-model">Cloning the Model</a>
+    <li class="toctree-l2"><a class="reference internal" href="#obtaining-model-files">Obtaining Model files</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#use-latest-rtm-version">Use Latest RTM version</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-clone-for-developers-only">Git Clone (for Developers only)</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#update-file-references">Update File References</a>
     </li>
         </ul>
@@ -124,7 +132,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit Changes</a>
+    <li class="toctree-l2"><a class="reference internal" href="#commit-changes-for-developers-only">Commit Changes (for Developers only)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#push-changes-to-github">Push Changes to GitHub</a>
     </li>
@@ -193,18 +201,19 @@
                 <h1 id="model-workflow">Model Workflow<a class="headerlink" href="#model-workflow" title="Permanent link">&para;</a></h1>
 <p>In this section, we will show you the best practices when working with the RTM from setting up your environment to extracting model results.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>We encourage all users and developers to be familiar with <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> as well as the RTM development stack: <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a>. If you are new to EMME, we recommend you to take <a href="https://www.inrosoftware.com/en/services/training/">EMME Training Courses</a>. If you are new to programming, you should go through some online tutorials and documentations for <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a> before proceeding. </p>
-<ul>
-<li>Licensed installation of <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> Desktop 4.5.0 for RTM 3.6</li>
-<li>Installation of <a href="https://git-scm.com/docs">git</a></li>
-<li>Installation of <a href="https://git-lfs.github.com/">git lfs</a></li>
-<li>Installation of <a href="https://sqlitestudio.pl/">SQLite Studio</a></li>
-<li>Installation of <a href="https://code.visualstudio.com/download">Visual Studio Code</a> (optional)</li>
-</ul>
+<h3 id="rtm-users">RTM Users<a class="headerlink" href="#rtm-users" title="Permanent link">&para;</a></h3>
+<p>We encourage all users to be familiar with <a href="https://www.bentley.com/software/openpaths/">OpenPaths EMME</a>. If you are new to EMME, we recommend you to review <a href="https://bentleysystems.service-now.com/community?id=kb_article_view&amp;sysparm_article=KB0041684">Tutorials for OpenPaths EMME</a>.
+* Licensed installation of <a href="https://www.bentley.com/software/openpaths/">OpenPaths EMME</a> Desktop 4.5.0 for RTM 3.6</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A valid <a href="https://www.inrosoftware.com/en/products/emme/">EMME</a> license is required to run the RTM. See <a href="../about/contributing">Contributing</a> if you need help obtaining a license or need access to the RTM.</p>
+<p>A valid <a href="https://www.bentley.com/software/openpaths/">OpenPaths EMME</a> license is required to run the RTM.</p>
 </div>
+<h3 id="rtm-developers">RTM Developers<a class="headerlink" href="#rtm-developers" title="Permanent link">&para;</a></h3>
+<p>If you are a developer for RTM. You should be familiar with RTM's development stack: <a href="https://www.learnpython.org/">python</a>, <a href="https://www.w3schools.com/sql/">SQL</a> and <a href="https://git-scm.com/docs">git</a>
+* Installation of <a href="https://git-scm.com/docs">git</a>
+* Installation of <a href="https://git-lfs.github.com/">git lfs</a>
+* Installation of <a href="https://sqlitestudio.pl/">SQLite Studio</a>
+* Installation of <a href="https://code.visualstudio.com/download">Visual Studio Code</a> (optional)</p>
 <h3 id="previous-rtm-version-requirements">Previous RTM version requirements<a class="headerlink" href="#previous-rtm-version-requirements" title="Permanent link">&para;</a></h3>
 <p>The RTM is developed and tested against specific versions of the EMME software. If you are using previous RTM versions, here are the EMME Desktop versions you would need:</p>
 <ul>
@@ -226,7 +235,11 @@
 <li>32 GB memory or more</li>
 <li>50 GB Storage (for 3 scenario runs with extra space for advanced analysis)</li>
 </ul>
-<h2 id="cloning-the-model">Cloning the Model<a class="headerlink" href="#cloning-the-model" title="Permanent link">&para;</a></h2>
+<h2 id="obtaining-model-files">Obtaining Model files<a class="headerlink" href="#obtaining-model-files" title="Permanent link">&para;</a></h2>
+<h3 id="use-latest-rtm-version">Use Latest RTM version<a class="headerlink" href="#use-latest-rtm-version" title="Permanent link">&para;</a></h3>
+<p>RTM users can obtain a copy of the latest RTM model release through their TransLink contact. We periodically provide new releases to everyone on our model user list.</p>
+<h3 id="git-clone-for-developers-only">Git Clone (for Developers only)<a class="headerlink" href="#git-clone-for-developers-only" title="Permanent link">&para;</a></h3>
+<p>Git is only required if you are a developer making contribution to the source code of RTM.</p>
 <p>To get the latest version of the rtm, clone it from the RTM github repository. The following bash commands will clone the repository from the master branch, and fetch the latest commit with large file storage support. Then, it will checkout the current branch into a new branch named <code>master_working_01</code>. We recommend that you rename the new branch based on the project you are working on:</p>
 <pre><code class="language-bash">git clone https://github.com/TransLinkForecasting/rtm.git --branch master --single-branch
 cd rtm/
@@ -753,8 +766,8 @@ start 'relocate_tools.bat'
 </blockquote>
 </li>
 </ol>
-<h2 id="commit-changes">Commit Changes<a class="headerlink" href="#commit-changes" title="Permanent link">&para;</a></h2>
-<p>If this is your first time using <a href="https://git-scm.com/docs">git</a> after an installation, see <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>.</p>
+<h2 id="commit-changes-for-developers-only">Commit Changes (for Developers only)<a class="headerlink" href="#commit-changes-for-developers-only" title="Permanent link">&para;</a></h2>
+<p>If this is your first time using <a href="https://git-scm.com/docs">git</a> after an installation, see <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>. Git is only required if you are a developer making contribution to the source code of RTM.</p>
 <p>While working with the RTM on git, here are some ground rules:</p>
 <ul>
 <li>Main project branches (<em>master</em>, <em>example_brt_proj</em>) are always protected. Push a temp branch then do pull request to merge your changes</li>
