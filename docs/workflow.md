@@ -9,7 +9,7 @@ In this section, we will show you the best practices when working with the RTM f
 ### RTM Users
 
 We encourage all users to be familiar with [OpenPaths EMME]. If you are new to EMME, we recommend you to review [Tutorials for OpenPaths EMME].
-* Licensed installation of [OpenPaths EMME] Desktop 4.5.0 for RTM 3.6
+* Licensed installation of [OpenPaths EMME] 25.00.00 for RTM 3.7
 
 !!! note
 
@@ -33,6 +33,7 @@ The RTM is developed and tested against specific versions of the EMME software. 
 * for RTM-3.4, install EMME-v4.4.4.2
 * for RTM-3.5, install EMME-v4.5.0.2
 * for RTM-3.6, install EMME-v4.5.0.2
+* for RTM-3.7, install OpenPaths EMME 25.00.00
 
 ### System requirements
 
