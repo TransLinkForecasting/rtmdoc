@@ -6,18 +6,24 @@ In this section, we will show you the best practices when working with the RTM f
 
 ## Requirements
 
+### RTM Users
 
-We encourage all users and developers to be familiar with [EMME] as well as the RTM development stack: [python], [SQL] and [git]. If you are new to EMME, we recommend you to take [EMME Training Courses]. If you are new to programming, you should go through some online tutorials and documentations for [python], [SQL] and [git] before proceeding. 
+We encourage all users to be familiar with [OpenPaths EMME]. If you are new to EMME, we recommend you to review [Tutorials for OpenPaths EMME].
+* Licensed installation of [OpenPaths EMME] Desktop 4.5.0 for RTM 3.6
 
-* Licensed installation of [EMME] Desktop 4.5.0 for RTM 3.6
+!!! note
+
+    A valid [OpenPaths EMME] license is required to run the RTM.
+
+
+### RTM Developers
+
+If you are a developer for RTM. You should be familiar with RTM's development stack: [python], [SQL] and [git]
 * Installation of [git]
 * Installation of [git lfs]
 * Installation of [SQLite Studio]
 * Installation of [Visual Studio Code] (optional)
 
-!!! note
-
-    A valid [EMME] license is required to run the RTM. See [Contributing] if you need help obtaining a license or need access to the RTM.
 
 ### Previous RTM version requirements
 
@@ -43,8 +49,17 @@ The recommended system requirement is:
 * 50 GB Storage (for 3 scenario runs with extra space for advanced analysis)
 
 
-## Cloning the Model
+## Obtaining Model files
 
+### Use Latest RTM version
+
+RTM users can obtain a copy of the latest RTM model release through their TransLink contact. We periodically provide new releases to everyone on our model user list.
+
+
+### Git Clone (for Developers only)
+
+Git is only required if you are a developer making contribution to the source code of RTM.
+ 
 To get the latest version of the rtm, clone it from the RTM github repository. The following bash commands will clone the repository from the master branch, and fetch the latest commit with large file storage support. Then, it will checkout the current branch into a new branch named `master_working_01`. We recommend that you rename the new branch based on the project you are working on:
 
 ```bash
@@ -538,9 +553,9 @@ The `run_many.ipynb` notebook contains a template for running many model runs. I
 > ![Screenshot](img/workflow/run_model_nb_3.png)
 
 
-## Commit Changes
+## Commit Changes (for Developers only)
 
-If this is your first time using [git] after an installation, see [Git Setup].
+If this is your first time using [git] after an installation, see [Git Setup]. Git is only required if you are a developer making contribution to the source code of RTM.
 
 While working with the RTM on git, here are some ground rules:
 
@@ -579,7 +594,7 @@ Learn more about [git] and read more about [GitHub pull request].
 [git lfs]: https://git-lfs.github.com/
 [SQLite Studio]: https://sqlitestudio.pl/
 [Visual Studio Code]: https://code.visualstudio.com/download
-[EMME]: https://www.inrosoftware.com/en/products/emme/
-[EMME Training Courses]: https://www.inrosoftware.com/en/services/training/
+[OpenPaths EMME]: https://www.bentley.com/software/openpaths/
+[Tutorials for OpenPaths EMME]: https://bentleysystems.service-now.com/community?id=kb_article_view&sysparm_article=KB0041684
 [Git Setup]: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 [GitHub pull request]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
