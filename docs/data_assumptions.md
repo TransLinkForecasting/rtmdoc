@@ -135,6 +135,7 @@ All Classes | 333
 Auto | 335
 LGV | 313
 HGV | 276
+Transit | 300
 Bus | 299
 Skytrain | 331
 WCE | 224
